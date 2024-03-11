@@ -6,8 +6,62 @@ import json
 import os
 import dotenv
 from web3 import Web3
+import csv
+from PIL import Image, ImageDraw, ImageFont
 
 dotenv.load_dotenv()
+
+
+def csv_to_image(output_path, csv_path):
+    # Read the CSV file
+    with open(csv_path, "r") as file:
+        csv_reader = csv.reader(file)
+        data = list(csv_reader)
+
+    # Calculate the maximum text width for each column
+    num_cols = max(len(row) for row in data)
+    max_text_widths = [0] * num_cols
+    font = ImageFont.load_default()
+
+    temp_image = Image.new("RGB", (1, 1))
+    temp_draw = ImageDraw.Draw(temp_image)
+
+    for row_data in data:
+        for col_index, cell_data in enumerate(row_data):
+            text_bbox = temp_draw.textbbox((0, 0), str(cell_data), font=font)
+            text_width = text_bbox[2] - text_bbox[0]
+            max_text_widths[col_index] = max(max_text_widths[col_index], text_width)
+
+    # Calculate the dimensions of the image based on the CSV data
+    num_rows = len(data)
+    cell_height = 30
+    image_width = sum(max_text_widths) + (num_cols - 1) * 10
+    image_height = num_rows * cell_height
+
+    # Create a new image with a white background
+    image = Image.new("RGB", (image_width, image_height), color="white")
+    draw = ImageDraw.Draw(image)
+
+    # Define the text color
+    text_color = "black"
+
+    # Draw the table cells and text
+    for row_index, row_data in enumerate(data):
+        cell_x = 0
+        for col_index, cell_data in enumerate(row_data):
+            cell_width = max_text_widths[col_index] + 10
+            cell_y = row_index * cell_height
+            draw.rectangle(
+                (cell_x, cell_y, cell_x + cell_width, cell_y + cell_height),
+                outline="black",
+            )
+            text_x = cell_x + 5
+            text_y = cell_y + 5
+            draw.text((text_x, text_y), str(cell_data), font=font, fill=text_color)
+            cell_x += cell_width
+
+    # Save the image to the output file path
+    image.save(output_path)
 
 
 def getTokenName(contract_address, chain_name):
@@ -639,16 +693,15 @@ def json_to_csv_report(json_file_path, csv_file_path):
 
     with open(csv_file_path, "w", newline="") as file:
         writer = csv.writer(file)
-        header = ["Token", "Explorer URL"] + issue_categories
+        header = ["Token"] + issue_categories
         writer.writerow(header)
 
         for chain in data:
             for address, details in data[chain].items():
                 issues = details.get("issues", {})
                 project_name = details.get("name", "")
-                explorer_url = getExplorerUrl(address, chain)
 
-                row = [chain + " | " + project_name, explorer_url]
+                row = [chain + " | " + project_name]
                 for category in issue_categories:
                     if category in issues:
                         row.append("x")
@@ -666,12 +719,13 @@ def main():
         chain_name = network
         network_id = contracts[network]["network_id"]
         addresses = contracts[network]["contracts"]
-        for contract_address in addresses:
-            saveErcxReport(contract_address, network_id)
-            saveDeDotFiReport(contract_address, network_id)
-            saveIssuesForToken(contract_address, chain_name)
+        # for contract_address in addresses:
+        # saveErcxReport(contract_address, network_id)
+        # saveDeDotFiReport(contract_address, network_id)
+        # saveIssuesForToken(contract_address, chain_name)
     json_to_markdown_report(getAbsPath("failedTests.json"), getAbsPath("report.md"))
     json_to_csv_report(getAbsPath("failedTests.json"), getAbsPath("report.csv"))
+    csv_to_image(getAbsPath("report.png"), getAbsPath("report.csv"))
 
 
 if __name__ == "__main__":
