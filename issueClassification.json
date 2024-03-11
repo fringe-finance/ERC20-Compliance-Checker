@@ -12,9 +12,9 @@
             "active": false,
             "description": "###########################################contract behaviour is hard to predict/verify or can change"
         },
-        "adminSeizure": {
+        "transferConstraints": {
             "active": true,
-            "description": "admin is able to seize tokens from user balances"
+            "description": "constraints are or are able to be placed on token transfers, potentially resulting in seizure of tokens"
         },
         "allowanceBugs": {
             "active": true,
@@ -223,7 +223,7 @@
             "description": "Positive approved amount is NOT reflected in the allowance correctly."
         },
         "testPositiveMultipleTransfer": {
-            "class": "allowanceBugs",
+            "class": "adminSeizure",
             "description": "Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
         },
         "testPositiveMultipleTransferFrom": {

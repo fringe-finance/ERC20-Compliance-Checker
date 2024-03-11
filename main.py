@@ -4,10 +4,60 @@ import traceback
 import json
 import os
 import dotenv
+from web3 import Web3
 
 dotenv.load_dotenv()
 
-## also https://github.com/makerdao/token-tests
+
+def getTokenName(contract_address, chain_name):
+    chainDetails = json.loads(open(getAbsPath("contracts.json")).read())
+    mapping = json.loads(open(getAbsPath("tokenAddressToName.json")).read())
+    if contract_address in mapping:
+        return mapping[contract_address]
+    rpcUrl = chainDetails[chain_name]["rpc"]
+    # Create a Web3 instance using the provided RPC endpoint
+    w3 = Web3(Web3.HTTPProvider(rpcUrl))
+
+    # Load the ERC20 ABI (Application Binary Interface)
+    erc20_abi = [
+        {
+            "constant": True,
+            "inputs": [],
+            "name": "name",
+            "outputs": [{"name": "", "type": "string"}],
+            "payable": False,
+            "stateMutability": "view",
+            "type": "function",
+        },
+        {
+            "constant": True,
+            "inputs": [],
+            "name": "symbol",
+            "outputs": [{"name": "", "type": "string"}],
+            "payable": False,
+            "stateMutability": "view",
+            "type": "function",
+        },
+    ]
+
+    # Create a contract instance using the provided contract address and ABI
+    contract = w3.eth.contract(address=contract_address, abi=erc20_abi)
+    name = None
+    symbol = None
+    try:
+        name = contract.functions.name().call()
+    except:
+        pass
+    if not name:
+        try:
+            symbol = contract.functions.symbol().call()
+        except:
+            pass
+    output = name if name else symbol
+    with open(getAbsPath("tokenAddressToName.json"), "w") as file:
+        mapping[contract_address] = output
+        file.write(json.dumps(mapping, indent=4, sort_keys=True))
+    return output
 
 
 def getConfig():
@@ -464,7 +514,6 @@ def filterIssues(issues, sourceAPI):
 
 
 def saveIssuesForToken(contract_address, chain_name):
-    projectName = ""
     issues = {}
     try:
         defiPath = getAbsPath("reports/defi_report_" + str(contract_address) + ".json")
@@ -481,24 +530,6 @@ def saveIssuesForToken(contract_address, chain_name):
             )
             issues.update(filterIssues(failedTestIds, "de.fi"))
 
-        project_full_name = dictGet(
-            dictGet(dictGet(defiReport, "data", {}), "project", {}), "projectFullName"
-        )
-
-        if project_full_name:
-            projectName += " | " + project_full_name
-
-        project_name = dictGet(
-            dictGet(dictGet(defiReport, "data", {}), "project", {}), "name"
-        )
-
-        project_proxy_data = dictGet(
-            dictGet(dictGet(defiReport, "data", {}), "project", {}), "proxyData"
-        )
-
-        if project_name and not project_proxy_data:
-            projectName += " | " + project_name
-
         implementation_data_name = dictGet(
             dictGet(
                 dictGet(
@@ -511,9 +542,6 @@ def saveIssuesForToken(contract_address, chain_name):
             ),
             "name",
         )
-
-        if implementation_data_name:
-            projectName += " | " + implementation_data_name
 
     except Exception as e:
         print("errr when loading defi report: ", e)
@@ -552,7 +580,7 @@ def saveIssuesForToken(contract_address, chain_name):
         failedTestsFile[chain_name] = {}
 
     failedTestsFile[chain_name][contract_address] = {
-        "name": projectName,
+        "name": getTokenName(contract_address, chain_name),
         "issues": issues,
     }
     with open(getAbsPath("failedTests.json"), "w") as file:
