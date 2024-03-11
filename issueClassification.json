@@ -1,0 +1,406 @@
+{
+    "categories": {
+        "adminInflation": {
+            "active": false,
+            "description": "erc20 token supply can suddenly be increased"
+        },
+        "adminSeizure": {
+            "active": true,
+            "description": "admin is able to seize tokens from user balances"
+        },
+        "allowanceBugs": {
+            "active": true,
+            "description": "unexpected allowance behaviour resulting in failed txs when interacting with plp"
+        },
+        "balanceVariability": {
+            "active": true,
+            "description": "account balance is not deterministic from send/receive amounts"
+        },
+        "maliceHeuristics": {
+            "active": false,
+            "description": "heuristics point to owner or contracts being malicious"
+        },
+        "theftOrInflation": {
+            "active": true,
+            "description": "send/receive works in ways which facilitates theft or inflation"
+        },
+        "tokenVuln": {
+            "active": true,
+            "description": "erc20 contract itself is at risk of an attack"
+        },
+        "undetermined": {
+            "active": true,
+            "description": "as of yet unclassified issues"
+        },
+        "unpredictableLogic": {
+            "active": false,
+            "description": "###########################################contract behaviour is hard to predict/verify or can change"
+        },
+        "viewInaccuracies": {
+            "active": true,
+            "description": "erc20 view functions do not accurately reflect erc20 contract state"
+        }
+    },
+    "issues": {
+        "10003": {
+            "class": "maliceHeuristics",
+            "description": "The contract's deployer used a mixer to fund their wallet. This may be an indication of an intent to rugpull or avoid responsibility."
+        },
+        "10004": {
+            "class": "",
+            "description": "This token has been or can be airdropped - while not inherently a security risk, users should watch out for fake airdrops or scam sites linked to this token."
+        },
+        "10025": {
+            "class": "",
+            "description": "Contract faces excessive revocations, raising concerns about functionality and security."
+        },
+        "10028": {
+            "class": "",
+            "description": "Our algorithms have identified a sudden and massive withdrawal from the liquidity pool, which may impact the ability to sell the token."
+        },
+        "107": {
+            "class": "",
+            "description": "Funds in this contract may be vulnerable to a hack through a reentrancy exploit."
+        },
+        "150": {
+            "class": "",
+            "description": "Funds sent to this contract can never be withdrawn."
+        },
+        "185": {
+            "class": "unpredictableLogic",
+            "description": "This contract's code has not been publicly verified."
+        },
+        "186": {
+            "class": "",
+            "description": "A large amount of this token can be minted by a private wallet or contract."
+        },
+        "189": {
+            "class": "adminSeizure",
+            "description": "Token transfers can be paused, preventing swapping or selling."
+        },
+        "193": {
+            "class": "unpredictableLogic",
+            "description": "This contract can be upgraded, changing its functionality."
+        },
+        "204-a": {
+            "class": "unpredictableLogic",
+            "description": "This contract may not function as intended due to an incorrect ERC20 interface implementation."
+        },
+        "208": {
+            "class": "adminSeizure",
+            "description": "Wallets can be blacklisted from being able to transfer, swap or sell this token."
+        },
+        "209": {
+            "class": "balanceVariability",
+            "description": "A fee is charged upon transfering this token (up to 100%)."
+        },
+        "210-b": {
+            "class": "unpredictableLogic",
+            "description": "The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
+        },
+        "211": {
+            "class": "adminSeizure",
+            "description": "The max/min amount of token transferred can be limited."
+        },
+        "216-a": {
+            "class": "",
+            "description": "Funds in this contract may be vulnerable to being drained by its owner through an approval exploit."
+        },
+        "220": {
+            "class": "adminSeizure",
+            "description": "The contract owner is able to control all token holders' balances."
+        },
+        "230": {
+            "class": "tokenVuln",
+            "description": "The contract's owner can be changed by anyone."
+        },
+        "233": {
+            "class": "adminInflation",
+            "description": "The token's maximum supply can be adjusted."
+        },
+        "237": {
+            "class": "adminSeizure",
+            "description": "Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
+        },
+        "242": {
+            "class": "tokenVuln",
+            "description": "Unprotected contract initializer, vulnerable to re-execution, immediate action needed for security."
+        },
+        "testAddressZeroHasNoToken": {
+            "class": "",
+            "description": "The zero address HAS some token/s from the contract."
+        },
+        "testBalanceOfCaller": {
+            "class": "viewInaccuracies",
+            "description": "A `msg.sender` CANNOT retrieve his/her own balance."
+        },
+        "testBalanceOfNonCaller": {
+            "class": "viewInaccuracies",
+            "description": "A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
+        },
+        "testCannotApprovePositiveAmountToZeroAddress": {
+            "class": "",
+            "description": "A successful call of `approve` of an amount to the zero address IS allowed."
+        },
+        "testCannotTransferFromMoreThanAllowanceLowerThanBalance": {
+            "class": "theftOrInflation",
+            "description": "A tokenReceiver CAN call `transferFrom` of an amount more than her allowance from the tokenSender."
+        },
+        "testCannotTransferFromMoreThanBalanceButLowerThanAllowance": {
+            "class": "theftOrInflation",
+            "description": "A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance."
+        },
+        "testCannotTransferMoreThanBalance": {
+            "class": "theftOrInflation",
+            "description": "A tokenSender (which is also the `msg.sender`) CAN call `transfer` of an amount more than his balance. "
+        },
+        "testCorrectOverwriteApprovePositiveToPositive": {
+            "class": "",
+            "description": "Consecutive calls of `approve` function of positive-to-positive amounts can be called  but the allowance is set to the wrong amount after the second call."
+        },
+        "testCorrectOverwriteApprovePositiveToZero": {
+            "class": "",
+            "description": "Consecutive calls of `approve` function of positive-to-zero amounts CANNOT be called OR the allowance is set to the wrong amount after the second call.    "
+        },
+        "testCorrectOverwriteApproveZeroToPositive": {
+            "class": "",
+            "description": "Consecutive calls of `approve` function of zero-to-positive amounts CANNOT be called OR the allowance is set to the wrong amount after the second call."
+        },
+        "testDefaultOverwriteApprove": {
+            "class": "",
+            "description": "Test default overwrite approve [[[not found]]]"
+        },
+        "testFeeTakingTransfer": {
+            "class": "balanceVariability",
+            "description": "Test fee taking transfer [[[not found]]]"
+        },
+        "testFeeTakingTransferFrom": {
+            "class": "balanceVariability",
+            "description": "Test fee taking transfer from [[[not found]]]"
+        },
+        "testFeeTakingTransferFromPotential": {
+            "class": "balanceVariability",
+            "description": "The `transferFrom` function HAS the potential to take fees."
+        },
+        "testFeeTakingTransferFromPresent": {
+            "class": "balanceVariability",
+            "description": "The `transfer` function TAKES fees at test execution time."
+        },
+        "testFeeTakingTransferPotential": {
+            "class": "balanceVariability",
+            "description": "The `transfer` function HAS the potential to take fees."
+        },
+        "testFeeTakingTransferPresent": {
+            "class": "balanceVariability",
+            "description": "The `transfer` function TAKES fees at test execution time."
+        },
+        "testMultipleTransferFromExceedAllowance": {
+            "class": "theftOrInflation",
+            "description": "Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
+        },
+        "testNoApprovalCannotTransferFrom": {
+            "class": "theftOrInflation",
+            "description": "A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously."
+        },
+        "testNoSelfApprovalCannotSelfTransferFrom": {
+            "class": "",
+            "description": "A `msg.sender` CAN call `transferFrom` of a positive amount from his/her own acount to any tokenReceiver even though the `msg.sender` did not approve him/herself prior to the call."
+        },
+        "testPositiveApprovalEventEmission": {
+            "class": "",
+            "description": "A successful `approve` call of positive amount does NOT emit the `Approval` event correctly."
+        },
+        "testPositiveApproveAllowsPositiveTransferFrom": {
+            "class": "allowanceBugs",
+            "description": "After a tokenApprover approves a tokenApprovee some positive amount via an `approve` call, any positive amount up to the said amount is NOT transferable  by tokenApprovee via a `transferFrom` call, provided a sufficient balance of tokenApprover."
+        },
+        "testPositiveApproveAllowsZeroTransferFrom": {
+            "class": "",
+            "description": "After a tokenApprover approves a tokenApprovee some positive amount via an `approve` call, zero amount is NOT transferable  by tokenApprovee via a `transferFrom` call, provided a sufficient balance of tokenApprover."
+        },
+        "testPositiveApproveLeadsToAllowance": {
+            "class": "allowanceBugs",
+            "description": "Positive approved amount is NOT reflected in the allowance correctly."
+        },
+        "testPositiveMultipleTransfer": {
+            "class": "allowanceBugs",
+            "description": "Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
+        },
+        "testPositiveMultipleTransferFrom": {
+            "class": "allowanceBugs",
+            "description": "Multiple `transferFrom` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is  less than or equal to the tokenSender's balance and approvals are given by the tokenSender."
+        },
+        "testPositiveSelfApprove": {
+            "class": "",
+            "description": "Self approval of zero amount is NOT ALLOWED."
+        },
+        "testPositiveSelfApproveTransferFrom": {
+            "class": "",
+            "description": "Self approval and call of `transferFrom` from its own account of positive amount is NOT ALLOWED."
+        },
+        "testPositiveSelfTransfer": {
+            "class": "balanceVariability",
+            "description": "Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance."
+        },
+        "testPositiveTotalTransferFromToOther": {
+            "class": "allowanceBugs",
+            "description": "A tokenReceiver CANNOT call `transferFrom` of the tokenSender's total balance amount even though tokenSender has approved that."
+        },
+        "testPositiveTotalTransferToOther": {
+            "class": "balanceVariability",
+            "description": "A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected."
+        },
+        "testPositiveTransferEventEmission": {
+            "class": "",
+            "description": "A successful `transfer` call of positive amount does NOT emit the Transfer event correctly."
+        },
+        "testPositiveTransferFromEventEmission": {
+            "class": "",
+            "description": "A successful `transferFrom` call of positive amount does NOT emit Transfer event correctly."
+        },
+        "testPositiveTransferFromToZeroShouldRevert": {
+            "class": "",
+            "description": "A `transferFrom` call of a positive amount to the zero address DOES NOT revert."
+        },
+        "testPositiveTransferToZeroShouldRevert": {
+            "class": "",
+            "description": "A `transfer` call of a positive amount to the zero address DOES NOT revert."
+        },
+        "testRecommendedOverwriteApprove": {
+            "class": "",
+            "description": "Test recommended overwrite approve [[[not found]]]"
+        },
+        "testTotalSupplyConstantAfterTransfer": {
+            "class": "balanceVariability",
+            "description": "The contract's `totalSupply` variable IS altered after `transfer` is called."
+        },
+        "testTotalSupplyConstantAfterTransferFrom": {
+            "class": "balanceVariability",
+            "description": "The contract's `totalSupply` variable IS altered after `transferFrom` is called."
+        },
+        "testTransferDoesNotUpdateOthersBalances": {
+            "class": "balanceVariability",
+            "description": "A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver."
+        },
+        "testTransferFromDecreaseAllowanceAsExpected": {
+            "class": "",
+            "description": "A successful `transferFrom` of any positive amount DOES NOT decrease the allowance of the tokenSender by the transferred amount."
+        },
+        "testTransferFromDoesNotUpdateOthersBalances": {
+            "class": "balanceVariability",
+            "description": "A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver."
+        },
+        "testUserBalanceInitialized": {
+            "class": "viewInaccuracies",
+            "description": "A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized."
+        },
+        "testZeroAddressCannotApprovePositiveAmount": {
+            "class": "",
+            "description": "A `approve` call of some positive amount DOES NOT revert if the tokenSender is the zero address."
+        },
+        "testZeroAddressCannotTransferPositiveAmount": {
+            "class": "",
+            "description": "A `transfer` call of some positive amount DOES NOT revert if the tokenSender is the zero address."
+        },
+        "testZeroApprovalEventEmission": {
+            "class": "",
+            "description": "A successful `approve` call of zero amount does NOT emit the `Approval` event correctly."
+        },
+        "testZeroApproveLeadsToAllowance": {
+            "class": "viewInaccuracies",
+            "description": "Zero approved amount is NOT reflected in the allowance correctly."
+        },
+        "testZeroMultipleTransfer": {
+            "class": "",
+            "description": "Multiple calls of `transfer` of zero amount are NOT ALLOWED.  "
+        },
+        "testZeroMultipleTransferFrom": {
+            "class": "",
+            "description": "Multiple calls of `transferFrom` of zero amount are NOT ALLOWED. "
+        },
+        "testZeroSelfApprove": {
+            "class": "",
+            "description": "Self approval of zero amount is NOT ALLOWED."
+        },
+        "testZeroSelfApproveTransferFrom": {
+            "class": "",
+            "description": "Self approval and call of `transferFrom` from its own account of zero amount is NOT ALLOWED."
+        },
+        "testZeroSelfTransfer": {
+            "class": "balanceVariability",
+            "description": "Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance."
+        },
+        "testZeroTotalTransferFromToOther": {
+            "class": "allowanceBugs",
+            "description": "A tokenReceiver CANNOT call `transferFrom` of the tokenSender's total balance amount of zero."
+        },
+        "testZeroTotalTransferToOther": {
+            "class": "balanceVariability",
+            "description": "A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
+        },
+        "testZeroTransferFromByOtherEmitsEvent": {
+            "class": "",
+            "description": "A successful `transferFrom` call of zero amount by any user other than the tokenSender, from and to different accounts,  does NOT emit a Transfer event correctly."
+        },
+        "testZeroTransferFromByOtherPossible": {
+            "class": "",
+            "description": "Test zero transfer from by other possible [[[not found]]]"
+        },
+        "testZeroTransferFromByOtherToSameAccountEmitsEvent": {
+            "class": "",
+            "description": "A successful `transferFrom` call of zero amount by any user other than the tokenSender does NOT emit a Transfer event correctly."
+        },
+        "testZeroTransferFromByOtherToSelfPossible": {
+            "class": "",
+            "description": "A successful `transferFrom` call of zero amount by any user other than the tokenSender to the tokenSender is NOT possible."
+        },
+        "testZeroTransferFromBySelfEmitsEvent": {
+            "class": "",
+            "description": "Test zero transfer from by self emits event [[[not found]]]"
+        },
+        "testZeroTransferFromBySelfPossible": {
+            "class": "",
+            "description": "A successful `transferFrom` call of zero amount by the tokenSender herself is NOT possible."
+        },
+        "testZeroTransferFromBySelfToSelfEmitsEvent": {
+            "class": "",
+            "description": "A successful `transferFrom` call of zero amount by the tokenSender herself does NOT emit a Transfer event correctly."
+        },
+        "testZeroTransferFromBySelfToSelfPossible": {
+            "class": "",
+            "description": "Test zero transfer from by self to self possible [[[not found]]]"
+        },
+        "testZeroTransferFromBySelfToSomeoneEmitsEvent": {
+            "class": "",
+            "description": "A successful `transferFrom` call of zero amount by the tokenSender herself does NOT emit a Transfer event correctly."
+        },
+        "testZeroTransferFromToZeroShouldRevert": {
+            "class": "",
+            "description": "A `transferFrom` call of zero amount to the zero address DOES NOT revert."
+        },
+        "testZeroTransferPossible": {
+            "class": "",
+            "description": "Test zero transfer possible [[[not found]]]"
+        },
+        "testZeroTransferToOthersEmitsEvent": {
+            "class": "",
+            "description": "A successful `transfer` call of zero amount to another account does NOT emit the Transfer event correctly."
+        },
+        "testZeroTransferToOthersPossible": {
+            "class": "",
+            "description": "A successful `transfer` call of zero amount to another account is NOT be possible."
+        },
+        "testZeroTransferToSelfEmitsEvent": {
+            "class": "",
+            "description": "A successful `transfer` call of zero amount to self does NOT emit the Transfer event correctly."
+        },
+        "testZeroTransferToSelfPossible": {
+            "class": "",
+            "description": "A successful `transfer` call of zero amount to self is NOT possible."
+        },
+        "testZeroTransferToZeroShouldRevert": {
+            "class": "",
+            "description": "A `transfer` call of zero amount to the zero address DOES NOT revert."
+        }
+    }
+}

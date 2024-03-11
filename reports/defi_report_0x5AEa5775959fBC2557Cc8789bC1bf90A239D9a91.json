@@ -1,0 +1,720 @@
+{
+    "data": {
+        "project": {
+            "address": "0x5aea5775959fbc2557cc8789bc1bf90a239d9a91",
+            "contractName": "TransparentUpgradeableProxy",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No reentrancy risk found",
+                    "scwId": "107",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mintable risks found",
+                    "scwId": "186",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Users can always transfer their tokens",
+                    "scwId": "189",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"event\", \"value\": \"AdminChanged(address,address)\", \"index\": \"1\", \"modifiable\": true}]}",
+                            "description": "Proxy upgradeability: TransparentUpgradeableProxy.upgradeTo(address) (TransparentUpgradeableProxy.sol#96-98)\n",
+                            "end": 98,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+                                        "timelockDelay": null,
+                                        "type": "6"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+                                    "timelockDelay": null,
+                                    "type": "6"
+                                }
+                            },
+                            "id": 155446973,
+                            "impact": "Critical",
+                            "severityChanges": [],
+                            "snippet": "function upgradeTo(address newImplementation) external ifAdmin {\n    _upgradeToAndCall(newImplementation, bytes(\"\"), false);\n}",
+                            "start": 96
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"event\", \"value\": \"AdminChanged(address,address)\", \"index\": \"1\", \"modifiable\": true}]}",
+                            "description": "Proxy upgradeability: TransparentUpgradeableProxy.upgradeToAndCall(address,bytes) (TransparentUpgradeableProxy.sol#107-109)\n",
+                            "end": 109,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+                                        "timelockDelay": null,
+                                        "type": "6"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+                                    "timelockDelay": null,
+                                    "type": "6"
+                                }
+                            },
+                            "id": 155446974,
+                            "impact": "Critical",
+                            "severityChanges": [],
+                            "snippet": "function upgradeToAndCall(address newImplementation, bytes calldata data) external payable ifAdmin {\n    _upgradeToAndCall(newImplementation, data, true);\n}",
+                            "start": 107
+                        }
+                    ],
+                    "scwDescription": "This contract can be upgraded, changing its functionality.",
+                    "scwId": "193",
+                    "scwTitle": "Proxy Upgradeability"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Wallets cannot be blacklisted from transfering the token",
+                    "scwId": "208",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer limits found",
+                    "scwId": "211",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 interface errors found",
+                    "scwId": "204-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No centralized balance controls found",
+                    "scwId": "220",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external calls detected",
+                    "scwId": "210-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found.",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently.",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days."
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
+                    "scwId": "10024",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "scwId": "10025",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwId": "10028",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 0,
+            "firstTxBlock": null,
+            "firstTxDate": "2023-03-23T20:54:52.000Z",
+            "firstTxFrom": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+            "generalIssues": [
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Different versions of Solidity is used:\n\t- Version used: ['^0.8.0', '^0.8.1', '^0.8.2']\n\t- ^0.8.0 (draft-IERC1822.sol#4)\n\t- ^0.8.0 (ERC1967Proxy.sol#4)\n\t- ^0.8.2 (ERC1967Upgrade.sol#4)\n\t- ^0.8.0 (Proxy.sol#4)\n\t- ^0.8.0 (IBeacon.sol#4)\n\t- ^0.8.0 (TransparentUpgradeableProxy.sol#4)\n\t- ^0.8.1 (Address.sol#4)\n\t- ^0.8.0 (StorageSlot.sol#4)\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 155446964,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.0;",
+                            "start": 4
+                        }
+                    ],
+                    "scwDescription": "This contract may not function as expected due to inconsistent solidity compiler versions being specified.",
+                    "scwId": "103",
+                    "scwTitle": "Floating Pragma"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized state variables found",
+                    "scwId": "142",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No innacurate divisions found",
+                    "scwId": "156",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable transfers found",
+                    "scwId": "158",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "ERC1967Upgrade._upgradeToAndCallUUPS(address,bytes,bool).slot (ERC1967Upgrade.sol#92) is a local variable never initialized\n",
+                            "end": 92,
+                            "governanceInfo": null,
+                            "id": 155446976,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "try IERC1822Proxiable(newImplementation).proxiableUUID() returns (bytes32 slot) {",
+                            "start": 92
+                        }
+                    ],
+                    "scwDescription": "This contract's local variables are not all initialized, potentially resulting in lost funds or other exploits.",
+                    "scwId": "160",
+                    "scwTitle": "Uninitialized Local Variables"
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Modifier TransparentUpgradeableProxy.ifAdmin() (TransparentUpgradeableProxy.sol#46-52) does not always execute _; or revert",
+                            "end": 52,
+                            "governanceInfo": null,
+                            "id": 155446975,
+                            "impact": "Low",
+                            "severityChanges": [],
+                            "snippet": "modifier ifAdmin() {\n    if (msg.sender == _getAdmin()) {\n        _;\n    } else {\n        _fallback();\n    }\n}",
+                            "start": 46
+                        }
+                    ],
+                    "scwDescription": "A modifier in this contract does not have an explicit outcome.",
+                    "scwId": "161",
+                    "scwTitle": "Default Modifier Return Value"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing arithmetic events found",
+                    "scwId": "167-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing access control events found",
+                    "scwId": "167-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing zero address checks found",
+                    "scwId": "168",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Low level call in Address.sendValue(address,uint256) (Address.sol#60-65):\n\t- (success) = recipient.call{value: amount}() (Address.sol#63)\n",
+                            "end": 65,
+                            "governanceInfo": null,
+                            "id": 155446969,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function sendValue(address payable recipient, uint256 amount) internal {\n    require(address(this).balance >= amount, \"Address: insufficient balance\");\n    (bool success, ) = recipient.call{value: amount}(\"\");\n    require(success, \"Address: unable to send value, recipient may have reverted\");\n}",
+                            "start": 60
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (Address.sol#128-139):\n\t- (success,returndata) = target.call{value: value}(data) (Address.sol#137)\n",
+                            "end": 139,
+                            "governanceInfo": null,
+                            "id": 155446970,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function functionCallWithValue(\n    address target,\n    bytes memory data,\n    uint256 value,\n    string memory errorMessage\n) internal returns (bytes memory) {\n    require(address(this).balance >= value, \"Address: insufficient balance for call\");\n    require(isContract(target), \"Address: call to non-contract\");\n    (bool success, bytes memory returndata) = target.call{value: value}(data);\n    return verifyCallResult(success, returndata, errorMessage);\n}",
+                            "start": 128
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Low level call in Address.functionStaticCall(address,bytes,string) (Address.sol#157-166):\n\t- (success,returndata) = target.staticcall(data) (Address.sol#164)\n",
+                            "end": 166,
+                            "governanceInfo": null,
+                            "id": 155446971,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function functionStaticCall(\n    address target,\n    bytes memory data,\n    string memory errorMessage\n) internal view returns (bytes memory) {\n    require(isContract(target), \"Address: static call to non-contract\");\n    (bool success, bytes memory returndata) = target.staticcall(data);\n    return verifyCallResult(success, returndata, errorMessage);\n}",
+                            "start": 157
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Low level call in Address.functionDelegateCall(address,bytes,string) (Address.sol#184-193):\n\t- (success,returndata) = target.delegatecall(data) (Address.sol#191)\n",
+                            "end": 193,
+                            "governanceInfo": null,
+                            "id": 155446972,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function functionDelegateCall(\n    address target,\n    bytes memory data,\n    string memory errorMessage\n) internal returns (bytes memory) {\n    require(isContract(target), \"Address: delegate call to non-contract\");\n    (bool success, bytes memory returndata) = target.delegatecall(data);\n    return verifyCallResult(success, returndata, errorMessage);\n}",
+                            "start": 184
+                        }
+                    ],
+                    "scwDescription": "This contract uses low level calls, which may be unsafe.",
+                    "scwId": "173",
+                    "scwTitle": "Low Level Calls"
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.8.0 (draft-IERC1822.sol#4) allows old versions\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 155446965,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.0;",
+                            "start": 4
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.8.2 (ERC1967Upgrade.sol#4) allows old versions\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 155446966,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.2;",
+                            "start": 4
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.8.1 (Address.sol#4) allows old versions\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 155446967,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.1;",
+                            "start": 4
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "solc-0.8.19 is not recommended for deployment\n",
+                            "end": 0,
+                            "governanceInfo": null,
+                            "id": 155446968,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": 0
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No bad numeric notation practices found",
+                    "scwId": "182",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing external function declarations found",
+                    "scwId": "184",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": {
+                "contractOwners": [
+                    {
+                        "governance": null,
+                        "impact": "High",
+                        "modifiable": true,
+                        "multisig": null,
+                        "owner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "6"
+                    }
+                ],
+                "issueOwners": [],
+                "proxyOwners": [
+                    {
+                        "governance": null,
+                        "impact": "High",
+                        "modifiable": true,
+                        "multisig": null,
+                        "owner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "6"
+                    }
+                ],
+                "visibleOwner": "0x043da37f21c4c83b97b546724c75600c2d0c9e16"
+            },
+            "inProgress": false,
+            "initialFunder": "0x043da37f21c4c83b97b546724c75600c2d0c9e16",
+            "isProxyImplementation": false,
+            "logo": "",
+            "name": "TransparentUpgradeableProxy",
+            "network": 324,
+            "pairInfo": null,
+            "projectFullName": "",
+            "projectName": "",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0x5aea5775959fbc2557cc8789bc1bf90a239d9a91_324_src.json",
+            "stats": {
+                "percentage": 71,
+                "scammed": false
+            },
+            "whitelisted": false
+        }
+    }
+}

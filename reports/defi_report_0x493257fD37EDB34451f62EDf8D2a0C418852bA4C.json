@@ -1,0 +1,32 @@
+{
+    "data": {
+        "project": {
+            "address": null,
+            "contractName": null,
+            "coreIssues": null,
+            "diffs": null,
+            "estimatedAnalyzingTime": 1.2000000000000002,
+            "firstTxBlock": null,
+            "firstTxDate": null,
+            "firstTxFrom": null,
+            "generalIssues": null,
+            "governance": null,
+            "inProgress": true,
+            "initialFunder": null,
+            "isProxyImplementation": null,
+            "logo": null,
+            "name": null,
+            "network": null,
+            "pairInfo": null,
+            "projectFullName": null,
+            "projectName": null,
+            "protocol": null,
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": null,
+            "stats": null,
+            "whitelisted": null
+        }
+    }
+}

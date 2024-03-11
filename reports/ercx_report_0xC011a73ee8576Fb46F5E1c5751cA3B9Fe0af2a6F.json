@@ -1,0 +1,2690 @@
+{
+    "feedback": {
+        "address": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
+        "feedbacks": [
+            {
+                "feedback": "There seems to be a missing check of the from address (possibly the zero address) in the transfer behavior. Please review the logic for transferring tokens to ensure it is appropriately implemented.",
+                "mutant_id": 7,
+                "mutation_type": "IfStatementMutation",
+                "similarity": 23
+            },
+            {
+                "feedback": "There seems to be a missing check of the to address (possibly the zero address) in the transfer behavior. Please review the logic for transferring tokens to ensure it is appropriately implemented.",
+                "mutant_id": 9,
+                "mutation_type": "IfStatementMutation",
+                "similarity": 23
+            },
+            {
+                "feedback": "There seems to be an issue by checking the from balance in the updating balance behavior. Please review the logic for updating the balances to ensure it is appropriately implemented.",
+                "mutant_id": 14,
+                "mutation_type": "IfStatementMutation",
+                "similarity": 23
+            }
+        ]
+    },
+    "json": {
+        "ERC20Abi_tests": {
+            "test_results": {
+                "testAllowanceAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testAllowanceSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApprovalEventSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApproveAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApproveSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testBalanceOfAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testBalanceOfSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testDecimalsAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testDecimalsSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testNameAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testNameSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testSymbolAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testSymbolSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTotalSupplyAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTotalSupplySignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferEventSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferFromAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferFromSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                }
+            }
+        },
+        "test/ERC20Desirable.t.sol:ERC20Desirable": {
+            "duration": {
+                "nanos": 564680502,
+                "secs": 1
+            },
+            "test_results": {
+                "testAddressZeroHasNoToken()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 19462
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testBalanceOfCaller(uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x39d67c93000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testBalanceOfNonCaller(uint8,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x3fef1c830000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testCannotApprovePositiveAmountToZeroAddress(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4d168c120000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [
+                        "Error: Alice could approve the zero address.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025416c69636520636f756c6420617070726f766520746865207a65726f20616464726573732e000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testCorrectOverwriteApprovePositiveToPositive(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xcb1e5b52fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc00000000000000000000000000000000049b91ffa40e34edc1564b9b6fa24720",
+                                "gas": 109517,
+                                "stipend": 21896
+                            },
+                            "mean_gas": 87621,
+                            "median_gas": 87621,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testCorrectOverwriteApprovePositiveToZero(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x069d2b2800000000000107084e4d489ba5682a76b272bc88bf3e938f05310f689c9e15e9",
+                                "gas": 88936,
+                                "stipend": 21516
+                            },
+                            "mean_gas": 67420,
+                            "median_gas": 67420,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testCorrectOverwriteApproveZeroToPositive(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xec58cc2200000000000000000000000000000000000000b941836c5d5882e6a7624aef4b",
+                                "gas": 108688,
+                                "stipend": 21348
+                            },
+                            "mean_gas": 87340,
+                            "median_gas": 87340,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testCorrectOverwriteApproveZeroToZero()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 67029
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testFeeTakingTransferFromPotential(uint256[2],uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe117dc0d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testFeeTakingTransferFromPresent(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xd489f95a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testFeeTakingTransferPotential(uint256[2],uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xa5850ee400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testFeeTakingTransferPresent(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x294373e8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testMultipleTransferFromExceedAllowance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x3d5f365800000000000000000000000000000000000000000000000000000000000008b500000000000000000000000000000000000000000000000000000000000054ae00000000000000000000000000000000000000000000000000000000000007d40000000000000000000000000000000000000000000000000000000000006888",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveMultipleTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x89afdc5600000000000000000000000000000000000000000000000000000000000031350000000000000000000000000000000000000000000000000000000000004e40000000000000000000000000000000000000000000000000000000000000137a",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveMultipleTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xbbe82a5c0000000000000000000000000000000000000000000000000000000000002d0a000000000000000000000000000000000000000000000000000000000000078600000000000000000000000000000000000000000000000000000000000078e9",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveSelfApprove(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4010aee0000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveSelfApproveTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x824aeb8200000000000000000000000000000000000000000000000000000000000006220000000000000000000000000000000000000000000000000000000000001712000000000000000000000000000000000000000000000000000000000000397e",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveSelfTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xd5db2835000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveTotalTransferFromToOther(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x59deb00b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveTotalTransferToOther(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x5eccc49400000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveTransferFromToZeroShouldRevert(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe20257d0000000000000000000000000000000000000000000000000000000000000045b00000000000000000000000000000000000000000000000000000000191a0a6300000000000000000000000000000000000000000000000000000000edbf025f",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveTransferToZeroShouldRevert(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x1cc1476c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTotalSupplyConstantAfterTransfer(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xcbd257490000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTotalSupplyConstantAfterTransferFrom(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xf436f9ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTransferDoesNotUpdateOthersBalances(uint256,uint8,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xc0e5da2a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTransferFromDecreaseAllowanceAsExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe59d8c5500000000000000000000000000000000000000000000000000000000000077500000000000000000000000000000000000000000000000000000000000001d1b000000000000000000000000000000000000000000000000000000000000408b",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTransferFromDoesNotUpdateOthersBalances(uint256,uint8,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xba6b430e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroAddressCannotApprovePositiveAmount(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xb6e920890000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [
+                        "Error: An approve with the zero address as token sender was possible.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003e416e20617070726f7665207769746820746865207a65726f206164647265737320617320746f6b656e2073656e6465722077617320706f737369626c652e0000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroAddressCannotTransferPositiveAmount(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x21cda3900000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroMultipleTransfer(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x5b90091c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroMultipleTransferFrom(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x0983883c00000000000000000000000000000000000000000000000000000000000006800000000000000000000000000000000000000000000000000000000000000685",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroSelfApprove(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x31a0a78b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroSelfApproveTransferFrom(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xb5ac974000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroSelfTransfer(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x73839d1f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTotalTransferFromToOther(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x191a0a620000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTotalTransferToOther(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xedbf025f0000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferFromToZeroShouldRevert(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x2444923900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferToZeroShouldRevert(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x26999b8700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Fingerprint.t.sol:ERC20Fingerprint": {
+            "duration": {
+                "nanos": 657601696,
+                "secs": 0
+            },
+            "test_results": {
+                "testAbiFoundInEtherscan()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testAddressIsImplementationContract()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testCanApproveMoreThanBalance(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xf664e4b500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testContractExistsInChain()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testInfiniteApprovalConstant(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x9a088e8a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testInfiniteApprovalNotConstant(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x374fe12f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testMaintainsApprovalLowerThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x623dbf62000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testOverwriteApprovePositiveToPositive(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x318cfd8f73746453746f726167652066696e642853746453746f72616765293a20536c6e70ca10bbd0dbfd9020a9f4b13402c16cb120705e0d1c0aeab10fa353ae586fc4",
+                                "gas": 104799,
+                                "stipend": 22088
+                            },
+                            "mean_gas": 82711,
+                            "median_gas": 82711,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testRevertsIfApprovalGreaterThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x48d35b43000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testRevertsOnInfiniteApproval(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4ddc2b9600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTransferFromDecreaseAllowanceGtExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe7ff1492000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testTransferFromDecreaseAllowanceLtExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x56a99196000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Minimal.t.sol:ERC20Minimal": {
+            "duration": {
+                "nanos": 179641497,
+                "secs": 1
+            },
+            "test_results": {
+                "testPositiveApprovalEventEmission(uint8,uint8,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x02ee593b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ec2788193ff0294470fa45f97",
+                                "gas": 90318,
+                                "stipend": 21604
+                            },
+                            "mean_gas": 70167,
+                            "median_gas": 70714,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testPositiveApproveAllowsPositiveTransferFrom(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x80f717200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveApproveAllowsZeroTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xa34137b5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveApproveLeadsToAllowance(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x1bda36c5000000000000000000000000000000000000000000000000000003e96de26fab",
+                                "gas": 90594,
+                                "stipend": 21264
+                            },
+                            "mean_gas": 69330,
+                            "median_gas": 69330,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testPositiveTransferEventEmission(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xf7864ccc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testPositiveTransferFromEventEmission(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe68a4a770000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testUserBalanceInitialized(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe4ccfec900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroApprovalEventEmission(uint8,uint8)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x1868c29c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                                "gas": 69790,
+                                "stipend": 21320
+                            },
+                            "mean_gas": 49930,
+                            "median_gas": 50470,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroApproveLeadsToAllowance()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 48906
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroTransferFromByOtherEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x9bd3692b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferFromByOtherFromAndToSameAccountPossible()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 91235
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroTransferFromByOtherPossibleFromAndToDifferentAccounts()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 95347
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroTransferFromByOtherToSameAccountEmitsEvent()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 93452
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroTransferFromByOtherToSelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x921d2f5900000000000000000000000000000000000000000000000000000000000043fb00000000000000000000000000000000000000000000000000000000000042ec",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferFromBySelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x991713fd00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferFromBySelfToSelfEmitsEvent()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 91385
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroTransferFromBySelfToSomeoneEmitsEvent()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 95669
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        },
+                        {
+                            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success",
+                    "traces": []
+                },
+                "testZeroTransferToOthersEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x59d36d0b00000000000000000000000000000000000000000000000000000000000000780000000000000000000000000000000000000000000000000000000000004ea9",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferToOthersPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x9fead77900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferToSelfEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe3db9a4500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testZeroTransferToSelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe914a8f100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Recommended.t.sol:ERC20Recommended": {
+            "duration": {
+                "nanos": 235764334,
+                "secs": 0
+            },
+            "test_results": {
+                "testCannotTransferFromMoreThanAllowanceLowerThanBalance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xf5a56743000000000000000000000000000000000000000000000000000000000000256500000000000000000000000000000000000000000000000000000000000023060000000000000000000000000000000000000000000000000000000000000e200000000000000000000000000000000000000000000000000000000000003b4f",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testCannotTransferFromMoreThanBalanceButLowerThanAllowance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x799a6c1a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testCannotTransferMoreThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x2deb1f8d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testNoApprovalCannotTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x617112e9000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                },
+                "testNoSelfApprovalCannotSelfTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x501b85e7000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null,
+                            "traces": null
+                        }
+                    },
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": "stdStorage find(StdStorage): Packed slot. This would cause dangerous overwriting and currently isn't supported.",
+                    "status": "Failure",
+                    "traces": []
+                }
+            },
+            "warnings": []
+        }
+    }
+}

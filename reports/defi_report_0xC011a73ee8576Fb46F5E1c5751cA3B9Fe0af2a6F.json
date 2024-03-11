@@ -1,0 +1,783 @@
+{
+    "data": {
+        "project": {
+            "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+            "contractName": "ProxyERC20",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No reentrancy risk found",
+                    "scwId": "107",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mintable risks found",
+                    "scwId": "186",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Users can always transfer their tokens",
+                    "scwId": "189",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"event\", \"value\": \"OwnerChanged(address,address)\", \"index\": \"0\", \"modifiable\": true}]}",
+                            "description": "Proxy upgradeability: Proxy.fallback() (ProxyERC20.sol#183-217)\n",
+                            "end": 217,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0xE199d2Bf3032400e5058381782c461Df964b3439",
+                                        "timelockDelay": null,
+                                        "type": "5"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0xE199d2Bf3032400e5058381782c461Df964b3439",
+                                    "timelockDelay": null,
+                                    "type": "5"
+                                }
+                            },
+                            "id": 155667631,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function()\n    external\n    payable\n    if (useDELEGATECALL) {\n        assembly {\n            /* Copy call data into free memory region. */\n            let free_ptr := mload(0x40)\n            calldatacopy(free_ptr, 0, calldatasize)\n            /* Forward all gas and call data to the target contract. */\n            let result := delegatecall(gas, sload(target_slot), free_ptr, calldatasize, 0, 0)\n            returndatacopy(free_ptr, 0, returndatasize)\n            /* Revert if the call failed, otherwise return the result. */\n            if iszero(result) { revert(free_ptr, returndatasize) }\n            return(free_ptr, returndatasize)\n        }\n    } else {\n        /* Here we are as above, but must send the messageSender explicitly \n         * since we are using CALL rather than DELEGATECALL. */\n        target.setMessageSender(msg.sender);\n        assembly {\n            let free_ptr := mload(0x40)\n            calldatacopy(free_ptr, 0, calldatasize)\n            /* We must explicitly forward ether to the underlying contract as well. */\n            let result := call(gas, sload(target_slot), callvalue, free_ptr, calldatasize, 0, 0)\n            returndatacopy(free_ptr, 0, returndatasize)\n            if iszero(result) { revert(free_ptr, returndatasize) }\n            return(free_ptr, returndatasize)\n        }\n    }\n}",
+                            "start": 183
+                        }
+                    ],
+                    "scwDescription": "This contract can be upgraded, changing its functionality.",
+                    "scwId": "193",
+                    "scwTitle": "Proxy Upgradeability"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Wallets cannot be blacklisted from transfering the token",
+                    "scwId": "208",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer limits found",
+                    "scwId": "211",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 interface errors found",
+                    "scwId": "204-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No centralized balance controls found",
+                    "scwId": "220",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "Possible Honeypot:\n\t- Function: ProxyERC20.transfer(address,uint256) (ProxyERC20.sol#451-460)\n\t\t- External call: target.setMessageSender(msg.sender)\t\t- External call: IERC20(target).transfer(to,value)",
+                            "end": 460,
+                            "governanceInfo": null,
+                            "id": 155667633,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transfer(address to, uint256 value) public returns (bool) {\n    // Mutable state call requires the proxy to tell the target who the msg.sender is.\n    target.setMessageSender(msg.sender);\n    // Forward the ERC20 call to the target contract\n    IERC20(target).transfer(to, value);\n    // Event emitting will occur via Synthetix.Proxy._emit()\n    return true;\n}",
+                            "start": 451
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "Possible Honeypot:\n\t- Function: ProxyERC20.approve(address,uint256) (ProxyERC20.sol#471-480)\n\t\t- External call: target.setMessageSender(msg.sender)\t\t- External call: IERC20(target).approve(spender,value)",
+                            "end": 480,
+                            "governanceInfo": null,
+                            "id": 155667634,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function approve(address spender, uint256 value) public returns (bool) {\n    // Mutable state call requires the proxy to tell the target who the msg.sender is.\n    target.setMessageSender(msg.sender);\n    // Forward the ERC20 call to the target contract\n    IERC20(target).approve(spender, value);\n    // Event emitting will occur via Synthetix.Proxy._emit()\n    return true;\n}",
+                            "start": 471
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "Possible Honeypot:\n\t- Function: ProxyERC20.transferFrom(address,address,uint256) (ProxyERC20.sol#488-504)\n\t\t- External call: target.setMessageSender(msg.sender)\t\t- External call: IERC20(target).transferFrom(from,to,value)",
+                            "end": 504,
+                            "governanceInfo": null,
+                            "id": 155667635,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transferFrom(\n    address from,\n    address to,\n    uint256 value\n)\n    public\n    returns (bool)\n    // Mutable state call requires the proxy to tell the target who the msg.sender is.\n    target.setMessageSender(msg.sender);\n    // Forward the ERC20 call to the target contract\n    IERC20(target).transferFrom(from, to, value);\n    // Event emitting will occur via Synthetix.Proxy._emit()\n    return true;\n}",
+                            "start": 488
+                        }
+                    ],
+                    "scwDescription": "The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract.",
+                    "scwId": "210-b",
+                    "scwTitle": "Potential Honeypot"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found.",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently.",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days."
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
+                    "scwId": "10024",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "scwId": "10025",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwId": "10028",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 0,
+            "firstTxBlock": null,
+            "firstTxDate": "2019-08-09T05:36:48.000Z",
+            "firstTxFrom": "0xb75503907b1a1432c59f397cab0c9b4410bb98f5",
+            "generalIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No compiler version inconsistencies found",
+                    "scwId": "103",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized state variables found",
+                    "scwId": "142",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No innacurate divisions found",
+                    "scwId": "156",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "ProxyERC20.transfer(address,uint256) (ProxyERC20.sol#451-460) ignores return value by IERC20(target).transfer(to,value) (ProxyERC20.sol#456)\n",
+                            "end": 460,
+                            "governanceInfo": null,
+                            "id": 155667636,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transfer(address to, uint256 value) public returns (bool) {\n    // Mutable state call requires the proxy to tell the target who the msg.sender is.\n    target.setMessageSender(msg.sender);\n    // Forward the ERC20 call to the target contract\n    IERC20(target).transfer(to, value);\n    // Event emitting will occur via Synthetix.Proxy._emit()\n    return true;\n}",
+                            "start": 451
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "ProxyERC20.transferFrom(address,address,uint256) (ProxyERC20.sol#488-504) ignores return value by IERC20(target).transferFrom(from,to,value) (ProxyERC20.sol#500)\n",
+                            "end": 504,
+                            "governanceInfo": null,
+                            "id": 155667637,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transferFrom(\n    address from,\n    address to,\n    uint256 value\n)\n    public\n    returns (bool)\n    // Mutable state call requires the proxy to tell the target who the msg.sender is.\n    target.setMessageSender(msg.sender);\n    // Forward the ERC20 call to the target contract\n    IERC20(target).transferFrom(from, to, value);\n    // Event emitting will occur via Synthetix.Proxy._emit()\n    return true;\n}",
+                            "start": 488
+                        }
+                    ],
+                    "scwDescription": "A transfer call made in this contract may be unstable and cause tokens to become stuck",
+                    "scwId": "158",
+                    "scwTitle": "Unchecked Transfer"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized local variables found",
+                    "scwId": "160",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No default function responses found",
+                    "scwId": "161",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing arithmetic events found",
+                    "scwId": "167-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing access control events found",
+                    "scwId": "167-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "Owned.nominateNewOwner(address)._owner (ProxyERC20.sol#63) lacks a zero-check on :\n\t\t- nominatedOwner = _owner (ProxyERC20.sol#67)\n",
+                            "end": 63,
+                            "governanceInfo": null,
+                            "id": 155667632,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function nominateNewOwner(address _owner)",
+                            "start": 63
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract may not appropriately check for zero addresses being used.",
+                    "scwId": "168",
+                    "scwTitle": "Missing Zero Address Validation"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No buggy low-level calls found",
+                    "scwId": "173",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version0.4.25 (ProxyERC20.sol#37) allows old versions\n",
+                            "end": 37,
+                            "governanceInfo": null,
+                            "id": 155667629,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity 0.4.25;",
+                            "start": 37
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "solc-0.4.25 is not recommended for deployment\n",
+                            "end": 0,
+                            "governanceInfo": null,
+                            "id": 155667630,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": 0
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No bad numeric notation practices found",
+                    "scwId": "182",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "name() should be declared external:\n\t- IERC20.name() (ProxyERC20.sol#339)\n\t- ProxyERC20.name() (ProxyERC20.sol#393-396)\n",
+                            "end": 339,
+                            "governanceInfo": null,
+                            "id": 155667620,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function name() public view returns (string);",
+                            "start": 339
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "symbol() should be declared external:\n\t- IERC20.symbol() (ProxyERC20.sol#340)\n\t- ProxyERC20.symbol() (ProxyERC20.sol#398-401)\n",
+                            "end": 340,
+                            "governanceInfo": null,
+                            "id": 155667621,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function symbol() public view returns (string);",
+                            "start": 340
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "decimals() should be declared external:\n\t- IERC20.decimals() (ProxyERC20.sol#341)\n\t- ProxyERC20.decimals() (ProxyERC20.sol#403-406)\n",
+                            "end": 341,
+                            "governanceInfo": null,
+                            "id": 155667622,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function decimals() public view returns (uint8);",
+                            "start": 341
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "totalSupply() should be declared external:\n\t- IERC20.totalSupply() (ProxyERC20.sol#326)\n\t- ProxyERC20.totalSupply() (ProxyERC20.sol#413-416)\n",
+                            "end": 326,
+                            "governanceInfo": null,
+                            "id": 155667623,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function totalSupply() public view returns (uint);",
+                            "start": 326
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "balanceOf(address) should be declared external:\n\t- IERC20.balanceOf(address) (ProxyERC20.sol#328)\n\t- ProxyERC20.balanceOf(address) (ProxyERC20.sol#423-426)\n",
+                            "end": 328,
+                            "governanceInfo": null,
+                            "id": 155667624,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function balanceOf(address owner) public view returns (uint);",
+                            "start": 328
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "allowance(address,address) should be declared external:\n\t- IERC20.allowance(address,address) (ProxyERC20.sol#330)\n\t- ProxyERC20.allowance(address,address) (ProxyERC20.sol#434-444)\n",
+                            "end": 330,
+                            "governanceInfo": null,
+                            "id": 155667625,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function allowance(address owner, address spender) public view returns (uint);",
+                            "start": 330
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "transfer(address,uint256) should be declared external:\n\t- IERC20.transfer(address,uint256) (ProxyERC20.sol#332)\n\t- ProxyERC20.transfer(address,uint256) (ProxyERC20.sol#451-460)\n",
+                            "end": 332,
+                            "governanceInfo": null,
+                            "id": 155667626,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transfer(address to, uint value) public returns (bool);",
+                            "start": 332
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "approve(address,uint256) should be declared external:\n\t- IERC20.approve(address,uint256) (ProxyERC20.sol#334)\n\t- ProxyERC20.approve(address,uint256) (ProxyERC20.sol#471-480)\n",
+                            "end": 334,
+                            "governanceInfo": null,
+                            "id": 155667627,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function approve(address spender, uint value) public returns (bool);",
+                            "start": 334
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "transferFrom(address,address,uint256) should be declared external:\n\t- IERC20.transferFrom(address,address,uint256) (ProxyERC20.sol#336)\n\t- ProxyERC20.transferFrom(address,address,uint256) (ProxyERC20.sol#488-504)\n",
+                            "end": 336,
+                            "governanceInfo": null,
+                            "id": 155667628,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transferFrom(address from, address to, uint value) public returns (bool);",
+                            "start": 336
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract should be declared as external in order to save gas.",
+                    "scwId": "184",
+                    "scwTitle": "Public Functions Should be Declared External"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": {
+                "contractOwners": [
+                    {
+                        "governance": null,
+                        "impact": "Medium",
+                        "modifiable": true,
+                        "multisig": {
+                            "multisigOwners": [
+                                "0x26E10fF641839cA457695CE955Cb90657D6E3F53",
+                                "0x0B67bab43157e53D21965Af0d83f83BeD9553E0a",
+                                "0x8909F73188C4fE68B283fCB1E724b2466e0BdfD0",
+                                "0xe1Efa5C91cA533E4a51884d805879249E3FCB2BC",
+                                "0x599e835cbFC903eF09f3Dd5E08D1cF63c32AF8d8",
+                                "0xa2fa6Ef1Fcf740b632a04B3FC56B5d3118Bbd211",
+                                "0x347c3190bD015FBD0e47fb90AA4917138A8A32FE",
+                                "0x2d8cF727d37e7277D5eeDbAb853a3e8320f767Cd",
+                                "0x1dd532CF7603a60C3ec91360f273DA3Db38545aB",
+                                "0x562948111d50BF039A39Eea48D127f2Ae51ddF02",
+                                "0xEde8a407913A874Dd7e3d5B731AFcA135D30375E"
+                            ],
+                            "threshold": 5,
+                            "transactionCount": 3051
+                        },
+                        "owner": "0xeb3107117fead7de89cd14d463d340a2e6917769",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "2"
+                    }
+                ],
+                "issueOwners": [],
+                "proxyOwners": [
+                    {
+                        "governance": null,
+                        "impact": "High",
+                        "modifiable": true,
+                        "multisig": null,
+                        "owner": "0xE199d2Bf3032400e5058381782c461Df964b3439",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "5"
+                    }
+                ],
+                "visibleOwner": "0xE199d2Bf3032400e5058381782c461Df964b3439"
+            },
+            "inProgress": false,
+            "initialFunder": "0xb64ff7a4a33acdf48d97dab0d764afd0f6176882",
+            "isProxyImplementation": false,
+            "logo": "",
+            "name": "ProxyERC20(Synthetix Network Token)",
+            "network": 1,
+            "pairInfo": null,
+            "projectFullName": "Synthetix Network Token (SNX)",
+            "projectName": "Payments",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f_1_src.json",
+            "stats": {
+                "percentage": 100,
+                "scammed": false
+            },
+            "whitelisted": true
+        }
+    }
+}

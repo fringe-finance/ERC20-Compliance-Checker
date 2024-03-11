@@ -1,0 +1,3195 @@
+{
+    "feedback": null,
+    "json": {
+        "ERC20ABI_tests": {
+            "test_results": {
+                "testAllowanceAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testAllowanceSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApprovalEventSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApproveAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApproveSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testBalanceOfAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testBalanceOfSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testDecimalsAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testDecimalsSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testNameAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testNameSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testSymbolAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testSymbolSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTotalSupplyAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTotalSupplySignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferEventSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferFromAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferFromSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                }
+            }
+        },
+        "ERC20Status_tests": {
+            "test_results": {
+                "testAbiFoundInEtherscan()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testAddressIsImplementationContract()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testContractExistsInChain()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                }
+            }
+        },
+        "test/ERC20Features.t.sol:ERC20Features": {
+            "duration": {
+                "nanos": 2328033,
+                "secs": 11
+            },
+            "test_results": {
+                "testCanApproveMoreThanBalance(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xf664e4b5000000000000000000000000000000000000000000000000000001a32aa1e6fd0000000000000791d88711448a0a9252f50011f6b65fbe2cbdf5e6b970a6c20c",
+                                "gas": 738724,
+                                "stipend": 21692
+                            },
+                            "mean_gas": 717032,
+                            "median_gas": 717032,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testInfiniteApprovalConstant(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x9a088e8a0000000000000000000000000000000000000000000000000000000000000001000000000000002693319a0a1732751605efa7159f96e735edc12b837c5aa07d02533972fa592ee377e8cb206dadfd0133a8911f6744ce32f557b959f9768bab",
+                                "gas": 773503,
+                                "stipend": 22144
+                            },
+                            "mean_gas": 750192,
+                            "median_gas": 751359,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testInfiniteApprovalNotConstant(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x374fe12f000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: a == b not satisfied [uint]",
+                        "      Left: 115792089237316195423570985008687907853269984665640564039457584007913129639935",
+                        "     Right: 115792089237316195423570985008687907853269984665640564039457584007913129639934"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x374fe12f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ee590e0ddd9b1f1b9db98716b0b000002da9cb80b3c69259aacc70b703b579e187d6a230fcc13ed881555821c56f",
+                                "gas": 753425,
+                                "stipend": 21976
+                            },
+                            "mean_gas": 731449,
+                            "median_gas": 731449,
+                            "runs": 1
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000224572726f723a2061203d3d2062206e6f7420736174697366696564205b75696e745d000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000a2020202020204c65667400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe000000000000000000000000000000000000000000000000000000000000000a2020202020526967687400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testMaintainsApprovalLowerThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x623dbf620000000000000000000000000000000000000000000000000000001b9bf82c23fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd0000000000000000000000000000000000000000000000000000000000000002",
+                                "gas": 741658,
+                                "stipend": 21904
+                            },
+                            "mean_gas": 719754,
+                            "median_gas": 719754,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testOverwriteApprovePositiveToPositive(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x318cfd8f000000000000000001fcefc79a94d04c8a727692001dcd9b4df6b37290e4f8ff0000000000000000000000000000000000000000000000000003bcb46cf75fa4",
+                                "gas": 67845,
+                                "stipend": 21680
+                            },
+                            "mean_gas": 46165,
+                            "median_gas": 46165,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testRevertsIfApprovalGreaterThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x48d35b430000000000000000000000000000000000000000000000000000000000002c4f00000000000000000000000000000000000000000000000000000000000021680000000000002e14b1e11607c596422e3286eb64736f6c63430008140032ffff",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000002c4f",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testRevertsOnInfiniteApproval(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4ddc2b9600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testTransferFromDecreaseAllowanceGtExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe7ff149200000000000000000000000000000000000000000000000000000000000018be0000000000002e14b1e11607c596422e3286eb64736f6c63430008140033000100000000000000000000000000000000000000000000000000000000000047da",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: a > b not satisfied [uint]",
+                        "  Value a: 74049053656954097668983638193240348488608425841395320719861571",
+                        "  Value b: 74049053656954097668983638193240348488608425841395320719861571"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000002e14b1e11607c596422e3286eb64736f6c634300081400330001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000018be",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000214572726f723a2061203e2062206e6f7420736174697366696564205b75696e745d00000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000002e14b1e11607c596422e3286eb64736f6c63430008140032e7430000000000000000000000000000000000000000000000000000000000000009202056616c756520610000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000002e14b1e11607c596422e3286eb64736f6c63430008140032e7430000000000000000000000000000000000000000000000000000000000000009202056616c756520620000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testTransferFromDecreaseAllowanceLtExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x56a99196000000000000000000000000000000000000000000000000000000000000014800000000000000000000000000000000000000000000000000000000000038680000000000000000000000000000000000000000000000000000000000002706",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: a < b not satisfied [uint]",
+                        "  Value a: 14112",
+                        "  Value b: 14112"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000003868",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000148",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000214572726f723a2061203c2062206e6f7420736174697366696564205b75696e745d00000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000037200000000000000000000000000000000000000000000000000000000000000009202056616c756520610000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000037200000000000000000000000000000000000000000000000000000000000000009202056616c756520620000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Security.t.sol:ERC20Security": {
+            "duration": {
+                "nanos": 912451843,
+                "secs": 182
+            },
+            "test_results": {
+                "testAddressZeroHasNoToken()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: The balance of the zero address is not equal to 0.",
+                        "Error: a == b not satisfied [uint]",
+                        "      Left: 113574838680136",
+                        "     Right: 0"
+                    ],
+                    "kind": {
+                        "Standard": 25530
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f7200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000325468652062616c616e6365206f6620746865207a65726f2061646472657373206973206e6f7420657175616c20746f20302e0000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000224572726f723a2061203d3d2062206e6f7420736174697366696564205b75696e745d000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000674bb3ea3a48000000000000000000000000000000000000000000000000000000000000000a2020202020204c65667400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a2020202020526967687400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testBalanceOfCaller(uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x39d67c930000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bb261c891dd74ac75ee11a4203d1bff51f2a079e0000000000000000000000000000000000000000000000000000000000000000",
+                                "gas": 719136,
+                                "stipend": 21688
+                            },
+                            "mean_gas": 696557,
+                            "median_gas": 697448,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testBalanceOfNonCaller(uint8,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x3fef1c830000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000000000001",
+                                "gas": 720462,
+                                "stipend": 21624
+                            },
+                            "mean_gas": 699931,
+                            "median_gas": 700838,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testCannotApprovePositiveAmountToZeroAddress(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4d168c120000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Alice could approve the zero address.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025416c69636520636f756c6420617070726f766520746865207a65726f20616464726573732e000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testCorrectOverwriteApprovePositiveToPositive(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xcb1e5b520000000000000000000000000000000000000000000000000000000000000bb200000000000000000000000000000000000000000000000000000000000004f6",
+                                "gas": 69013,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 47645,
+                            "median_gas": 47645,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testCorrectOverwriteApprovePositiveToZero(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x069d2b280000000000000000000000000000000000000000000000000000000000000002",
+                                "gas": 54839,
+                                "stipend": 21204
+                            },
+                            "mean_gas": 33609,
+                            "median_gas": 33632,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testCorrectOverwriteApproveZeroToPositive(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xec58cc22fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe",
+                                "gas": 68940,
+                                "stipend": 21576
+                            },
+                            "mean_gas": 47364,
+                            "median_gas": 47364,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testCorrectOverwriteApproveZeroToZero()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 27053
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testFeeTakingTransferFromPotential(uint256[2],uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xe117dc0d0000000000000000000000000000000000000000000000000000000021cda3910000000000000000000000000000000000000000000000000000000000001f6200000000000000000000000000000000000000000000000000000000000034160000000000000000000000000000000000000000000000000000000000003b6b0000000000000000000000000000000000000000000000000000000000005396",
+                                "gas": 742197,
+                                "stipend": 21848
+                            },
+                            "mean_gas": 720775,
+                            "median_gas": 720349,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testFeeTakingTransferFromPresent(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xd489f95a00000000000000000000000000000000000000000000000000000000000003e10000000000000000000000000000000000000000000000000000000000009d5c0000000000000000000000000000000000000000000000000000000000003862",
+                                "gas": 731613,
+                                "stipend": 21520
+                            },
+                            "mean_gas": 710615,
+                            "median_gas": 710093,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testFeeTakingTransferPotential(uint256[2],uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xa5850ee40000000000000000000000000000002d78ae804e28b6b0b5d1460c3f0aeaf6970049cc0da5c97a25772e90eaa21d1d7dcf693a6db480d16dadb35d539275aad70000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000001847821043f0a9000000000022240117b98d2af1c62f83a1b4304c98fd1081f2b60632d7f873a6",
+                                "gas": 734563,
+                                "stipend": 22700
+                            },
+                            "mean_gas": 711723,
+                            "median_gas": 711863,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testFeeTakingTransferPresent(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x294373e80000000000000000000000000000000000000000000000000000000000003f4c0000000000000000000000000000000000000000000000000000000006447d560000000000000000000000000000000000000000000000000000000000009bf2",
+                                "gas": 723147,
+                                "stipend": 21544
+                            },
+                            "mean_gas": 701809,
+                            "median_gas": 701603,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testMultipleTransferFromExceedAllowance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x3d5f3658000000000000000000000000000000000000000000000000000000000000303d0000000000000000000000000000000000000000000000000000000000002c28000000000000000000000000000000000000000000000000000000000000987300000000000000000000000000000000000000000000000000000000000006d9",
+                                "gas": 733995,
+                                "stipend": 21672
+                            },
+                            "mean_gas": 713255,
+                            "median_gas": 712323,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveMultipleTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x89afdc5600000000000000000000000000000000000000000000000000000000000010a700000000000000000000000000000000000000000000000000000000000069d30000000000000000000000000000000000000000000000000000000000005395",
+                                "gas": 776652,
+                                "stipend": 21520
+                            },
+                            "mean_gas": 755831,
+                            "median_gas": 755132,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveMultipleTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xbbe82a5c00000000000000000000000000000000000000000000000000000000000038c6000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac600000000000000000000000000000000000000000000000000000000824aeb82",
+                                "gas": 808487,
+                                "stipend": 21760
+                            },
+                            "mean_gas": 787426,
+                            "median_gas": 786727,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveSelfApprove(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x4010aee000000000000000000000000000000000000000000000000000000000000014b300000000000000000000000000000000000000000000000000000000000040aa0000000000000000000000000000000000000000000000000000000000004ece",
+                                "gas": 741581,
+                                "stipend": 21520
+                            },
+                            "mean_gas": 720061,
+                            "median_gas": 720061,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveSelfApproveTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x824aeb8200000000000000001bdbd44d7457285ee7de168956904cd708d842f458653a9d000000000000271eb7ecef450a03dd006ac6a2ea05df57a852987750ac2b67bc0000000000000000000000000000000000000000000000000000000000007b46",
+                                "gas": 747018,
+                                "stipend": 22060
+                            },
+                            "mean_gas": 725424,
+                            "median_gas": 724958,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveSelfTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xd5db2835000000000000000000000000000000000000000000000000000000000000241b00000000000000000000000000000000000000000000000000000000000024c1000000000000000000000000000000000000000000000000000000000000373f",
+                                "gas": 719846,
+                                "stipend": 21520
+                            },
+                            "mean_gas": 698326,
+                            "median_gas": 698326,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveTotalTransferFromToOther(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x59deb00b0000000000000000000000000000000000000000000000000000000000005d630000000000000000000000000000000000000000000000000000000000005822",
+                                "gas": 746462,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 725071,
+                            "median_gas": 725090,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveTotalTransferToOther(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x5eccc4940000000000000000000000000000000000000000000000000000000000000bd5000000000000000000000000000000000000000000000000000000000000373f",
+                                "gas": 725566,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 704198,
+                            "median_gas": 704198,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveTransferFromToZeroShouldRevert(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xe20257d0000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Bob was able to transfer from Alice to the zero address.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000038426f62207761732061626c6520746f207472616e736665722066726f6d20416c69636520746f20746865207a65726f20616464726573732e0000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testPositiveTransferToZeroShouldRevert(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x1cc1476c000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Alice could transfer some tokens to the zero address.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000035416c69636520636f756c64207472616e7366657220736f6d6520746f6b656e7320746f20746865207a65726f20616464726573732e0000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testTotalSupplyConstantAfterTransfer(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xcbd2574900000000000000000000000000000000000053391d0eddffcfb33e2699cfecba00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003242b556a93e1a5d87fc35ab1215b7a93a552000000000000000000000000000000000000000000000000000000010d9e0470",
+                                "gas": 747230,
+                                "stipend": 22032
+                            },
+                            "mean_gas": 715212,
+                            "median_gas": 725198,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testTotalSupplyConstantAfterTransferFrom(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xf436f9ff000000000000000000000000000000000000000000000000000000000000003f000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000048e80000000000000000000000000000000000000000000000000000000000000001",
+                                "gas": 733524,
+                                "stipend": 21636
+                            },
+                            "mean_gas": 723115,
+                            "median_gas": 731788,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testTransferDoesNotUpdateOthersBalances(uint256,uint8,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xc0e5da2a0000000000000000000000001316b6a6989199e9d03eac56d80d3e7955370f530000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000019fda819a651c1e1da8d59f4bea656317ca6a9d2f870000000000000001ec61457b5e886f23aff22a71d0e81f9c2b318939ddce51ca",
+                                "gas": 732851,
+                                "stipend": 22520
+                            },
+                            "mean_gas": 719588,
+                            "median_gas": 710331,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testTransferFromDecreaseAllowanceAsExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xe59d8c5500000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000036d7ae27b97f4c7b82e66da497f3a1f3e569f8aa2e250f3796fbcd34a75dcbdcf293795699273987b7b3",
+                                "gas": 773678,
+                                "stipend": 21964
+                            },
+                            "mean_gas": 750645,
+                            "median_gas": 751714,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testTransferFromDoesNotUpdateOthersBalances(uint256,uint8,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xba6b430e0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000003459cb8351ce70d825e74a7af9f8000000000005aa55e8784e30e5409323e925eb5077133363a4100dd7b3e7fde3",
+                                "gas": 760932,
+                                "stipend": 22220
+                            },
+                            "mean_gas": 730180,
+                            "median_gas": 738712,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroAddressCannotApprovePositiveAmount(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xb6e920890000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: An approve with the zero address as token sender was possible.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003e416e20617070726f7665207769746820746865207a65726f206164647265737320617320746f6b656e2073656e6465722077617320706f737369626c652e0000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testZeroAddressCannotTransferPositiveAmount(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x21cda3900000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: A transfer with the zero address as token sender was possible.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000ad3228b676f7d3cd4284a5443f17f1962b36e491b30a40b2405849e597ba5fb53617319a054d772f909f7c479a2cebe5066e836a939412e32403c99029b92eff",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000ad3228b676f7d3cd4284a5443f17f1962b36e491b30a40b2405849e597ba5fb53617319a054d772f909f7c479a2cebe5066e836a939412e32403c99029b92eff",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003e41207472616e73666572207769746820746865207a65726f206164647265737320617320746f6b656e2073656e6465722077617320706f737369626c652e0000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testZeroMultipleTransfer(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x5b90091c0000000000000000000000000000000000000000000000000000000000009c960000000000000000000000000000000000000000000000000000000000000740",
+                                "gas": 736343,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 714975,
+                            "median_gas": 714975,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroMultipleTransferFrom(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x0983883c0000b084a105ec000c6578ffc2c1370c03536a05c130fbe5eefdead764afe621000000000000000000000000000000000000000000000000093e4c503586d137",
+                                "gas": 768270,
+                                "stipend": 21764
+                            },
+                            "mean_gas": 746506,
+                            "median_gas": 746506,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroSelfApprove(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x31a0a78b00000000000174a35800cae3aef8084e516329f030d961f4b1dc101042ff02d900000000000000000008eb5630a4ccf7e833a6a361efa4218ea3edf5417e6deb",
+                                "gas": 721624,
+                                "stipend": 21908
+                            },
+                            "mean_gas": 699716,
+                            "median_gas": 699716,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroSelfApproveTransferFrom(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xb5ac974000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000f2d42d42d89a6a5cd2d8e",
+                                "gas": 726056,
+                                "stipend": 21464
+                            },
+                            "mean_gas": 704592,
+                            "median_gas": 704592,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroSelfTransfer(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x73839d1f000000000000000000000000000000000000000000000000000000001ed7831d000000000000000000000000000000000000000000000000000000000000021d",
+                                "gas": 719339,
+                                "stipend": 21392
+                            },
+                            "mean_gas": 697947,
+                            "median_gas": 697947,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTotalTransferFromToOther(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x191a0a620000000000000000000000000000000000000000000000000000000000001fb8",
+                                "gas": 733546,
+                                "stipend": 21216
+                            },
+                            "mean_gas": 712330,
+                            "median_gas": 712330,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTotalTransferToOther(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xedbf025f00000000000000000000000000000000000000000005b8c0b38fce0ffbba2b56",
+                                "gas": 725141,
+                                "stipend": 21324
+                            },
+                            "mean_gas": 703817,
+                            "median_gas": 703817,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromToZeroShouldRevert(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x2444923900000000000000000000000000000000000000000000000000000000000026580000000000000000000000000000000000000000000000000000000000000043",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Bob was able to transfer from Alice to the zero address.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000038426f62207761732061626c6520746f207472616e736665722066726f6d20416c69636520746f20746865207a65726f20616464726573732e0000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testZeroTransferToZeroShouldRevert(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x26999b8700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Standard.t.sol:ERC20Standard": {
+            "duration": {
+                "nanos": 319120320,
+                "secs": 49
+            },
+            "test_results": {
+                "testCannotTransferFromMoreThanAllowanceLowerThanBalance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xf5a56743000000000000000000000000000000000000000000000000000000000000040b0000000000000000000000000000000000000000000000000000000000001f2000000000000000000000000000000000000000000000000000000000000050f30000000000000000000000000000000000000000000000000000000000002d3d",
+                                "gas": 744789,
+                                "stipend": 21672
+                            },
+                            "mean_gas": 723117,
+                            "median_gas": 723117,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testCannotTransferFromMoreThanBalanceButLowerThanAllowance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x799a6c1a000000000000000000000000000000000000000000000000000000000000339000000000000000000000000000000000000000000000000000000000000011e400000000000000000000000000000000000000000000000000000000000003bd0000000000000000000000000000000000000000000000000000000000005335",
+                                "gas": 745459,
+                                "stipend": 21672
+                            },
+                            "mean_gas": 723787,
+                            "median_gas": 723787,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testCannotTransferMoreThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x2deb1f8dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd000000000000000000000000000000000000000000000000000000005c44e81c00000000000000117647b193b181296d45d8d63010e9a42e77353aaf84d9bb10",
+                                "gas": 716075,
+                                "stipend": 22180
+                            },
+                            "mean_gas": 693895,
+                            "median_gas": 693895,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testNoApprovalCannotTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x617112e9000000000000000000000000000000000000000000000000000000000000350300000000000000000000000000000000000000000000000000000000000045b70000000000000000000000000000000000000000000000000000000000004ea6",
+                                "gas": 718592,
+                                "stipend": 21520
+                            },
+                            "mean_gas": 697072,
+                            "median_gas": 697072,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testNoSelfApprovalCannotSelfTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x501b85e7000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Alice was able to transferFrom self while she was not approved by herself.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000677a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca77a21f607f15fa485a5b1fdcd955ccf4f4f8dfc688d7de43a55c923998bfdaac",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000615c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000420000000000000000000000000000000000000670a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad15c4fbd8bab530f4f95519ad930ceb91bb9186b396b1ab79c8c0e2ffb361362d",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004a416c696365207761732061626c6520746f207472616e7366657246726f6d2073656c66207768696c652073686520776173206e6f7420617070726f7665642062792068657273656c662e00000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testPositiveApprovalEventEmission(uint8,uint8,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x02ee593b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000262933e54bc5cce7db7fccfc67ec4b29071f0e05fe83232",
+                                "gas": 66982,
+                                "stipend": 21748
+                            },
+                            "mean_gas": 44624,
+                            "median_gas": 45234,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveApproveAllowsPositiveTransferFrom(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x80f7172000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002000000000081cc805f0ce3ca907897b2b18e7daac60a3a0a733ccdda93bc97e40000000000000000000000000000000000000000000000000000000000000002",
+                                "gas": 728423,
+                                "stipend": 21936
+                            },
+                            "mean_gas": 726660,
+                            "median_gas": 726387,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveApproveAllowsZeroTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xa34137b5000000000000000000000000000000000000000000000000000000000000008a00000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000004073",
+                                "gas": 747446,
+                                "stipend": 21496
+                            },
+                            "mean_gas": 725932,
+                            "median_gas": 725950,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveApproveLeadsToAllowance(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x1bda36c50000000000000000000000000000000000000000000000000000000000000981",
+                                "gas": 61664,
+                                "stipend": 21216
+                            },
+                            "mean_gas": 40448,
+                            "median_gas": 40448,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveTransferEventEmission(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xf7864ccc000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000048cd0000000000000000000000000000000011d420fc8d8e5e967baf1ba1d84a770b8",
+                                "gas": 748158,
+                                "stipend": 21828
+                            },
+                            "mean_gas": 717558,
+                            "median_gas": 726330,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testPositiveTransferFromEventEmission(uint256,uint8,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xe68a4a77000000000000000000000000000000000000000000000000000008285d59421c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e8cb8f1c80bf1800000000000000000000000399bb67d8498ac3cb4af42acebd62b87f35052673",
+                                "gas": 756809,
+                                "stipend": 21984
+                            },
+                            "mean_gas": 725302,
+                            "median_gas": 734825,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testUserBalanceInitialized(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xe4ccfec900000000000000000000000000000000000000000000000000000000000066fa0000000000000000000000000000000000000000000000000000000000000cf6",
+                                "gas": 712934,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 691566,
+                            "median_gas": 691566,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroApprovalEventEmission(uint8,uint8)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x1868c29c00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000",
+                                "gas": 46322,
+                                "stipend": 21332
+                            },
+                            "mean_gas": 24427,
+                            "median_gas": 24990,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroApproveLeadsToAllowance()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 20113
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromByOtherEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x9bd3692b000000000000000000000000000000000000000000000000000000000000000100000000000000000000000004fdc00e4eda535945b9c11a9935d2661e3b244e",
+                                "gas": 726287,
+                                "stipend": 21572
+                            },
+                            "mean_gas": 704715,
+                            "median_gas": 704715,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromByOtherFromAndToSameAccountPossible()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 22237
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromByOtherPossibleFromAndToDifferentAccounts()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 26415
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromByOtherToSameAccountEmitsEvent()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 24498
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromByOtherToSelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x921d2f590000000000000000000000000189ecf464171c52b4c44d27eba8b1e989c5144000000000000000000000000000000000000000000005ef76362c9453d5569c39",
+                                "gas": 719955,
+                                "stipend": 21692
+                            },
+                            "mean_gas": 698263,
+                            "median_gas": 698263,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromBySelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x991713fd000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000011d2",
+                                "gas": 720853,
+                                "stipend": 21356
+                            },
+                            "mean_gas": 699497,
+                            "median_gas": 699497,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromBySelfToSelfEmitsEvent()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 19535
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromBySelfToSomeoneEmitsEvent()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 23819
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        },
+                        {
+                            "address": "0x4200000000000000000000000000000000000006",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x000000000000000000000000a4d4c1f8a763ef6a0140d04291eceef913ffc272"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferToOthersEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x59d36d0b00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002",
+                                "gas": 718978,
+                                "stipend": 21344
+                            },
+                            "mean_gas": 697634,
+                            "median_gas": 697634,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferToOthersPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x9fead7790000000000000000000000000000000000000000000000000000000000003f430000000000000000000000004200000000000000000000000000000000000007",
+                                "gas": 716655,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 695287,
+                            "median_gas": 695287,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferToSelfEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xe3db9a450000000000000000000000000000000000000000000000000000000000001a4f0000000000000000000000000000000000000000000000000000000000004028",
+                                "gas": 718851,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 697483,
+                            "median_gas": 697483,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferToSelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xe914a8f10000000000000000000000000000000000000000000000000000000065bc948000000000000000000000000000000000000000000000000000000000000064a5",
+                                "gas": 716700,
+                                "stipend": 21392
+                            },
+                            "mean_gas": 695308,
+                            "median_gas": 695308,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                }
+            },
+            "warnings": []
+        }
+    }
+}

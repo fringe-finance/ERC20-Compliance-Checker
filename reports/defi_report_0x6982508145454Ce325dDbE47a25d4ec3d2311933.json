@@ -1,0 +1,698 @@
+{
+    "data": {
+        "project": {
+            "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+            "contractName": "PepeToken",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No reentrancy risk found",
+                    "scwId": "107",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mintable risks found",
+                    "scwId": "186",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Users can always transfer their tokens",
+                    "scwId": "189",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract cannot be upgraded",
+                    "scwId": "193",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: ERC20.transfer(address,uint256) (PepeToken.sol#337-340)\n\t- in internal call: ERC20._transfer(address,address,uint256) (PepeToken.sol#445-465)\n\t\t- in expression require(bool,string)(! blacklists[to] && ! blacklists[from],Blacklisted)\n",
+                            "end": 340,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 159076437,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transfer(address recipient, uint256 amount) public virtual override returns (bool) {\n    _transfer(_msgSender(), recipient, amount);\n    return true;\n}",
+                            "start": 337
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: ERC20.transferFrom(address,address,uint256) (PepeToken.sol#374-388)\n\t- in internal call: ERC20._transfer(address,address,uint256) (PepeToken.sol#445-465)\n\t\t- in expression require(bool,string)(! blacklists[to] && ! blacklists[from],Blacklisted)\n",
+                            "end": 388,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 159076438,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transferFrom(\n    address sender,\n    address recipient,\n    uint256 amount\n) public virtual override returns (bool) {\n    _transfer(sender, recipient, amount);\n    uint256 currentAllowance = _allowances[sender][_msgSender()];\n    require(currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\");\n    unchecked {\n        _approve(sender, _msgSender(), currentAllowance - amount);\n    }\n    return true;\n}",
+                            "start": 374
+                        }
+                    ],
+                    "scwDescription": "Wallets can be blacklisted from being able to transfer, swap or sell this token.",
+                    "scwId": "208",
+                    "scwTitle": "Blacklisting"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Disabled.",
+                                    "title": "Transfer Amount Limits"
+                                }
+                            ],
+                            "data": "{\"ownerRenounced\":true,\"transferAmountLimits\":{\"upper\":0,\"lower\":0}}",
+                            "description": "Transfer amount limits in: ERC20.transfer(address,uint256) (PepeToken.sol#337-340)\n\t- In expression: senderBalance >= amount \n\t- In expression: super.balanceOf(to) + amount \n\t- In expression: super.balanceOf(to) + amount <= maxHoldingAmount \n\t- In expression: super.balanceOf(to) + amount \n\t- In expression: super.balanceOf(to) + amount >= minHoldingAmount \n",
+                            "end": 340,
+                            "governanceInfo": null,
+                            "id": 159076443,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transfer(address recipient, uint256 amount) public virtual override returns (bool) {\n    _transfer(_msgSender(), recipient, amount);\n    return true;\n}",
+                            "start": 337
+                        },
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Disabled.",
+                                    "title": "Transfer Amount Limits"
+                                }
+                            ],
+                            "data": "{\"ownerRenounced\":true,\"transferAmountLimits\":{\"upper\":0,\"lower\":0}}",
+                            "description": "Transfer amount limits in: ERC20.transferFrom(address,address,uint256) (PepeToken.sol#374-388)\n\t- In expression: senderBalance >= amount \n\t- In expression: currentAllowance >= amount \n\t- In expression: super.balanceOf(to) + amount \n\t- In expression: super.balanceOf(to) + amount <= maxHoldingAmount \n\t- In expression: super.balanceOf(to) + amount \n\t- In expression: super.balanceOf(to) + amount >= minHoldingAmount \n",
+                            "end": 388,
+                            "governanceInfo": null,
+                            "id": 159076444,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transferFrom(\n    address sender,\n    address recipient,\n    uint256 amount\n) public virtual override returns (bool) {\n    _transfer(sender, recipient, amount);\n    uint256 currentAllowance = _allowances[sender][_msgSender()];\n    require(currentAllowance >= amount, \"ERC20: transfer amount exceeds allowance\");\n    unchecked {\n        _approve(sender, _msgSender(), currentAllowance - amount);\n    }\n    return true;\n}",
+                            "start": 374
+                        }
+                    ],
+                    "scwDescription": "The max/min amount of token transferred can be limited.",
+                    "scwId": "211",
+                    "scwTitle": "Transfer Limit"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 interface errors found",
+                    "scwId": "204-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No centralized balance controls found",
+                    "scwId": "220",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external calls detected",
+                    "scwId": "210-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found.",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently.",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days."
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
+                    "scwId": "10024",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "scwId": "10025",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwId": "10028",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 2.15,
+            "firstTxBlock": null,
+            "firstTxDate": "1681483895000",
+            "firstTxFrom": "0xfbfeaf0da0f2fde5c66df570133ae35f3eb58c9a",
+            "generalIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No compiler version inconsistencies found",
+                    "scwId": "103",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized state variables found",
+                    "scwId": "142",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No innacurate divisions found",
+                    "scwId": "156",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable transfers found",
+                    "scwId": "158",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized local variables found",
+                    "scwId": "160",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No default function responses found",
+                    "scwId": "161",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "PepeToken.setRule(bool,address,uint256,uint256) (PepeToken.sol#605-610) should emit an event for: \n\t- maxHoldingAmount = _maxHoldingAmount (PepeToken.sol#608) \n\t- minHoldingAmount = _minHoldingAmount (PepeToken.sol#609) \n",
+                            "end": 610,
+                            "governanceInfo": null,
+                            "id": 159076441,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function setRule(bool _limited, address _uniswapV2Pair, uint256 _maxHoldingAmount, uint256 _minHoldingAmount) external onlyOwner {\n    limited = _limited;\n    uniswapV2Pair = _uniswapV2Pair;\n    maxHoldingAmount = _maxHoldingAmount;\n    minHoldingAmount = _minHoldingAmount;\n}",
+                            "start": 605
+                        }
+                    ],
+                    "scwDescription": "This contract is missing useful arithmetic events.",
+                    "scwId": "167-a",
+                    "scwTitle": "Missing Arithmetic Events"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing access control events found",
+                    "scwId": "167-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "PepeToken.setRule(bool,address,uint256,uint256)._uniswapV2Pair (PepeToken.sol#605) lacks a zero-check on :\n\t\t- uniswapV2Pair = _uniswapV2Pair (PepeToken.sol#607)\n",
+                            "end": 605,
+                            "governanceInfo": null,
+                            "id": 159076442,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function setRule(bool _limited, address _uniswapV2Pair, uint256 _maxHoldingAmount, uint256 _minHoldingAmount) external onlyOwner {",
+                            "start": 605
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract may not appropriately check for zero addresses being used.",
+                    "scwId": "168",
+                    "scwTitle": "Missing Zero Address Validation"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No buggy low-level calls found",
+                    "scwId": "173",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.8.0 (PepeToken.sol#8) allows old versions\n",
+                            "end": 8,
+                            "governanceInfo": null,
+                            "id": 159076439,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.0;",
+                            "start": 8
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "solc-0.8.0 is not recommended for deployment\n",
+                            "end": 0,
+                            "governanceInfo": null,
+                            "id": 159076440,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": 0
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No bad numeric notation practices found",
+                    "scwId": "182",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing external function declarations found",
+                    "scwId": "184",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": {
+                "contractOwners": [
+                    {
+                        "governance": null,
+                        "impact": "Informational",
+                        "modifiable": false,
+                        "multisig": null,
+                        "owner": "0x0000000000000000000000000000000000000000",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "0"
+                    }
+                ],
+                "issueOwners": [
+                    {
+                        "owners": [
+                            {
+                                "governance": null,
+                                "impact": "Informational",
+                                "modifiable": true,
+                                "multisig": null,
+                                "owner": "0x0000000000000000000000000000000000000000",
+                                "timelock": null,
+                                "timelockDelay": null,
+                                "type": "0"
+                            }
+                        ],
+                        "scwId": "208"
+                    }
+                ],
+                "proxyOwners": [],
+                "visibleOwner": "0x0000000000000000000000000000000000000000"
+            },
+            "inProgress": true,
+            "initialFunder": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+            "isProxyImplementation": false,
+            "logo": "",
+            "name": "PepeToken(Pepe)",
+            "network": 1,
+            "pairInfo": null,
+            "projectFullName": "",
+            "projectName": "",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0x6982508145454ce325ddbe47a25d4ec3d2311933_1_src.json",
+            "stats": {
+                "percentage": 100,
+                "scammed": false
+            },
+            "whitelisted": true
+        }
+    }
+}

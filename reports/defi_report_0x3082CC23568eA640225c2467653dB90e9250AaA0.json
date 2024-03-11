@@ -1,0 +1,761 @@
+{
+    "data": {
+        "project": {
+            "address": "0x3082cc23568ea640225c2467653db90e9250aaa0",
+            "contractName": "RadiantOFT",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"severityChanges\": {\"from\": \"High\", \"to\": \"Low\", \"reason\": \"Only emitting events after reentrancy expression.\"}}",
+                            "description": "Reentrancy in OFTCoreV2.callOnOFTReceived(uint16,bytes,uint64,bytes32,address,uint256,bytes,uint256) (OFTCoreV2.sol#51-60):\n\t- in expression:IOFTReceiverV2(_to).onOFTReceived{gas: _gasForCall}(_srcChainId,_srcAddress,_nonce,_from,_amount,_payload)",
+                            "end": 60,
+                            "governanceInfo": null,
+                            "id": 155435577,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "High",
+                                    "reason": "Only emitting events after reentrancy expression.",
+                                    "to": "Low"
+                                }
+                            ],
+                            "snippet": "function callOnOFTReceived(uint16 _srcChainId, bytes calldata _srcAddress, uint64 _nonce, bytes32 _from, address _to, uint _amount, bytes calldata _payload, uint _gasForCall) public virtual {\n    require(_msgSender() == address(this), \"OFTCore: caller must be OFTCore\");\n    // send\n    _amount = _transferFrom(address(this), _to, _amount);\n    emit ReceiveFromChain(_srcChainId, _to, _amount);\n    // call\n    IOFTReceiverV2(_to).onOFTReceived{gas: _gasForCall}(_srcChainId, _srcAddress, _nonce, _from, _amount, _payload);\n}",
+                            "start": 51
+                        }
+                    ],
+                    "scwDescription": "Funds in this contract may be vulnerable to a hack through a reentrancy exploit.",
+                    "scwId": "107",
+                    "scwTitle": "Reentrancy Risk"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mintable risks found",
+                    "scwId": "186",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Users can always transfer their tokens",
+                    "scwId": "189",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract cannot be upgraded",
+                    "scwId": "193",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Wallets cannot be blacklisted from transfering the token",
+                    "scwId": "208",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer limits found",
+                    "scwId": "211",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 interface errors found",
+                    "scwId": "204-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No centralized balance controls found",
+                    "scwId": "220",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external calls detected",
+                    "scwId": "210-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found.",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently.",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days."
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
+                    "scwId": "10024",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "scwId": "10025",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwId": "10028",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 0,
+            "firstTxBlock": null,
+            "firstTxDate": "2023-03-13T02:55:07.000Z",
+            "firstTxFrom": "0x43aa90c66b88ff904adc195987c0f3e3b09be0f1",
+            "generalIssues": [
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Different versions of Solidity is used:\n\t- Version used: ['0.8.4', '>=0.5.0', '>=0.7.6', '>=0.8.0<0.9.0', '^0.8.0']\n\t- >=0.5.0 (ILayerZeroEndpoint.sol#3)\n\t- >=0.5.0 (ILayerZeroReceiver.sol#3)\n\t- >=0.5.0 (ILayerZeroUserApplicationConfig.sol#3)\n\t- ^0.8.0 (LzApp.sol#3)\n\t- ^0.8.0 (NonblockingLzApp.sol#3)\n\t- ^0.8.0 (BaseOFTV2.sol#3)\n\t- >=0.5.0 (ICommonOFT.sol#3)\n\t- >=0.5.0 (IOFTReceiverV2.sol#3)\n\t- >=0.5.0 (IOFTV2.sol#3)\n\t- ^0.8.0 (OFTCoreV2.sol#3)\n\t- ^0.8.0 (OFTV2.sol#3)\n\t- >=0.8.0<0.9.0 (BytesLib.sol#9)\n\t- >=0.7.6 (ExcessivelySafeCall.sol#2)\n\t- ^0.8.0 (Ownable.sol#4)\n\t- ^0.8.0 (Pausable.sol#4)\n\t- ^0.8.0 (ERC20.sol#4)\n\t- ^0.8.0 (IERC20.sol#4)\n\t- ^0.8.0 (IERC20Metadata.sol#4)\n\t- ^0.8.0 (Context.sol#4)\n\t- ^0.8.0 (ERC165.sol#4)\n\t- ^0.8.0 (IERC165.sol#4)\n\t- ^0.8.0 (SafeMath.sol#4)\n\t- ^0.8.0 (BaseOFTV2.sol#3)\n\t- >=0.8.0<0.9.0 (BytesLib.sol#9)\n\t- ^0.8.0 (Context.sol#4)\n\t- ^0.8.0 (ERC165.sol#4)\n\t- ^0.8.0 (ERC20.sol#4)\n\t- >=0.7.6 (ExcessivelySafeCall.sol#2)\n\t- >=0.5.0 (ICommonOFT.sol#3)\n\t- ^0.8.0 (IERC165.sol#4)\n\t- ^0.8.0 (IERC20.sol#4)\n\t- ^0.8.0 (IERC20Metadata.sol#4)\n\t- >=0.5.0 (ILayerZeroEndpoint.sol#3)\n\t- >=0.5.0 (ILayerZeroReceiver.sol#3)\n\t- >=0.5.0 (ILayerZeroUserApplicationConfig.sol#3)\n\t- >=0.5.0 (IOFTReceiverV2.sol#3)\n\t- >=0.5.0 (IOFTV2.sol#3)\n\t- 0.8.4 (IPriceProvider.sol#3)\n\t- ^0.8.0 (LzApp.sol#3)\n\t- ^0.8.0 (NonblockingLzApp.sol#3)\n\t- ^0.8.0 (OFTCoreV2.sol#3)\n\t- ^0.8.0 (OFTV2.sol#3)\n\t- ^0.8.0 (Ownable.sol#4)\n\t- ^0.8.0 (Pausable.sol#4)\n\t- 0.8.4 (RadiantOFT.sol#2)\n\t- ^0.8.0 (SafeMath.sol#4)\n\t- ^0.8.0 (IERC20Metadata.sol#4)\n\t- >=0.5.0 (ILayerZeroEndpoint.sol#3)\n\t- >=0.5.0 (ILayerZeroReceiver.sol#3)\n\t- >=0.5.0 (ILayerZeroUserApplicationConfig.sol#3)\n\t- 0.8.4 (IPriceProvider.sol#3)\n\t- ^0.8.0 (LzApp.sol#3)\n\t- ^0.8.0 (NonblockingLzApp.sol#3)\n\t- >=0.8.0<0.9.0 (BytesLib.sol#9)\n\t- >=0.7.6 (ExcessivelySafeCall.sol#2)\n\t- ^0.8.0 (Context.sol#4)\n",
+                            "end": 3,
+                            "governanceInfo": null,
+                            "id": 155435570,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity >=0.5.0;",
+                            "start": 3
+                        }
+                    ],
+                    "scwDescription": "This contract may not function as expected due to inconsistent solidity compiler versions being specified.",
+                    "scwId": "103",
+                    "scwTitle": "Floating Pragma"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "LzApp.lzEndpoint (LzApp.sol#20) is never initialized. It is used in:\n\t- OFTCoreV2._estimateSendFee(uint16,bytes32,uint256,bool,bytes) (OFTCoreV2.sol#70-74)\n\t- OFTCoreV2._estimateSendAndCallFee(uint16,bytes32,uint256,bytes,uint64,bool,bytes) (OFTCoreV2.sol#76-80)\n",
+                            "end": 20,
+                            "governanceInfo": null,
+                            "id": 155435587,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "ILayerZeroEndpoint public immutable lzEndpoint;",
+                            "start": 20
+                        }
+                    ],
+                    "scwDescription": "This contract's state variables are not all initialized, potentially resulting in lost funds or other exploits.",
+                    "scwId": "142",
+                    "scwTitle": "Uninitialized State Variables"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "BytesLib.concatStorage(bytes,bytes) (BytesLib.sol#91-226) performs a multiplication on the result of a division:\n\t-sstore(uint256,uint256)(_preBytes,fslot_concatStorage_asm_0 + mload(uint256)(_postBytes + 0x20) / 0x100 ** 32 - mlength_concatStorage_asm_0 * 0x100 ** 32 - newlength_concatStorage_asm_0 + mlength_concatStorage_asm_0 * 2) (BytesLib.sol#115-140)\n",
+                            "end": 226,
+                            "governanceInfo": null,
+                            "id": 155435571,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function concatStorage(bytes storage _preBytes, bytes memory _postBytes) internal {\n    assembly {\n    // Read the first 32 bytes of _preBytes storage, which is the length\n    // of the array. (We don't need to use the offset into the slot\n    // because arrays use the entire slot.)\n        let fslot := sload(_preBytes.slot)\n    // Arrays of 31 bytes or less have an even value in their slot,\n    // while longer arrays have an odd value. The actual length is\n    // the slot divided by two for odd values, and the lowest order\n    // byte divided by two for even values.\n    // If the slot is even, bitwise and the slot with 255 and divide by\n    // two to get the length. If the slot is odd, bitwise and the slot\n    // with -1 and divide by two.\n        let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\n        let mlength := mload(_postBytes)\n        let newlength := add(slength, mlength)\n    // slength can contain both the length and contents of the array\n    // if length < 32 bytes so let's prepare for that\n    // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\n        switch add(lt(slength, 32), lt(newlength, 32))\n        case 2 {\n        // Since the new array still fits in the slot, we just need to\n        // update the contents of the slot.\n        // uint256(bytes_storage) = uint256(bytes_storage) + uint256(bytes_memory) + new_length\n            sstore(\n            _preBytes.slot,\n            // all the modifications to the slot are inside this\n            // next block\n            add(\n            // we can just add to the slot contents because the\n            // bytes we want to change are the LSBs\n            fslot,\n            add(\n            mul(\n            div(\n            // load the bytes from memory\n            mload(add(_postBytes, 0x20)),\n            // zero all bytes to the right\n            exp(0x100, sub(32, mlength))\n            ),\n            // and now shift left the number of bytes to\n            // leave space for the length in the slot\n            exp(0x100, sub(32, newlength))\n            ),\n            // increase length by the double of the memory\n            // bytes length\n            mul(mlength, 2)\n            )\n            )\n            )\n        }\n        case 1 {\n        // The stored value fits in the slot, but the combined value\n        // will exceed it.\n        // get the keccak hash to get the contents of the array\n            mstore(0x0, _preBytes.slot)\n            let sc := add(keccak256(0x0, 0x20), div(slength, 32))\n        // save new length\n            sstore(_preBytes.slot, add(mul(newlength, 2), 1))\n        // The contents of the _postBytes array start 32 bytes into\n        // the structure. Our first read should obtain the `submod`\n        // bytes that can fit into the unused space in the last word\n        // of the stored array. To get this, we read 32 bytes starting\n        // from `submod`, so the data we read overlaps with the array\n        // contents by `submod` bytes. Masking the lowest-order\n        // `submod` bytes allows us to add that value directly to the\n        // stored value.\n            let submod := sub(32, slength)\n            let mc := add(_postBytes, submod)\n            let end := add(_postBytes, mlength)\n            let mask := sub(exp(0x100, submod), 1)\n            sstore(\n            sc,\n            add(\n            and(\n            fslot,\n            0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00\n            ),\n            and(mload(mc), mask)\n            )\n            )\n            for {\n                mc := add(mc, 0x20)\n                sc := add(sc, 1)\n            } lt(mc, end) {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } {\n                sstore(sc, mload(mc))\n            }\n            mask := exp(0x100, sub(mc, end))\n            sstore(sc, mul(div(mload(mc), mask), mask))\n        }\n        default {\n        // get the keccak hash to get the contents of the array\n            mstore(0x0, _preBytes.slot)\n        // Start copying to the last used word of the stored array.\n            let sc := add(keccak256(0x0, 0x20), div(slength, 32))\n        // save new length\n            sstore(_preBytes.slot, add(mul(newlength, 2), 1))\n        // Copy over the first `submod` bytes of the new data as in\n        // case 1 above.\n            let slengthmod := mod(slength, 32)\n            let mlengthmod := mod(mlength, 32)\n            let submod := sub(32, slengthmod)\n            let mc := add(_postBytes, submod)\n            let end := add(_postBytes, mlength)\n            let mask := sub(exp(0x100, submod), 1)\n            sstore(sc, add(sload(sc), and(mload(mc), mask)))\n            for {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } lt(mc, end) {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } {\n                sstore(sc, mload(mc))\n            }\n            mask := exp(0x100, sub(mc, end))\n            sstore(sc, mul(div(mload(mc), mask), mask))\n        }\n    }\n}",
+                            "start": 91
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "BytesLib.concatStorage(bytes,bytes) (BytesLib.sol#91-226) performs a multiplication on the result of a division:\n\t-sstore(uint256,uint256)(sc_concatStorage_asm_0,mload(uint256)(mc_concatStorage_asm_0) / mask_concatStorage_asm_0 * mask_concatStorage_asm_0) (BytesLib.sol#189)\n",
+                            "end": 226,
+                            "governanceInfo": null,
+                            "id": 155435572,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function concatStorage(bytes storage _preBytes, bytes memory _postBytes) internal {\n    assembly {\n    // Read the first 32 bytes of _preBytes storage, which is the length\n    // of the array. (We don't need to use the offset into the slot\n    // because arrays use the entire slot.)\n        let fslot := sload(_preBytes.slot)\n    // Arrays of 31 bytes or less have an even value in their slot,\n    // while longer arrays have an odd value. The actual length is\n    // the slot divided by two for odd values, and the lowest order\n    // byte divided by two for even values.\n    // If the slot is even, bitwise and the slot with 255 and divide by\n    // two to get the length. If the slot is odd, bitwise and the slot\n    // with -1 and divide by two.\n        let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\n        let mlength := mload(_postBytes)\n        let newlength := add(slength, mlength)\n    // slength can contain both the length and contents of the array\n    // if length < 32 bytes so let's prepare for that\n    // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\n        switch add(lt(slength, 32), lt(newlength, 32))\n        case 2 {\n        // Since the new array still fits in the slot, we just need to\n        // update the contents of the slot.\n        // uint256(bytes_storage) = uint256(bytes_storage) + uint256(bytes_memory) + new_length\n            sstore(\n            _preBytes.slot,\n            // all the modifications to the slot are inside this\n            // next block\n            add(\n            // we can just add to the slot contents because the\n            // bytes we want to change are the LSBs\n            fslot,\n            add(\n            mul(\n            div(\n            // load the bytes from memory\n            mload(add(_postBytes, 0x20)),\n            // zero all bytes to the right\n            exp(0x100, sub(32, mlength))\n            ),\n            // and now shift left the number of bytes to\n            // leave space for the length in the slot\n            exp(0x100, sub(32, newlength))\n            ),\n            // increase length by the double of the memory\n            // bytes length\n            mul(mlength, 2)\n            )\n            )\n            )\n        }\n        case 1 {\n        // The stored value fits in the slot, but the combined value\n        // will exceed it.\n        // get the keccak hash to get the contents of the array\n            mstore(0x0, _preBytes.slot)\n            let sc := add(keccak256(0x0, 0x20), div(slength, 32))\n        // save new length\n            sstore(_preBytes.slot, add(mul(newlength, 2), 1))\n        // The contents of the _postBytes array start 32 bytes into\n        // the structure. Our first read should obtain the `submod`\n        // bytes that can fit into the unused space in the last word\n        // of the stored array. To get this, we read 32 bytes starting\n        // from `submod`, so the data we read overlaps with the array\n        // contents by `submod` bytes. Masking the lowest-order\n        // `submod` bytes allows us to add that value directly to the\n        // stored value.\n            let submod := sub(32, slength)\n            let mc := add(_postBytes, submod)\n            let end := add(_postBytes, mlength)\n            let mask := sub(exp(0x100, submod), 1)\n            sstore(\n            sc,\n            add(\n            and(\n            fslot,\n            0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00\n            ),\n            and(mload(mc), mask)\n            )\n            )\n            for {\n                mc := add(mc, 0x20)\n                sc := add(sc, 1)\n            } lt(mc, end) {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } {\n                sstore(sc, mload(mc))\n            }\n            mask := exp(0x100, sub(mc, end))\n            sstore(sc, mul(div(mload(mc), mask), mask))\n        }\n        default {\n        // get the keccak hash to get the contents of the array\n            mstore(0x0, _preBytes.slot)\n        // Start copying to the last used word of the stored array.\n            let sc := add(keccak256(0x0, 0x20), div(slength, 32))\n        // save new length\n            sstore(_preBytes.slot, add(mul(newlength, 2), 1))\n        // Copy over the first `submod` bytes of the new data as in\n        // case 1 above.\n            let slengthmod := mod(slength, 32)\n            let mlengthmod := mod(mlength, 32)\n            let submod := sub(32, slengthmod)\n            let mc := add(_postBytes, submod)\n            let end := add(_postBytes, mlength)\n            let mask := sub(exp(0x100, submod), 1)\n            sstore(sc, add(sload(sc), and(mload(mc), mask)))\n            for {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } lt(mc, end) {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } {\n                sstore(sc, mload(mc))\n            }\n            mask := exp(0x100, sub(mc, end))\n            sstore(sc, mul(div(mload(mc), mask), mask))\n        }\n    }\n}",
+                            "start": 91
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "BytesLib.concatStorage(bytes,bytes) (BytesLib.sol#91-226) performs a multiplication on the result of a division:\n\t-sstore(uint256,uint256)(sc_concatStorage_asm_0,mload(uint256)(mc_concatStorage_asm_0) / mask_concatStorage_asm_0 * mask_concatStorage_asm_0) (BytesLib.sol#223)\n",
+                            "end": 226,
+                            "governanceInfo": null,
+                            "id": 155435573,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function concatStorage(bytes storage _preBytes, bytes memory _postBytes) internal {\n    assembly {\n    // Read the first 32 bytes of _preBytes storage, which is the length\n    // of the array. (We don't need to use the offset into the slot\n    // because arrays use the entire slot.)\n        let fslot := sload(_preBytes.slot)\n    // Arrays of 31 bytes or less have an even value in their slot,\n    // while longer arrays have an odd value. The actual length is\n    // the slot divided by two for odd values, and the lowest order\n    // byte divided by two for even values.\n    // If the slot is even, bitwise and the slot with 255 and divide by\n    // two to get the length. If the slot is odd, bitwise and the slot\n    // with -1 and divide by two.\n        let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\n        let mlength := mload(_postBytes)\n        let newlength := add(slength, mlength)\n    // slength can contain both the length and contents of the array\n    // if length < 32 bytes so let's prepare for that\n    // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\n        switch add(lt(slength, 32), lt(newlength, 32))\n        case 2 {\n        // Since the new array still fits in the slot, we just need to\n        // update the contents of the slot.\n        // uint256(bytes_storage) = uint256(bytes_storage) + uint256(bytes_memory) + new_length\n            sstore(\n            _preBytes.slot,\n            // all the modifications to the slot are inside this\n            // next block\n            add(\n            // we can just add to the slot contents because the\n            // bytes we want to change are the LSBs\n            fslot,\n            add(\n            mul(\n            div(\n            // load the bytes from memory\n            mload(add(_postBytes, 0x20)),\n            // zero all bytes to the right\n            exp(0x100, sub(32, mlength))\n            ),\n            // and now shift left the number of bytes to\n            // leave space for the length in the slot\n            exp(0x100, sub(32, newlength))\n            ),\n            // increase length by the double of the memory\n            // bytes length\n            mul(mlength, 2)\n            )\n            )\n            )\n        }\n        case 1 {\n        // The stored value fits in the slot, but the combined value\n        // will exceed it.\n        // get the keccak hash to get the contents of the array\n            mstore(0x0, _preBytes.slot)\n            let sc := add(keccak256(0x0, 0x20), div(slength, 32))\n        // save new length\n            sstore(_preBytes.slot, add(mul(newlength, 2), 1))\n        // The contents of the _postBytes array start 32 bytes into\n        // the structure. Our first read should obtain the `submod`\n        // bytes that can fit into the unused space in the last word\n        // of the stored array. To get this, we read 32 bytes starting\n        // from `submod`, so the data we read overlaps with the array\n        // contents by `submod` bytes. Masking the lowest-order\n        // `submod` bytes allows us to add that value directly to the\n        // stored value.\n            let submod := sub(32, slength)\n            let mc := add(_postBytes, submod)\n            let end := add(_postBytes, mlength)\n            let mask := sub(exp(0x100, submod), 1)\n            sstore(\n            sc,\n            add(\n            and(\n            fslot,\n            0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00\n            ),\n            and(mload(mc), mask)\n            )\n            )\n            for {\n                mc := add(mc, 0x20)\n                sc := add(sc, 1)\n            } lt(mc, end) {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } {\n                sstore(sc, mload(mc))\n            }\n            mask := exp(0x100, sub(mc, end))\n            sstore(sc, mul(div(mload(mc), mask), mask))\n        }\n        default {\n        // get the keccak hash to get the contents of the array\n            mstore(0x0, _preBytes.slot)\n        // Start copying to the last used word of the stored array.\n            let sc := add(keccak256(0x0, 0x20), div(slength, 32))\n        // save new length\n            sstore(_preBytes.slot, add(mul(newlength, 2), 1))\n        // Copy over the first `submod` bytes of the new data as in\n        // case 1 above.\n            let slengthmod := mod(slength, 32)\n            let mlengthmod := mod(mlength, 32)\n            let submod := sub(32, slengthmod)\n            let mc := add(_postBytes, submod)\n            let end := add(_postBytes, mlength)\n            let mask := sub(exp(0x100, submod), 1)\n            sstore(sc, add(sload(sc), and(mload(mc), mask)))\n            for {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } lt(mc, end) {\n                sc := add(sc, 1)\n                mc := add(mc, 0x20)\n            } {\n                sstore(sc, mload(mc))\n            }\n            mask := exp(0x100, sub(mc, end))\n            sstore(sc, mul(div(mload(mc), mask), mask))\n        }\n    }\n}",
+                            "start": 91
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "BytesLib.equalStorage(bytes,bytes) (BytesLib.sol#439-509) performs a multiplication on the result of a division:\n\t-fslot_equalStorage_asm_0 = fslot_equalStorage_asm_0 / 0x100 * 0x100 (BytesLib.sol#466)\n",
+                            "end": 509,
+                            "governanceInfo": null,
+                            "id": 155435574,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function equalStorage(\n    bytes storage _preBytes,\n    bytes memory _postBytes\n)\ninternal\nview\nreturns (bool)\n    bool success = true;\n    assembly {\n    // we know _preBytes_offset is 0\n        let fslot := sload(_preBytes.slot)\n    // Decode the length of the stored array like in concatStorage().\n        let slength := div(and(fslot, sub(mul(0x100, iszero(and(fslot, 1))), 1)), 2)\n        let mlength := mload(_postBytes)\n    // if lengths don't match the arrays are not equal\n        switch eq(slength, mlength)\n        case 1 {\n        // slength can contain both the length and contents of the array\n        // if length < 32 bytes so let's prepare for that\n        // v. http://solidity.readthedocs.io/en/latest/miscellaneous.html#layout-of-state-variables-in-storage\n            if iszero(iszero(slength)) {\n                switch lt(slength, 32)\n                case 1 {\n                // blank the last byte which is the length\n                    fslot := mul(div(fslot, 0x100), 0x100)\n                    if iszero(eq(fslot, mload(add(_postBytes, 0x20)))) {\n                    // unsuccess:\n                        success := 0\n                    }\n                }\n                default {\n                // cb is a circuit breaker in the for loop since there's\n                //  no said feature for inline assembly loops\n                // cb = 1 - don't breaker\n                // cb = 0 - break\n                    let cb := 1\n                // get the keccak hash to get the contents of the array\n                    mstore(0x0, _preBytes.slot)\n                    let sc := keccak256(0x0, 0x20)\n                    let mc := add(_postBytes, 0x20)\n                    let end := add(mc, mlength)\n                // the next line is the loop condition:\n                // while(uint256(mc < end) + cb == 2)\n                    for {} eq(add(lt(mc, end), cb), 2) {\n                        sc := add(sc, 1)\n                        mc := add(mc, 0x20)\n                    } {\n                        if iszero(eq(sload(sc), mload(mc))) {\n                        // unsuccess:\n                            success := 0\n                            cb := 0\n                        }\n                    }\n                }\n            }\n        }\n        default {\n        // unsuccess:\n            success := 0\n        }\n    }\n    return success;\n}",
+                            "start": 439
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "RadiantOFT.getBridgeFee(uint256) (RadiantOFT.sol#150-158) performs a multiplication on the result of a division:\n\t-rdntInEth = _rdntAmount.mul(priceInEth).div(10 ** priceDecimals).mul(10 ** 18).div(10 ** decimals()) (RadiantOFT.sol#156)\n",
+                            "end": 158,
+                            "governanceInfo": null,
+                            "id": 155435575,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "\tfunction getBridgeFee(uint256 _rdntAmount) public view returns (uint256) {\n\t\tif (address(priceProvider) == address(0)) {\n\t\t\treturn 0;\n\t\t}\n\t\tuint256 priceInEth = priceProvider.getTokenPrice();\n\t\tuint256 priceDecimals = priceProvider.decimals();\n\t\tuint256 rdntInEth = _rdntAmount.mul(priceInEth).div(10 ** priceDecimals).mul(10 ** 18).div(10 ** decimals());\n\t\treturn rdntInEth.mul(feeRatio).div(FEE_DIVISOR);\n\t}",
+                            "start": 150
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "RadiantOFT.getBridgeFee(uint256) (RadiantOFT.sol#150-158) performs a multiplication on the result of a division:\n\t-rdntInEth = _rdntAmount.mul(priceInEth).div(10 ** priceDecimals).mul(10 ** 18).div(10 ** decimals()) (RadiantOFT.sol#156)\n\t-rdntInEth.mul(feeRatio).div(FEE_DIVISOR) (RadiantOFT.sol#157)\n",
+                            "end": 158,
+                            "governanceInfo": null,
+                            "id": 155435576,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "\tfunction getBridgeFee(uint256 _rdntAmount) public view returns (uint256) {\n\t\tif (address(priceProvider) == address(0)) {\n\t\t\treturn 0;\n\t\t}\n\t\tuint256 priceInEth = priceProvider.getTokenPrice();\n\t\tuint256 priceDecimals = priceProvider.decimals();\n\t\tuint256 rdntInEth = _rdntAmount.mul(priceInEth).div(10 ** priceDecimals).mul(10 ** 18).div(10 ** decimals());\n\t\treturn rdntInEth.mul(feeRatio).div(FEE_DIVISOR);\n\t}",
+                            "start": 150
+                        }
+                    ],
+                    "scwDescription": "The order of operations used may result in a loss of precision.",
+                    "scwId": "156",
+                    "scwTitle": "Division Before Multiplication"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable transfers found",
+                    "scwId": "158",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized local variables found",
+                    "scwId": "160",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No default function responses found",
+                    "scwId": "161",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing arithmetic events found",
+                    "scwId": "167-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing access control events found",
+                    "scwId": "167-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "LzApp.setPrecrime(address)._precrime (LzApp.sol#118) lacks a zero-check on :\n\t\t- precrime = _precrime (LzApp.sol#119)\n",
+                            "end": 118,
+                            "governanceInfo": null,
+                            "id": 155435584,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function setPrecrime(address _precrime) external onlyOwner {",
+                            "start": 118
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract may not appropriately check for zero addresses being used.",
+                    "scwId": "168",
+                    "scwTitle": "Missing Zero Address Validation"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No buggy low-level calls found",
+                    "scwId": "173",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version>=0.5.0 (ILayerZeroEndpoint.sol#3) allows old versions\n",
+                            "end": 3,
+                            "governanceInfo": null,
+                            "id": 155435581,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity >=0.5.0;",
+                            "start": 3
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.8.0 (LzApp.sol#3) allows old versions\n",
+                            "end": 3,
+                            "governanceInfo": null,
+                            "id": 155435582,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.0;",
+                            "start": 3
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version>=0.8.0<0.9.0 (BytesLib.sol#9) is too complex\n",
+                            "end": 9,
+                            "governanceInfo": null,
+                            "id": 155435583,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity >=0.8.0 <0.9.0;",
+                            "start": 9
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "BytesLib.toAddress(bytes,uint256) (BytesLib.sol#297-306) uses literals with too many digits:\n\t- tempAddress = mload(uint256)(_bytes + 0x20 + _start) / 0x1000000000000000000000000 (BytesLib.sol#302)\n",
+                            "end": 306,
+                            "governanceInfo": null,
+                            "id": 155435585,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function toAddress(bytes memory _bytes, uint256 _start) internal pure returns (address) {\n    require(_bytes.length >= _start + 20, \"toAddress_outOfBounds\");\n    address tempAddress;\n    assembly {\n        tempAddress := div(mload(add(add(_bytes, 0x20), _start)), 0x1000000000000000000000000)\n    }\n    return tempAddress;\n}",
+                            "start": 297
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "Contract ExcessivelySafeCall uses literals with too many digits:\n\t- LOW_28_MASK = 0x00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff (ExcessivelySafeCall.sol#5-6)\n",
+                            "end": 6,
+                            "governanceInfo": null,
+                            "id": 155435586,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "uint256 constant LOW_28_MASK =\n0x00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff;",
+                            "start": 5
+                        }
+                    ],
+                    "scwDescription": "The numeric notation used in this contract is unconventional, possibly worsening the reading/debugging experience.",
+                    "scwId": "182",
+                    "scwTitle": "Numeric Notation Best Practices"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "burn(uint256) should be declared external:\n\t- RadiantOFT.burn(uint256) (RadiantOFT.sol#62-64)\n",
+                            "end": 64,
+                            "governanceInfo": null,
+                            "id": 155435578,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "\tfunction burn(uint256 _amount) public {\n\t\t_burn(_msgSender(), _amount);\n\t}",
+                            "start": 62
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "pause() should be declared external:\n\t- RadiantOFT.pause() (RadiantOFT.sol#66-68)\n",
+                            "end": 68,
+                            "governanceInfo": null,
+                            "id": 155435579,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "\tfunction pause() public onlyOwner {\n\t\t_pause();\n\t}",
+                            "start": 66
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "unpause() should be declared external:\n\t- RadiantOFT.unpause() (RadiantOFT.sol#70-72)\n",
+                            "end": 72,
+                            "governanceInfo": null,
+                            "id": 155435580,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "\tfunction unpause() public onlyOwner {\n\t\t_unpause();\n\t}",
+                            "start": 70
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract should be declared as external in order to save gas.",
+                    "scwId": "184",
+                    "scwTitle": "Public Functions Should be Declared External"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": {
+                "contractOwners": [
+                    {
+                        "governance": null,
+                        "impact": "Medium",
+                        "modifiable": true,
+                        "multisig": {
+                            "multisigOwners": [
+                                "0xF3e941D645Ba863644Dc805fd47a7aa6fe474BfE",
+                                "0xd1fcCa5d8AD661872106990084283a1bC8ACb2f8",
+                                "0x59891730A777ceF6389A8a5684554F333f43c44f",
+                                "0x107378b2Ecf260C4256C52c44Efd949b4c66f822",
+                                "0xa4D00Fa1911F7F67E6Ee23b071D63e92Ec31c8ec"
+                            ],
+                            "threshold": 2,
+                            "transactionCount": 94
+                        },
+                        "owner": "0x111ceeee040739fd91d29c34c33e6b3e112f2177",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "2"
+                    }
+                ],
+                "issueOwners": [],
+                "proxyOwners": [],
+                "visibleOwner": "0x111ceeee040739fd91d29c34c33e6b3e112f2177"
+            },
+            "inProgress": false,
+            "initialFunder": "0x099342fb6b0a9f4c04fcf772111cba937fd1bae6",
+            "isProxyImplementation": false,
+            "logo": "",
+            "name": "RadiantOFT(Radiant)",
+            "network": 42161,
+            "pairInfo": null,
+            "projectFullName": "",
+            "projectName": "",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0x3082cc23568ea640225c2467653db90e9250aaa0_42161_src.json",
+            "stats": {
+                "percentage": 100,
+                "scammed": false
+            },
+            "whitelisted": true
+        }
+    }
+}

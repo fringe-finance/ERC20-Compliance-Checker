@@ -1,0 +1,1028 @@
+{
+    "data": {
+        "project": {
+            "address": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+            "contractName": "OVMFiatToken",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No reentrancy risk found",
+                    "scwId": "107",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Not found.",
+                                    "title": "Mint max supply"
+                                },
+                                {
+                                    "description": "Not found.",
+                                    "title": "Mint Timelock"
+                                }
+                            ],
+                            "data": "{\"max_supply\": \"\", \"timelock\": \"\", \"privileged\": [{\"type\": \"var\", \"value\": \"l2Bridge\", \"modifiable\": false}]}",
+                            "description": "Mint function: OVMFiatToken.mint(address,uint256) (OVMFiatToken.sol#1028-1036)\n\t- in internal call: super.mint(account,amount)\n\t\t- In expression: _balances[account] = _balances[account].add(amount)\n",
+                            "end": 1036,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x4200000000000000000000000000000000000010",
+                                        "timelockDelay": null,
+                                        "type": "5"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x4200000000000000000000000000000000000010",
+                                    "timelockDelay": null,
+                                    "type": "5"
+                                }
+                            },
+                            "id": 155297042,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function mint(address account, uint256 amount)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(account)\r\n    onlyL2Bridge\r\n    super.mint(account, amount);\r\n}\r",
+                            "start": 1028
+                        }
+                    ],
+                    "scwDescription": "A large amount of this token can be minted by a private wallet or contract.",
+                    "scwId": "186",
+                    "scwTitle": "Mintable"
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"pauser\", \"modifiable\": true}]}",
+                            "description": "Pausable function: OVMFiatToken.approve(address,uint256) (OVMFiatToken.sol#1048-1057)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool,string)(! _paused,contract is paused)\n",
+                            "end": 1057,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 155297045,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function approve(address spender, uint256 amount)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(spender)\r\n    returns (bool)\r\n    return super.approve(spender, amount);\r\n}\r",
+                            "start": 1048
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"pauser\", \"modifiable\": true}]}",
+                            "description": "Pausable function: OVMFiatToken.decreaseAllowance(address,uint256) (OVMFiatToken.sol#1070-1079)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool,string)(! _paused,contract is paused)\n",
+                            "end": 1079,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 155297046,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function decreaseAllowance(address spender, uint256 subtractedValue)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(spender)\r\n    returns (bool)\r\n    return super.decreaseAllowance(spender, subtractedValue);\r\n}\r",
+                            "start": 1070
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"pauser\", \"modifiable\": true}]}",
+                            "description": "Pausable function: OVMFiatToken.transferFrom(address,address,uint256) (OVMFiatToken.sol#1092-1106)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool,string)(! _paused,contract is paused)\n",
+                            "end": 1106,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 155297047,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transferFrom(\r\n    address sender,\r\n    address recipient,\r\n    uint256 amount\r\n)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(sender)\r\n    notBlacklisted(recipient)\r\n    returns (bool)\r\n    return super.transferFrom(sender, recipient, amount);\r\n}\r",
+                            "start": 1092
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"pauser\", \"modifiable\": true}]}",
+                            "description": "Pausable function: OVMFiatToken.transfer(address,uint256) (OVMFiatToken.sol#1081-1090)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool,string)(! _paused,contract is paused)\n",
+                            "end": 1090,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 155297048,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transfer(address recipient, uint256 amount)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(recipient)\r\n    returns (bool)\r\n    return super.transfer(recipient, amount);\r\n}\r",
+                            "start": 1081
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"pauser\", \"modifiable\": true}]}",
+                            "description": "Pausable function: OVMFiatToken.increaseAllowance(address,uint256) (OVMFiatToken.sol#1059-1068)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool,string)(! _paused,contract is paused)\n",
+                            "end": 1068,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x0000000000000000000000000000000000000000",
+                                    "timelockDelay": null,
+                                    "type": "0"
+                                }
+                            },
+                            "id": 155297049,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: NullAddress",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function increaseAllowance(address spender, uint256 addedValue)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(spender)\r\n    returns (bool)\r\n    return super.increaseAllowance(spender, addedValue);\r\n}\r",
+                            "start": 1059
+                        }
+                    ],
+                    "scwDescription": "Token transfers can be paused, preventing swapping or selling.",
+                    "scwId": "189",
+                    "scwTitle": "Pausable"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract cannot be upgraded",
+                    "scwId": "193",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"blacklister\", \"modifiable\": true}, {\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: OVMFiatToken.approve(address,uint256) (OVMFiatToken.sol#1048-1057)\n\t- in modifier: Blacklistable.notBlacklisted(address) (OVMFiatToken.sol#951-954)\n\t\t- in expression: require(bool,string)(! _blacklisted[account],account is blacklisted)\n",
+                            "end": 1057,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    },
+                                    {
+                                        "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                        "timelockDelay": null,
+                                        "type": "2"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                    "timelockDelay": null,
+                                    "type": "2"
+                                }
+                            },
+                            "id": 155297034,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: Multisig",
+                                    "to": "High"
+                                }
+                            ],
+                            "snippet": "function approve(address spender, uint256 amount)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(spender)\r\n    returns (bool)\r\n    return super.approve(spender, amount);\r\n}\r",
+                            "start": 1048
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"blacklister\", \"modifiable\": true}, {\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: OVMFiatToken.increaseAllowance(address,uint256) (OVMFiatToken.sol#1059-1068)\n\t- in modifier: Blacklistable.notBlacklisted(address) (OVMFiatToken.sol#951-954)\n\t\t- in expression: require(bool,string)(! _blacklisted[account],account is blacklisted)\n",
+                            "end": 1068,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    },
+                                    {
+                                        "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                        "timelockDelay": null,
+                                        "type": "2"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                    "timelockDelay": null,
+                                    "type": "2"
+                                }
+                            },
+                            "id": 155297035,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: Multisig",
+                                    "to": "High"
+                                }
+                            ],
+                            "snippet": "function increaseAllowance(address spender, uint256 addedValue)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(spender)\r\n    returns (bool)\r\n    return super.increaseAllowance(spender, addedValue);\r\n}\r",
+                            "start": 1059
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"blacklister\", \"modifiable\": true}, {\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: OVMFiatToken.decreaseAllowance(address,uint256) (OVMFiatToken.sol#1070-1079)\n\t- in modifier: Blacklistable.notBlacklisted(address) (OVMFiatToken.sol#951-954)\n\t\t- in expression: require(bool,string)(! _blacklisted[account],account is blacklisted)\n",
+                            "end": 1079,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    },
+                                    {
+                                        "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                        "timelockDelay": null,
+                                        "type": "2"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                    "timelockDelay": null,
+                                    "type": "2"
+                                }
+                            },
+                            "id": 155297036,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: Multisig",
+                                    "to": "High"
+                                }
+                            ],
+                            "snippet": "function decreaseAllowance(address spender, uint256 subtractedValue)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(spender)\r\n    returns (bool)\r\n    return super.decreaseAllowance(spender, subtractedValue);\r\n}\r",
+                            "start": 1070
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"blacklister\", \"modifiable\": true}, {\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: OVMFiatToken.transfer(address,uint256) (OVMFiatToken.sol#1081-1090)\n\t- in modifier: Blacklistable.notBlacklisted(address) (OVMFiatToken.sol#951-954)\n\t\t- in expression: require(bool,string)(! _blacklisted[account],account is blacklisted)\n",
+                            "end": 1090,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    },
+                                    {
+                                        "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                        "timelockDelay": null,
+                                        "type": "2"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                    "timelockDelay": null,
+                                    "type": "2"
+                                }
+                            },
+                            "id": 155297037,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: Multisig",
+                                    "to": "High"
+                                }
+                            ],
+                            "snippet": "function transfer(address recipient, uint256 amount)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(recipient)\r\n    returns (bool)\r\n    return super.transfer(recipient, amount);\r\n}\r",
+                            "start": 1081
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"function\", \"value\": \"blacklister\", \"modifiable\": true}, {\"type\": \"function\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: OVMFiatToken.transferFrom(address,address,uint256) (OVMFiatToken.sol#1092-1106)\n\t- in modifier: Blacklistable.notBlacklisted(address) (OVMFiatToken.sol#951-954)\n\t\t- in expression: require(bool,string)(! _blacklisted[account],account is blacklisted)\n",
+                            "end": 1106,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x0000000000000000000000000000000000000000",
+                                        "timelockDelay": null,
+                                        "type": "0"
+                                    },
+                                    {
+                                        "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                        "timelockDelay": null,
+                                        "type": "2"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                    "timelockDelay": null,
+                                    "type": "2"
+                                }
+                            },
+                            "id": 155297038,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "OwnerAnalyzer: Multisig",
+                                    "to": "High"
+                                }
+                            ],
+                            "snippet": "function transferFrom(\r\n    address sender,\r\n    address recipient,\r\n    uint256 amount\r\n)\r\n    public\r\n    override\r\n    whenNotPaused\r\n    notBlacklisted(msg.sender)\r\n    notBlacklisted(sender)\r\n    notBlacklisted(recipient)\r\n    returns (bool)\r\n    return super.transferFrom(sender, recipient, amount);\r\n}\r",
+                            "start": 1092
+                        }
+                    ],
+                    "scwDescription": "Wallets can be blacklisted from being able to transfer, swap or sell this token.",
+                    "scwId": "208",
+                    "scwTitle": "Blacklisting"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer limits found",
+                    "scwId": "211",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 interface errors found",
+                    "scwId": "204-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No centralized balance controls found",
+                    "scwId": "220",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external calls detected",
+                    "scwId": "210-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found.",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently.",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days."
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
+                    "scwId": "10024",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "scwId": "10025",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwId": "10028",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 0,
+            "firstTxBlock": null,
+            "firstTxDate": "2021-01-14T15:51:40.000Z",
+            "firstTxFrom": "genesis",
+            "generalIssues": [
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Different versions of Solidity is used:\n\t- Version used: ['>=0.5.16<0.8.0', '>=0.6.0<0.8.0']\n\t- >=0.6.0<0.8.0 (OVMFiatToken.sol#7)\n\t- >=0.6.0<0.8.0 (OVMFiatToken.sol#32)\n\t- >=0.6.0<0.8.0 (OVMFiatToken.sol#111)\n\t- >=0.6.0<0.8.0 (OVMFiatToken.sol#327)\n\t- >=0.6.0<0.8.0 (OVMFiatToken.sol#633)\n\t- >=0.5.16<0.8.0 (OVMFiatToken.sol#659)\n\t- >=0.5.16<0.8.0 (OVMFiatToken.sol#676)\n\t- >=0.5.16<0.8.0 (OVMFiatToken.sol#730)\n\t- >=0.5.16<0.8.0 (OVMFiatToken.sol#792)\n\t- >=0.5.16<0.8.0 (OVMFiatToken.sol#929)\n\t- >=0.5.16<0.8.0 (OVMFiatToken.sol#1009)\n",
+                            "end": 7,
+                            "governanceInfo": null,
+                            "id": 155297039,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity >=0.6.0 <0.8.0;\r",
+                            "start": 7
+                        }
+                    ],
+                    "scwDescription": "This contract may not function as expected due to inconsistent solidity compiler versions being specified.",
+                    "scwId": "103",
+                    "scwTitle": "Floating Pragma"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized state variables found",
+                    "scwId": "142",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No innacurate divisions found",
+                    "scwId": "156",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable transfers found",
+                    "scwId": "158",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized local variables found",
+                    "scwId": "160",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No default function responses found",
+                    "scwId": "161",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing arithmetic events found",
+                    "scwId": "167-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing access control events found",
+                    "scwId": "167-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "L2StandardERC20.constructor(address,address,string,string)._l1Token (OVMFiatToken.sol#690) lacks a zero-check on :\n\t\t- l1Token = _l1Token (OVMFiatToken.sol#695)\n",
+                            "end": 690,
+                            "governanceInfo": null,
+                            "id": 155297043,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "address _l1Token,\r",
+                            "start": 690
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "L2StandardERC20.constructor(address,address,string,string)._l2Bridge (OVMFiatToken.sol#689) lacks a zero-check on :\n\t\t- l2Bridge = _l2Bridge (OVMFiatToken.sol#696)\n",
+                            "end": 689,
+                            "governanceInfo": null,
+                            "id": 155297044,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "address _l2Bridge,\r",
+                            "start": 689
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract may not appropriately check for zero addresses being used.",
+                    "scwId": "168",
+                    "scwTitle": "Missing Zero Address Validation"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No buggy low-level calls found",
+                    "scwId": "173",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version>=0.6.0<0.8.0 (OVMFiatToken.sol#7) is too complex\n",
+                            "end": 7,
+                            "governanceInfo": null,
+                            "id": 155297040,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity >=0.6.0 <0.8.0;\r",
+                            "start": 7
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version>=0.5.16<0.8.0 (OVMFiatToken.sol#659) is too complex\n",
+                            "end": 659,
+                            "governanceInfo": null,
+                            "id": 155297041,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity >=0.5.16 <0.8.0;\r",
+                            "start": 659
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No bad numeric notation practices found",
+                    "scwId": "182",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing external function declarations found",
+                    "scwId": "184",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": {
+                "contractOwners": [
+                    {
+                        "governance": null,
+                        "impact": "Medium",
+                        "modifiable": true,
+                        "multisig": {
+                            "multisigOwners": [
+                                "0x3041BA32f451F5850c147805F5521AC206421623",
+                                "0x4D014f3c5F33Aa9Cd1Dc29ce29618d07Ae666d15",
+                                "0xE7dEA1306D9F829bA469d1904c50903b46ebd02e"
+                            ],
+                            "threshold": 2,
+                            "transactionCount": 1
+                        },
+                        "owner": "0x9028967bcb7c8ea664813714c5f2f54f84fd8308",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "2"
+                    }
+                ],
+                "issueOwners": [
+                    {
+                        "owners": [
+                            {
+                                "governance": null,
+                                "impact": "High",
+                                "modifiable": false,
+                                "multisig": null,
+                                "owner": "0x4200000000000000000000000000000000000010",
+                                "timelock": null,
+                                "timelockDelay": null,
+                                "type": "5"
+                            }
+                        ],
+                        "scwId": "186"
+                    },
+                    {
+                        "owners": [
+                            {
+                                "governance": null,
+                                "impact": "Informational",
+                                "modifiable": true,
+                                "multisig": null,
+                                "owner": "0x0000000000000000000000000000000000000000",
+                                "timelock": null,
+                                "timelockDelay": null,
+                                "type": "0"
+                            }
+                        ],
+                        "scwId": "189"
+                    },
+                    {
+                        "owners": [
+                            {
+                                "governance": null,
+                                "impact": "Informational",
+                                "modifiable": true,
+                                "multisig": null,
+                                "owner": "0x0000000000000000000000000000000000000000",
+                                "timelock": null,
+                                "timelockDelay": null,
+                                "type": "0"
+                            },
+                            {
+                                "governance": null,
+                                "impact": "Medium",
+                                "modifiable": true,
+                                "multisig": {
+                                    "multisigOwners": [
+                                        "0x3041BA32f451F5850c147805F5521AC206421623",
+                                        "0x4D014f3c5F33Aa9Cd1Dc29ce29618d07Ae666d15",
+                                        "0xE7dEA1306D9F829bA469d1904c50903b46ebd02e"
+                                    ],
+                                    "threshold": 2,
+                                    "transactionCount": 1
+                                },
+                                "owner": "0x9028967bCb7c8eA664813714c5f2F54f84FD8308",
+                                "timelock": null,
+                                "timelockDelay": null,
+                                "type": "2"
+                            }
+                        ],
+                        "scwId": "208"
+                    }
+                ],
+                "proxyOwners": [],
+                "visibleOwner": "0x9028967bcb7c8ea664813714c5f2f54f84fd8308"
+            },
+            "inProgress": false,
+            "initialFunder": null,
+            "isProxyImplementation": false,
+            "logo": "",
+            "name": "OVMFiatToken(USD Coin)",
+            "network": 10,
+            "pairInfo": null,
+            "projectFullName": "",
+            "projectName": "",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0x7f5c764cbc14f9669b88837ca1490cca17c31607_10_src.json",
+            "stats": {
+                "percentage": 100,
+                "scammed": false
+            },
+            "whitelisted": true
+        }
+    }
+}

@@ -1,0 +1,752 @@
+{
+    "data": {
+        "project": {
+            "address": "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+            "contractName": "OssifiableProxy",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No reentrancy risk found",
+                    "scwId": "107",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Not found.",
+                                    "title": "Mint max supply"
+                                },
+                                {
+                                    "description": "Not found.",
+                                    "title": "Mint Timelock"
+                                }
+                            ],
+                            "data": "{\"max_supply\": \"\", \"timelock\": \"\", \"privileged\": [{\"type\": \"var\", \"value\": \"bridge\", \"modifiable\": false}]}",
+                            "description": "Mint function: ERC20Bridged.bridgeMint(address,uint256) (ERC20Bridged.sol#39-41)\n\t- in internal call: _mint(account_,amount_)\n\t\t- In expression: balanceOf[account_] += amount_\n",
+                            "end": 41,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957",
+                                        "timelockDelay": null,
+                                        "type": "5"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957",
+                                    "timelockDelay": null,
+                                    "type": "5"
+                                }
+                            },
+                            "id": 158139740,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function bridgeMint(address account_, uint256 amount_) external onlyBridge {\n    _mint(account_, amount_);\n}",
+                            "start": 39
+                        }
+                    ],
+                    "scwDescription": "A large amount of this token can be minted by a private wallet or contract.",
+                    "scwId": "186",
+                    "scwTitle": "Mintable"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Users can always transfer their tokens",
+                    "scwId": "189",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"event\", \"value\": \"AdminChanged(address,address)\", \"index\": \"1\", \"modifiable\": true}]}",
+                            "description": "Proxy upgradeability: OssifiableProxy.proxy__upgradeToAndCall(address,bytes,bool) (OssifiableProxy.sol#68-74)\n",
+                            "end": 74,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0xEfa0dB536d2c8089685630fafe88CF7805966FC3",
+                                        "timelockDelay": null,
+                                        "type": "5"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0xEfa0dB536d2c8089685630fafe88CF7805966FC3",
+                                    "timelockDelay": null,
+                                    "type": "5"
+                                }
+                            },
+                            "id": 157303738,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function proxy__upgradeToAndCall(\n    address newImplementation_,\n    bytes memory setupCalldata_,\n    bool forceCall_\n) external onlyAdmin {\n    _upgradeToAndCall(newImplementation_, setupCalldata_, forceCall_);\n}",
+                            "start": 68
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"event\", \"value\": \"AdminChanged(address,address)\", \"index\": \"1\", \"modifiable\": true}]}",
+                            "description": "Proxy upgradeability: OssifiableProxy.proxy__upgradeTo(address) (OssifiableProxy.sol#58-60)\n",
+                            "end": 60,
+                            "governanceInfo": {
+                                "owners": [
+                                    {
+                                        "owner": "0xEfa0dB536d2c8089685630fafe88CF7805966FC3",
+                                        "timelockDelay": null,
+                                        "type": "5"
+                                    }
+                                ],
+                                "worstOwner": {
+                                    "owner": "0xEfa0dB536d2c8089685630fafe88CF7805966FC3",
+                                    "timelockDelay": null,
+                                    "type": "5"
+                                }
+                            },
+                            "id": 157303739,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function proxy__upgradeTo(address newImplementation_) external onlyAdmin {\n    _upgradeTo(newImplementation_);\n}",
+                            "start": 58
+                        }
+                    ],
+                    "scwDescription": "This contract can be upgraded, changing its functionality.",
+                    "scwId": "193",
+                    "scwTitle": "Proxy Upgradeability"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Wallets cannot be blacklisted from transfering the token",
+                    "scwId": "208",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer limits found",
+                    "scwId": "211",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 interface errors found",
+                    "scwId": "204-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No centralized balance controls found",
+                    "scwId": "220",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external calls detected",
+                    "scwId": "210-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found.",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently.",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days."
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
+                    "scwId": "10024",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "scwId": "10025",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwId": "10028",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 0,
+            "firstTxBlock": null,
+            "firstTxDate": "2022-08-05T08:23:52.000Z",
+            "firstTxFrom": "0x2c01f405e3c525c0cb867789aaf077f3553ccbb7",
+            "generalIssues": [
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Different versions of Solidity is used:\n\t- Version used: ['0.8.10', '^0.8.0']\n\t- ^0.8.0 (IERC20.sol#4)\n\t- 0.8.10 (ERC20Bridged.sol#4)\n\t- 0.8.10 (ERC20Core.sol#4)\n\t- 0.8.10 (ERC20Metadata.sol#4)\n\t- 0.8.10 (IERC20Bridged.sol#4)\n\t- 0.8.10 (IERC20Metadata.sol#4)\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 158139736,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.0;",
+                            "start": 4
+                        }
+                    ],
+                    "scwDescription": "This contract may not function as expected due to inconsistent solidity compiler versions being specified.",
+                    "scwId": "103",
+                    "scwTitle": "Floating Pragma"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized state variables found",
+                    "scwId": "142",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No innacurate divisions found",
+                    "scwId": "156",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable transfers found",
+                    "scwId": "158",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized local variables found",
+                    "scwId": "160",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No default function responses found",
+                    "scwId": "161",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing arithmetic events found",
+                    "scwId": "167-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing access control events found",
+                    "scwId": "167-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "ERC20Bridged.constructor(string,string,uint8,address).bridge_ (ERC20Bridged.sol#25) lacks a zero-check on :\n\t\t- bridge = bridge_ (ERC20Bridged.sol#27)\n",
+                            "end": 25,
+                            "governanceInfo": null,
+                            "id": 158139741,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "address bridge_",
+                            "start": 25
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract may not appropriately check for zero addresses being used.",
+                    "scwId": "168",
+                    "scwTitle": "Missing Zero Address Validation"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No buggy low-level calls found",
+                    "scwId": "173",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.8.0 (IERC20.sol#4) allows old versions\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 158139737,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.8.0;",
+                            "start": 4
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version0.8.10 (ERC20Bridged.sol#4) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.7\n",
+                            "end": 4,
+                            "governanceInfo": null,
+                            "id": 158139738,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity 0.8.10;",
+                            "start": 4
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "solc-0.8.10 is not recommended for deployment\n",
+                            "end": 0,
+                            "governanceInfo": null,
+                            "id": 158139739,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": 0
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No bad numeric notation practices found",
+                    "scwId": "182",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing external function declarations found",
+                    "scwId": "184",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": {
+                "contractOwners": [
+                    {
+                        "governance": null,
+                        "impact": "High",
+                        "modifiable": false,
+                        "multisig": null,
+                        "owner": "0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "5"
+                    }
+                ],
+                "issueOwners": [
+                    {
+                        "owners": [
+                            {
+                                "governance": null,
+                                "impact": "High",
+                                "modifiable": false,
+                                "multisig": null,
+                                "owner": "0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957",
+                                "timelock": null,
+                                "timelockDelay": null,
+                                "type": "5"
+                            }
+                        ],
+                        "scwId": "186"
+                    }
+                ],
+                "proxyOwners": [
+                    {
+                        "governance": null,
+                        "impact": "High",
+                        "modifiable": true,
+                        "multisig": null,
+                        "owner": "0xEfa0dB536d2c8089685630fafe88CF7805966FC3",
+                        "timelock": null,
+                        "timelockDelay": null,
+                        "type": "5"
+                    }
+                ],
+                "visibleOwner": "0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957"
+            },
+            "inProgress": false,
+            "initialFunder": "0x2a61d3ba5030ef471c74f612962c7367eca3a62d",
+            "isProxyImplementation": false,
+            "logo": "",
+            "name": "OssifiableProxy(Wrapped liquid staked Ether 2.0)",
+            "network": 10,
+            "pairInfo": null,
+            "projectFullName": "",
+            "projectName": "",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": {
+                "implementationData": {
+                    "firstTxBlock": null,
+                    "firstTxDate": "2022-08-05T08:23:37.000Z",
+                    "firstTxFrom": "0x2c01f405e3c525c0cb867789aaf077f3553ccbb7",
+                    "initialFunder": "0x2a61d3ba5030ef471c74f612962c7367eca3a62d",
+                    "initialFunding": 0.05,
+                    "name": "ERC20Bridged"
+                },
+                "proxyIssues": [
+                    {
+                        "issues": [],
+                        "scwDescription": "No reentrancy risk found",
+                        "scwId": "107",
+                        "scwTitle": null
+                    },
+                    {
+                        "issues": [],
+                        "scwDescription": "No locks detected",
+                        "scwId": "150",
+                        "scwTitle": null
+                    },
+                    {
+                        "issues": [],
+                        "scwDescription": "Verified source code found",
+                        "scwId": "185",
+                        "scwTitle": null
+                    },
+                    {
+                        "issues": [],
+                        "scwDescription": "Users can always transfer their tokens",
+                        "scwId": "189",
+                        "scwTitle": null
+                    },
+                    {
+                        "issues": [],
+                        "scwDescription": "Wallets cannot be blacklisted from transfering the token",
+                        "scwId": "208",
+                        "scwTitle": null
+                    },
+                    {
+                        "issues": [],
+                        "scwDescription": "No ERC20 approval vulnerability found",
+                        "scwId": "216-a",
+                        "scwTitle": null
+                    },
+                    {
+                        "issues": [],
+                        "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                        "scwId": "216-b",
+                        "scwTitle": null
+                    }
+                ],
+                "proxyOwner": "0xEfa0dB536d2c8089685630fafe88CF7805966FC3",
+                "sourceCodeLink": "https://scan-results.de.fi/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb_10_src.json"
+            },
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0x92834c37df982a13bb0f8c3f6608e26f0546538e_10_src.json",
+            "stats": {
+                "percentage": 100,
+                "scammed": false
+            },
+            "whitelisted": true
+        }
+    }
+}
