@@ -12,13 +12,13 @@
             "active": false,
             "description": "###########################################contract behaviour is hard to predict/verify or can change"
         },
+        "allowanceBugs": {
+            "active": false,
+            "description": "unexpected allowance behaviour resulting in failed txs when interacting with plp"
+        },
         "transferConstraints": {
             "active": true,
             "description": "constraints are or are able to be placed on token transfers, potentially resulting in seizure of tokens"
-        },
-        "allowanceBugs": {
-            "active": true,
-            "description": "unexpected allowance behaviour resulting in failed txs when interacting with plp"
         },
         "balanceVariability": {
             "active": true,
@@ -168,15 +168,15 @@
         },
         "testDefaultOverwriteApprove": {
             "class": "",
-            "description": "Test default overwrite approve [[[not found]]]"
+            "description": ""
         },
         "testFeeTakingTransfer": {
             "class": "balanceVariability",
-            "description": "Test fee taking transfer [[[not found]]]"
+            "description": ""
         },
         "testFeeTakingTransferFrom": {
             "class": "balanceVariability",
-            "description": "Test fee taking transfer from [[[not found]]]"
+            "description": ""
         },
         "testFeeTakingTransferFromPotential": {
             "class": "balanceVariability",
@@ -268,7 +268,7 @@
         },
         "testRecommendedOverwriteApprove": {
             "class": "",
-            "description": "Test recommended overwrite approve [[[not found]]]"
+            "description": ""
         },
         "testTotalSupplyConstantAfterTransfer": {
             "class": "balanceVariability",
@@ -344,7 +344,7 @@
         },
         "testZeroTransferFromByOtherPossible": {
             "class": "",
-            "description": "Test zero transfer from by other possible [[[not found]]]"
+            "description": ""
         },
         "testZeroTransferFromByOtherToSameAccountEmitsEvent": {
             "class": "",
@@ -356,7 +356,7 @@
         },
         "testZeroTransferFromBySelfEmitsEvent": {
             "class": "",
-            "description": "Test zero transfer from by self emits event [[[not found]]]"
+            "description": ""
         },
         "testZeroTransferFromBySelfPossible": {
             "class": "",
@@ -368,7 +368,7 @@
         },
         "testZeroTransferFromBySelfToSelfPossible": {
             "class": "",
-            "description": "Test zero transfer from by self to self possible [[[not found]]]"
+            "description": ""
         },
         "testZeroTransferFromBySelfToSomeoneEmitsEvent": {
             "class": "",
@@ -380,7 +380,7 @@
         },
         "testZeroTransferPossible": {
             "class": "",
-            "description": "Test zero transfer possible [[[not found]]]"
+            "description": ""
         },
         "testZeroTransferToOthersEmitsEvent": {
             "class": "",

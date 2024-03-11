@@ -587,6 +587,13 @@ def saveIssuesForToken(contract_address, chain_name):
         file.write(json.dumps(failedTestsFile, indent=4, sort_keys=True))
 
 
+def getExplorerUrl(contract_address, chain_name):
+    chainDetails = json.loads(open(getAbsPath("contracts.json")).read())
+    explorerBaseUrl = chainDetails[chain_name]["explorerBaseUrl"]
+    explorerUrl = f"{explorerBaseUrl}/address/{contract_address}#code"
+    return explorerUrl
+
+
 def json_to_markdown_report(json_file_path, markdown_file_path):
     with open(json_file_path, "r") as file:
         data = json.load(file)
@@ -596,13 +603,15 @@ def json_to_markdown_report(json_file_path, markdown_file_path):
         for address, details in sorted(data[chain].items()):
             issues = details.get("issues", {})
             projectName = details.get("name", "")
+            explorerUrl = getExplorerUrl(address, chain)
             if issues:
-                markdown_report += f"\n\n#### {projectName}\n"
-                markdown_report += f"**Address:** {address}\n\n"
+                markdown_report += f"\n\n### {projectName}\n"
+                markdown_report += f"**Address:** {address}\n"
+                markdown_report += f"**Explorer url:** {explorerUrl}\n\n"
 
-                markdown_report += "###### Issue Categories\n"
+                markdown_report += "##### Issue Categories\n"
                 for category in issues.keys():
-                    markdown_report += f"- {category}\n"
+                    markdown_report += f"###### {category}\n"
                 markdown_report += "\n"
                 for issueClass, issueList in issues.items():
                     if issueList:

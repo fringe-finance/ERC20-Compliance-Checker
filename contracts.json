@@ -1,6 +1,7 @@
 {
     "ethereum": {
         "rpc": "https://endpoints.omniatech.io/v1/eth/mainnet/public",
+        "explorerBaseUrl": "https://etherscan.io",
         "network_id": "1",
         "contracts": [
             "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
@@ -36,6 +37,7 @@
     },
     "arbitrum": {
         "rpc": "https://arb1.arbitrum.io/rpc",
+        "explorerBaseUrl": "https://arbiscan.io",
         "network_id": "42161",
         "contracts": [
             "0x912CE59144191C1204E64559FE8253a0e49E6548",
@@ -62,6 +64,7 @@
     },
     "zksync": {
         "rpc": "https://mainnet.era.zksync.io",
+        "explorerBaseUrl": "https://era.zksync.network",
         "network_id": "324",
         "contracts": [
             "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
@@ -72,6 +75,7 @@
     },
     "optimism": {
         "rpc": "https://mainnet.optimism.io",
+        "explorerBaseUrl": "https://optimistic.etherscan.io",
         "network_id": "10",
         "contracts": [
             "0x4200000000000000000000000000000000000006",
@@ -89,6 +93,7 @@
     },
     "polygon": {
         "rpc": "https://rpc-mainnet.matic.quiknode.pro",
+        "explorerBaseUrl": "https://polygonscan.com",
         "network_id": "137",
         "contracts": [
             "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
