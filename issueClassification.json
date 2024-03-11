@@ -4,6 +4,14 @@
             "active": false,
             "description": "erc20 token supply can suddenly be increased"
         },
+        "maliceHeuristics": {
+            "active": false,
+            "description": "heuristics point to owner or contracts being malicious"
+        },
+        "unpredictableLogic": {
+            "active": false,
+            "description": "###########################################contract behaviour is hard to predict/verify or can change"
+        },
         "adminSeizure": {
             "active": true,
             "description": "admin is able to seize tokens from user balances"
@@ -16,10 +24,6 @@
             "active": true,
             "description": "account balance is not deterministic from send/receive amounts"
         },
-        "maliceHeuristics": {
-            "active": false,
-            "description": "heuristics point to owner or contracts being malicious"
-        },
         "theftOrInflation": {
             "active": true,
             "description": "send/receive works in ways which facilitates theft or inflation"
@@ -31,10 +35,6 @@
         "undetermined": {
             "active": true,
             "description": "as of yet unclassified issues"
-        },
-        "unpredictableLogic": {
-            "active": false,
-            "description": "###########################################contract behaviour is hard to predict/verify or can change"
         },
         "viewInaccuracies": {
             "active": true,
