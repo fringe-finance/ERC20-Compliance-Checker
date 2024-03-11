@@ -9,7 +9,7 @@
             "description": "heuristics point to owner or contracts being malicious"
         },
         "unpredictableLogic": {
-            "active": false,
+            "active": true,
             "description": "###########################################contract behaviour is hard to predict/verify or can change"
         },
         "allowanceBugs": {

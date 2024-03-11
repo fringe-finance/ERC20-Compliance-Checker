@@ -1,4 +1,5 @@
 import requests
+import csv
 import pysnooper
 import traceback
 import json
@@ -624,6 +625,39 @@ def json_to_markdown_report(json_file_path, markdown_file_path):
         file.write(markdown_report)
 
 
+def json_to_csv_report(json_file_path, csv_file_path):
+    with open(json_file_path, "r") as file:
+        data = json.load(file)
+
+    issue_categories = set()
+    for chain in data:
+        for details in data[chain].values():
+            issues = details.get("issues", {})
+            issue_categories.update(issues.keys())
+
+    issue_categories = sorted(issue_categories)
+
+    with open(csv_file_path, "w", newline="") as file:
+        writer = csv.writer(file)
+        header = ["Token", "Explorer URL"] + issue_categories
+        writer.writerow(header)
+
+        for chain in data:
+            for address, details in data[chain].items():
+                issues = details.get("issues", {})
+                project_name = details.get("name", "")
+                explorer_url = getExplorerUrl(address, chain)
+
+                row = [chain + " | " + project_name, explorer_url]
+                for category in issue_categories:
+                    if category in issues:
+                        row.append("x")
+                    else:
+                        row.append("")
+
+                writer.writerow(row)
+
+
 def main():
     contracts_path = getAbsPath("contracts.json")
     with open(contracts_path, "r") as file:
@@ -637,6 +671,7 @@ def main():
             saveDeDotFiReport(contract_address, network_id)
             saveIssuesForToken(contract_address, chain_name)
     json_to_markdown_report(getAbsPath("failedTests.json"), getAbsPath("report.md"))
+    json_to_csv_report(getAbsPath("failedTests.json"), getAbsPath("report.csv"))
 
 
 if __name__ == "__main__":
