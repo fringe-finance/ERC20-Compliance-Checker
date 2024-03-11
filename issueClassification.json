@@ -75,7 +75,7 @@
             "description": "A large amount of this token can be minted by a private wallet or contract."
         },
         "189": {
-            "class": "adminSeizure",
+            "class": "transferConstraints",
             "description": "Token transfers can be paused, preventing swapping or selling."
         },
         "193": {
@@ -87,7 +87,7 @@
             "description": "This contract may not function as intended due to an incorrect ERC20 interface implementation."
         },
         "208": {
-            "class": "adminSeizure",
+            "class": "transferConstraints",
             "description": "Wallets can be blacklisted from being able to transfer, swap or sell this token."
         },
         "209": {
@@ -99,7 +99,7 @@
             "description": "The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
         },
         "211": {
-            "class": "adminSeizure",
+            "class": "transferConstraints",
             "description": "The max/min amount of token transferred can be limited."
         },
         "216-a": {
@@ -107,7 +107,7 @@
             "description": "Funds in this contract may be vulnerable to being drained by its owner through an approval exploit."
         },
         "220": {
-            "class": "adminSeizure",
+            "class": "transferConstraints",
             "description": "The contract owner is able to control all token holders' balances."
         },
         "230": {
@@ -119,7 +119,7 @@
             "description": "The token's maximum supply can be adjusted."
         },
         "237": {
-            "class": "adminSeizure",
+            "class": "transferConstraints",
             "description": "Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
         },
         "242": {
@@ -223,7 +223,7 @@
             "description": "Positive approved amount is NOT reflected in the allowance correctly."
         },
         "testPositiveMultipleTransfer": {
-            "class": "adminSeizure",
+            "class": "transferConstraints",
             "description": "Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
         },
         "testPositiveMultipleTransferFrom": {
