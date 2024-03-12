@@ -58,7 +58,7 @@
                                     "type": "4"
                                 }
                             },
-                            "id": 157553451,
+                            "id": 183554691,
                             "impact": "Informational",
                             "severityChanges": [
                                 {
@@ -161,116 +161,134 @@
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No vulnerable ownership functions found.",
+                    "scwDescription": "No vulnerable ownership functions found",
                     "scwId": "230",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No retrievable ownership found.",
+                    "scwDescription": "No retrievable ownership found",
                     "scwId": "231",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Contract was not deployed recently.",
+                    "scwDescription": "Contract was not deployed recently",
                     "scwId": "10010",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No mixers utilized by contract deployer.",
+                    "scwDescription": "No mixers utilized by contract deployer",
                     "scwId": "10003",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No adjustable maximum supply found.",
+                    "scwDescription": "No adjustable maximum supply found",
                     "scwId": "233",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No previous scams by owner's wallet found.",
+                    "scwDescription": "No previous scams by owner's wallet found",
                     "scwId": "10016",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity.",
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity",
                     "scwId": "236",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity.",
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity",
                     "scwId": "237",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers.",
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers",
                     "scwId": "238",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals.",
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals",
                     "scwId": "239",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned.",
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned",
                     "scwId": "10022",
-                    "scwTitle": "Recent Interaction was within 30 Days."
+                    "scwTitle": "Recent Interaction was within 30 Days"
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract.",
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract",
                     "scwId": "10023",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations.",
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations",
                     "scwId": "241",
                     "scwTitle": null
                 },
                 {
-                    "issues": [],
-                    "scwDescription": "AI model detects robust, genuine token and user activity, earning a high score, indicating trustworthiness and community integrity.",
-                    "scwId": "10024",
-                    "scwTitle": null
-                },
-                {
-                    "issues": [],
-                    "scwDescription": "Contract with minimal revocations, a positive indicator for stable, secure functionality.",
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "92%",
+                                    "title": "Percent of revokes in last approves:"
+                                }
+                            ],
+                            "data": null,
+                            "description": "92% of the latest approval transactions on this contract are revokes. An unusually large number of revoke from this contract (compared to approvals) might indicate that users consider it malicious",
+                            "end": null,
+                            "governanceInfo": null,
+                            "id": -34,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": null
+                        }
+                    ],
+                    "scwDescription": "Contract faces excessive revocations, raising concerns about functionality and security.",
                     "scwId": "10025",
-                    "scwTitle": null
+                    "scwTitle": "Revocation Rate"
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues.",
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues",
                     "scwId": "242",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality.",
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality",
                     "scwId": "10026",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability.",
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability",
                     "scwId": "10027",
                     "scwTitle": null
                 },
                 {
                     "issues": [],
-                    "scwDescription": "No suspicious activity has been detected.",
+                    "scwDescription": "No suspicious activity has been detected",
                     "scwId": "10028",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "This contract maintains a strict adherence to best practices for price feed usage, ensuring data accuracy and consistency",
+                    "scwId": "243",
                     "scwTitle": null
                 }
             ],
@@ -288,7 +306,7 @@
                             "description": "Different versions of Solidity is used:\n\t- Version used: ['0.6.12', '^0.6.0', '^0.6.2']\n\t- ^0.6.0 (SushiToken.sol#5)\n\t- ^0.6.0 (SushiToken.sol#32)\n\t- ^0.6.0 (SushiToken.sol#112)\n\t- ^0.6.2 (SushiToken.sol#274)\n\t- ^0.6.0 (SushiToken.sol#418)\n\t- ^0.6.0 (SushiToken.sol#727)\n\t- 0.6.12 (SushiToken.sol#795)\n",
                             "end": 5,
                             "governanceInfo": null,
-                            "id": 157553445,
+                            "id": 183554685,
                             "impact": "Informational",
                             "severityChanges": [],
                             "snippet": "pragma solidity ^0.6.0;",
@@ -493,7 +511,7 @@
                             "description": "Low level call in Address.sendValue(address,uint256) (SushiToken.sol#324-330):\n\t- (success) = recipient.call{value: amount}() (SushiToken.sol#328)\n",
                             "end": 330,
                             "governanceInfo": null,
-                            "id": 157553449,
+                            "id": 183554689,
                             "impact": "Informational",
                             "severityChanges": [],
                             "snippet": "function sendValue(address payable recipient, uint256 amount) internal {\n    require(address(this).balance >= amount, \"Address: insufficient balance\");\n    // solhint-disable-next-line avoid-low-level-calls, avoid-call-value\n    (bool success, ) = recipient.call{ value: amount }(\"\");\n    require(success, \"Address: unable to send value, recipient may have reverted\");\n}",
@@ -505,7 +523,7 @@
                             "description": "Low level call in Address._functionCallWithValue(address,bytes,uint256,string) (SushiToken.sol#390-411):\n\t- (success,returndata) = target.call{value: weiValue}(data) (SushiToken.sol#394)\n",
                             "end": 411,
                             "governanceInfo": null,
-                            "id": 157553450,
+                            "id": 183554690,
                             "impact": "Informational",
                             "severityChanges": [],
                             "snippet": "function _functionCallWithValue(address target, bytes memory data, uint256 weiValue, string memory errorMessage) private returns (bytes memory) {\n    require(isContract(target), \"Address: call to non-contract\");\n    // solhint-disable-next-line avoid-low-level-calls\n    (bool success, bytes memory returndata) = target.call{ value: weiValue }(data);\n    if (success) {\n        return returndata;\n    } else {\n        // Look for revert reason and bubble it up if present\n        if (returndata.length > 0) {\n            // The easiest way to bubble the revert reason is using memory via assembly\n            // solhint-disable-next-line no-inline-assembly\n            assembly {\n                let returndata_size := mload(returndata)\n                revert(add(32, returndata), returndata_size)\n            }\n        } else {\n            revert(errorMessage);\n        }\n    }\n}",
@@ -524,7 +542,7 @@
                             "description": "Pragma version^0.6.0 (SushiToken.sol#5) allows old versions\n",
                             "end": 5,
                             "governanceInfo": null,
-                            "id": 157553447,
+                            "id": 183554687,
                             "impact": "Informational",
                             "severityChanges": [],
                             "snippet": "pragma solidity ^0.6.0;",
@@ -536,7 +554,7 @@
                             "description": "Pragma version^0.6.2 (SushiToken.sol#274) allows old versions\n",
                             "end": 274,
                             "governanceInfo": null,
-                            "id": 157553448,
+                            "id": 183554688,
                             "impact": "Informational",
                             "severityChanges": [],
                             "snippet": "pragma solidity ^0.6.2;",
@@ -573,7 +591,7 @@
                             "description": "mint(address,uint256) should be declared external:\n\t- SushiToken.mint(address,uint256) (SushiToken.sol#803-806)\n",
                             "end": 806,
                             "governanceInfo": null,
-                            "id": 157553446,
+                            "id": 183554686,
                             "impact": "Informational",
                             "severityChanges": [],
                             "snippet": "function mint(address _to, uint256 _amount) public onlyOwner {\n    _mint(_to, _amount);\n    _moveDelegates(address(0), _delegates[_to], _amount);\n}",

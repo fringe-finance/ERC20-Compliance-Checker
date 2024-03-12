@@ -1,0 +1,15 @@
+Token,activeTransferConstraints,balanceVariability,potentialGranularTransferConstraints,theftOrInflation,tokenVuln,viewInaccuracies
+arbitrum | Arbitrum,,,,,x,
+arbitrum | USD Coin (Arb1),,,x,,x,
+arbitrum | Tether USD,,,x,,,
+arbitrum | GMX,,,x,,,
+ethereum | Uniswap,x,,,,,x
+ethereum | Frax Share,x,x,,,,
+ethereum | Badger,,,x,,,
+ethereum | Paxos Gold,,x,x,,,
+ethereum | Lido DAO Token,x,x,x,x,,x
+ethereum | Pepe,x,,x,,,
+ethereum | USD Coin,,,x,,,
+ethereum | Synthetix Network Token,x,x,,x,,x
+optimism | USD Coin,,,x,,,
+polygon | USD Coin (PoS),,,x,,,

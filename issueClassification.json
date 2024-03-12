@@ -1,32 +1,20 @@
 {
     "categories": {
-        "undetermined": {
-            "active": true,
-            "description": "as of yet unclassified issues"
-        },
         "adminInflation": {
             "active": false,
             "description": "erc20 token supply can suddenly be increased"
-        },
-        "maliceHeuristics": {
-            "active": false,
-            "description": "heuristics point to owner or contracts being malicious"
         },
         "allowanceBugs": {
             "active": false,
             "description": "unexpected allowance behaviour resulting in failed txs when interacting with plp"
         },
-        "unpredictableLogic": {
-            "active": true,
-            "description": "contract behaviour is hard to predict/verify or can change"
-        },
-        "transferConstraints": {
-            "active": true,
-            "description": "constraints are or are able to be placed on token transfers, potentially resulting in seizure of tokens"
-        },
         "balanceVariability": {
             "active": true,
             "description": "account balance is not deterministic from send/receive amounts"
+        },
+        "maliceHeuristics": {
+            "active": false,
+            "description": "heuristics point to owner or contracts being malicious"
         },
         "theftOrInflation": {
             "active": true,
@@ -35,6 +23,26 @@
         "tokenVuln": {
             "active": true,
             "description": "erc20 contract itself is at risk of an attack"
+        },
+        "activeTransferConstraints": {
+            "active": true,
+            "description": "constraints are placed on token transfers, potentially resulting in seizure of tokens"
+        },
+        "potentialGranularTransferConstraints": {
+            "active": true,
+            "description": "constraints are able to be placed on specific token holders, potentially resulting in seizure of tokens"
+        },
+        "potentialCoarseTransferConstraints": {
+            "active": false,
+            "description": "constraints are able to be placed on all token holders, potentially resulting in seizure of tokens"
+        },
+        "undetermined": {
+            "active": true,
+            "description": "as of yet unclassified issues"
+        },
+        "unpredictableLogic": {
+            "active": false,
+            "description": "contract behaviour is hard to predict/verify or can change"
         },
         "viewInaccuracies": {
             "active": true,
@@ -75,7 +83,7 @@
             "description": "A large amount of this token can be minted by a private wallet or contract."
         },
         "189": {
-            "class": "transferConstraints",
+            "class": "potentialCoarseTransferConstraints",
             "description": "Token transfers can be paused, preventing swapping or selling."
         },
         "193": {
@@ -87,7 +95,7 @@
             "description": "This contract may not function as intended due to an incorrect ERC20 interface implementation."
         },
         "208": {
-            "class": "transferConstraints",
+            "class": "potentialGranularTransferConstraints",
             "description": "Wallets can be blacklisted from being able to transfer, swap or sell this token."
         },
         "209": {
@@ -99,7 +107,7 @@
             "description": "The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
         },
         "211": {
-            "class": "transferConstraints",
+            "class": "activeTransferConstraints",
             "description": "The max/min amount of token transferred can be limited."
         },
         "216-a": {
@@ -107,7 +115,7 @@
             "description": "Funds in this contract may be vulnerable to being drained by its owner through an approval exploit."
         },
         "220": {
-            "class": "transferConstraints",
+            "class": "potentialGranularTransferConstraints",
             "description": "The contract owner is able to control all token holders' balances."
         },
         "230": {
@@ -119,7 +127,7 @@
             "description": "The token's maximum supply can be adjusted."
         },
         "237": {
-            "class": "transferConstraints",
+            "class": "potentialGranularTransferConstraints",
             "description": "Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
         },
         "242": {
@@ -137,6 +145,14 @@
         "testBalanceOfNonCaller": {
             "class": "viewInaccuracies",
             "description": "A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
+        },
+        "testBurningUpdatesTotalSupply": {
+            "class": "",
+            "description": "After burning some token (via `burn(uint256)` or `burnToken(uint256)`), the total supply was not updated correctly."
+        },
+        "testCanApproveMoreThanBalance": {
+            "class": "",
+            "description": "The token DOES NOT ALLOW tokenApprover to call `approve` of an amount higher than her balance."
         },
         "testCannotApprovePositiveAmountToZeroAddress": {
             "class": "",
@@ -166,6 +182,22 @@
             "class": "",
             "description": "Consecutive calls of `approve` function of zero-to-positive amounts CANNOT be called OR the allowance is set to the wrong amount after the second call."
         },
+        "testDecreaseAllowanceBehaviorInexact": {
+            "class": "",
+            "description": "A `decreaseAllowance` call REVERTS if there's not enough allowance to decrease  or DOES NOT TURN the allowance to zero even though the current allowance is smaller than the amount to decrease."
+        },
+        "testDecreaseAllowanceDoubleSpend": {
+            "class": "",
+            "description": "The `decreaseAllowance` function ALLOWS allowance to be double-spent, i.e.,   Alice CANNOT decrease her allowance for Bob by the correct amount even if Bob tries to front-run her by  calling `transferFrom` call right before her call."
+        },
+        "testDecreaseAllowanceGtExpected": {
+            "class": "",
+            "description": "A successful `decreaseAllowance` call of a positive amount DOES NOT DECREASE the allowance by MORE than the said amount."
+        },
+        "testDecreaseAllowanceLtExpected": {
+            "class": "",
+            "description": "A successful `decreaseAllowance` call of a positive amount DOES NOT DECREASE the allowance by LESS than the said amount."
+        },
         "testDefaultOverwriteApprove": {
             "class": "",
             "description": ""
@@ -194,6 +226,30 @@
             "class": "balanceVariability",
             "description": "The `transfer` function TAKES fees at test execution time."
         },
+        "testIncreaseAllowanceDoubleSpend": {
+            "class": "",
+            "description": "The `increaseAllowance` function ALLOWS allowance to be double-spent, i.e.,   Alice CANNOT increase her allowance for Bob by the correct amount even if Bob tries to front-run her by  calling `transferFrom` call right before her call."
+        },
+        "testIncreaseAllowanceGtExpected": {
+            "class": "",
+            "description": "A successful `increaseAllowance` call of a positive amount DOES NOT INCREASE the allowance by MORE than the said amount."
+        },
+        "testIncreaseAllowanceLtExpected": {
+            "class": "",
+            "description": "A successful `increaseAllowance` call of a positive amount DOES NOT INCREASE the allowance by LESS than the said amount."
+        },
+        "testInfiniteApprovalConstant": {
+            "class": "",
+            "description": "The token MAY NOT HAVE the infinite approval property. That is,  if the approval is set to MAX_UINT256 and a `transfer` is called, the allowance  may decrease by the transferred amount."
+        },
+        "testInfiniteApprovalNotConstant": {
+            "class": "",
+            "description": "The token MAY support infinite approval. That is, if the approval is set to MAX_UINT256 and a `transfer` is called, the allowance may not decrease  by the transferred amount."
+        },
+        "testMaintainsApprovalLowerThanBalance": {
+            "class": "",
+            "description": "EITHER the token ALLOWS tokenApprover to call `approve` of an amount higher than her  balance OR the tokenApprover DOES NOT need to maintain at least the said amount in her balance before she  can make a `transfer` call to an account other than the tokenApprovee."
+        },
         "testMultipleTransferFromExceedAllowance": {
             "class": "theftOrInflation",
             "description": "Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
@@ -205,6 +261,10 @@
         "testNoSelfApprovalCannotSelfTransferFrom": {
             "class": "",
             "description": "A `msg.sender` CAN call `transferFrom` of a positive amount from his/her own acount to any tokenReceiver even though the `msg.sender` did not approve him/herself prior to the call."
+        },
+        "testOverwriteApprovePositiveToPositive": {
+            "class": "",
+            "description": "Consecutive calls of `approve` function of positive-to-positive amounts CAN be called."
         },
         "testPositiveApprovalEventEmission": {
             "class": "",
@@ -222,8 +282,16 @@
             "class": "allowanceBugs",
             "description": "Positive approved amount is NOT reflected in the allowance correctly."
         },
+        "testPositiveDecreaseAllowanceAllowsPositiveTransferFrom": {
+            "class": "allowanceBugs",
+            "description": "After a tokenApprover decreases the allowance of a tokenApprovee by some positive amount via a  `decreaseAllowance` call, any amount up to the decreased allowance CANNOT be transferred by tokenApprovee,  provided a sufficient balance of tokenApprover."
+        },
+        "testPositiveIncreaseAllowanceAllowsPositiveTransferFrom": {
+            "class": "allowanceBugs",
+            "description": "After a tokenApprover increases the allowance of a tokenApprovee by some positive amount  via a `increaseAllowance` call, some amount up to the increased allowance CANNOT be transferred by  tokenApprovee, provided a sufficient balance of tokenApprover."
+        },
         "testPositiveMultipleTransfer": {
-            "class": "transferConstraints",
+            "class": "activeTransferConstraints",
             "description": "Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
         },
         "testPositiveMultipleTransferFrom": {
@@ -237,6 +305,10 @@
         "testPositiveSelfApproveTransferFrom": {
             "class": "",
             "description": "Self approval and call of `transferFrom` from its own account of positive amount is NOT ALLOWED."
+        },
+        "testPositiveSelfIncreaseAllowanceTransferFrom": {
+            "class": "",
+            "description": "Self `increaseAllowance` call, followed by a `transferFrom` call of some positive amount is NOT ALLOWED."
         },
         "testPositiveSelfTransfer": {
             "class": "balanceVariability",
@@ -270,6 +342,14 @@
             "class": "",
             "description": ""
         },
+        "testRevertsIfApprovalGreaterThanBalance": {
+            "class": "",
+            "description": "The token DOES NOT REVERT if a tokenApprover approves a tokenApprovee more than its balance."
+        },
+        "testRevertsOnInfiniteApproval": {
+            "class": "",
+            "description": "The token DOES NOT REVERT if approval is set to MAX_UINT256."
+        },
         "testTotalSupplyConstantAfterTransfer": {
             "class": "balanceVariability",
             "description": "The contract's `totalSupply` variable IS altered after `transfer` is called."
@@ -278,13 +358,29 @@
             "class": "balanceVariability",
             "description": "The contract's `totalSupply` variable IS altered after `transferFrom` is called."
         },
+        "testTransferAreNotPossibleWhenPaused": {
+            "class": "potentialCoarseTransferConstraints",
+            "description": "After pausing the token, a transfer could happen or the balance of the tokenSender or the tokenReceiver changed unexpectedely."
+        },
         "testTransferDoesNotUpdateOthersBalances": {
             "class": "balanceVariability",
             "description": "A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver."
         },
+        "testTransferFromAreNotPossibleWhenPaused": {
+            "class": "potentialCoarseTransferConstraints",
+            "description": "After pausing the token, a transferFrom could happen or the balance of the tokenSender or the tokenReceiver changed unexpectedely."
+        },
         "testTransferFromDecreaseAllowanceAsExpected": {
             "class": "",
             "description": "A successful `transferFrom` of any positive amount DOES NOT decrease the allowance of the tokenSender by the transferred amount."
+        },
+        "testTransferFromDecreaseAllowanceGtExpected": {
+            "class": "",
+            "description": "A successful `transferFrom` call of a positive amount DOES NOT DECREASE the allowance of the tokenSender by MORE than the transferred amount."
+        },
+        "testTransferFromDecreaseAllowanceLtExpected": {
+            "class": "",
+            "description": "A successful `transferFrom` call of a positive amount DOES NOT DECREASE the allowance of the tokenSender by LESS than the transferred amount."
         },
         "testTransferFromDoesNotUpdateOthersBalances": {
             "class": "balanceVariability",

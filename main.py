@@ -269,14 +269,12 @@ def saveDeDotFiReport(contract_address, network_id):
     }
 
     graphql_query = {
-        "query": """query {
-              project(address: \""""
+        "query": """query { project(address: \""""
         + contract_address
-        + """" networkId: """
+        + """\" networkId: """
         + network_id
-        + """ ){\n                inProgress\n                isProxyImplementation\n                proxyContractAddress\n                firstTxBlock\n                estimatedAnalyzingTime\n                address\n                network\n                rektLink\n                name\n                contractName\n                sourceCodeLink\n                whitelisted\n                firstTxFrom\n                firstTxDate\n                logo\n                projectName\n                projectFullName\n                initialFunder\n                protocol\n                pairInfo {\n                  factory\n                  tokens {\n                    address\n                    name\n                    symbol\n                    score\n                    logo\n                  }\n                }\n                coreIssues {\n                  scwTitle\n                  scwDescription\n                   scwId\n                  issues {\n                    id\n                    impact\n                    description\n                    data\n                    snippet\n                    start\n                    end\n                    additionalData {\n                      title\n                      description\n                    }\n                    governanceInfo {\n                      owners {\n                        timelockDelay\n                        type\n                        owner\n                      }\n                      worstOwner {\n                        timelockDelay\n                        type\n                        owner\n                      }\n                    }\n                    severityChanges {\n                      from\n                      to\n                      reason\n                    }\n                  }\n                }\n                generalIssues {\n                  scwTitle\n                  scwDescription\n                  scwId\n                  issues {\n                    id\n                    confidence\n                     impact\n                    description\n                    snippet\n                    start\n                    end\n                    additionalData {\n                      title\n                      description\n                    }\n                    governanceInfo {\n                      owners {\n                        timelockDelay\n                        type\n                        owner\n                      }\n                      worstOwner {\n                        timelockDelay\n                        type\n                        owner\n                      }\n                    }\n                    severityChanges {\n                      from\n                      to\n                      reason\n                    }\n                  }\n                }\n                stats {\n                  percentage\n                  scammed\n                }\n                diffs {\n                    id\n                    address\n                    network\n                    name\n                    projectName\n                    score\n                    createdAt\n                  }\n                proxyData {\n                  sourceCodeLink\n                  proxyOwner\n                  proxyIssues {\n                    scwTitle\n                    scwDescription\n                    scwId\n                    issues {\n                      id\n                      impact\n                      description\n                      snippet\n                      start\n                      end\n                      additionalData {\n                        title\n                        description\n                      }\n                      governanceInfo {\n                        owners {\n                          timelockDelay\n                          type\n                          owner\n                        }\n                        worstOwner {\n                          timelockDelay\n                          type\n                          owner\n                        }\n                      }\n                      severityChanges {\n                        from\n                        to\n                        reason\n                      }\n                    }\n                  }\n                  implementationData {\n                    firstTxFrom\n                    firstTxDate\n                    firstTxBlock\n                    name\n                    initialFunder\n                    initialFunding\n                  }\n                }\n                governance {\n                visibleOwner\n                proxyOwners {\n                  type\n                  owner\n                  timelockDelay\n                  timelock\n                  modifiable\n                  impact\n                  governance {\n                    proposals\n                    proposalMaxActions\n                    votingPeriod\n                    quorum\n                    threshold\n                    name\n                  }\n                  multisig {\n                    threshold\n                    transactionCount\n                    multisigOwners\n                  }\n                }\n                contractOwners {\n                  type\n                  owner\n                  timelockDelay\n                  timelock\n                  modifiable\n                  impact\n                  governance {\n                    proposals\n                    proposalMaxActions\n                    votingPeriod\n                    quorum\n                    threshold\n                    name\n                  }\n                  multisig {\n                    threshold\n                    transactionCount\n                    multisigOwners\n                  }\n                }\n                issueOwners {\n                  scwId\n                  owners {\n                    type\n                    owner\n                    timelockDelay\n                    timelock\n                    modifiable\n                    impact\n                    governance {\n                      proposals\n                      proposalMaxActions\n                      votingPeriod\n                      quorum\n                      threshold\n                      name\n                    }\n                  multisig {\n                    threshold\n                    transactionCount\n                    multisigOwners\n                  }\n                  }\n                }\n              }\n              }\n"""
+        + """ ) { inProgress isProxyImplementation proxyContractAddress firstTxBlock estimatedAnalyzingTime address network rektLink name contractName sourceCodeLink whitelisted firstTxFrom firstTxDate logo projectName projectFullName initialFunder protocol pairInfo { factory tokens { address name symbol score logo } } coreIssues { scwTitle scwDescription scwId issues { id impact description data snippet start end additionalData { title description } governanceInfo { owners { timelockDelay type owner } worstOwner { timelockDelay type owner } } severityChanges { from to reason } } } generalIssues { scwTitle scwDescription scwId issues { id confidence impact description snippet start end additionalData { title description } governanceInfo { owners { timelockDelay type owner } worstOwner { timelockDelay type owner } } severityChanges { from to reason } } } stats { percentage scammed } diffs { id address network name projectName score createdAt } proxyData { sourceCodeLink proxyOwner proxyIssues { scwTitle scwDescription scwId issues { id impact description snippet start end additionalData { title description } governanceInfo { owners { timelockDelay type owner } worstOwner { timelockDelay type owner } } severityChanges { from to reason } } } implementationData { firstTxFrom firstTxDate firstTxBlock name initialFunder initialFunding } } governance { visibleOwner proxyOwners { type owner timelockDelay timelock modifiable impact governance { proposals proposalMaxActions votingPeriod quorum threshold name } multisig { threshold transactionCount multisigOwners } } contractOwners { type owner timelockDelay timelock modifiable impact governance { proposals proposalMaxActions votingPeriod quorum threshold name } multisig { threshold transactionCount multisigOwners } } issueOwners { scwId owners { type owner timelockDelay timelock modifiable impact governance { proposals proposalMaxActions votingPeriod quorum threshold name } multisig { threshold transactionCount multisigOwners } } } } } }"""
     }
-
     response = requests.post(
         "https://api-scanner.defiyield.app/", headers=headers, json=graphql_query
     )
@@ -365,9 +363,9 @@ def saveIssuesForToken(contract_address, chain_name):
             ercxReport = json.load(open(ercxPath))
             jsonOutput, feedback = ercxReport["json"], ercxReport["feedback"]
             testCategories = [
-                "test/ERC20Minimal.t.sol:ERC20Minimal",
-                "test/ERC20Recommended.t.sol:ERC20Recommended",
-                "test/ERC20Desirable.t.sol:ERC20Desirable",
+                "test/ERC20Features.t.sol:ERC20Features",
+                "test/ERC20Security.t.sol:ERC20Security",
+                "test/ERC20Standard.t.sol:ERC20Standard",
             ]
             for category in testCategories:
                 if category not in jsonOutput:
@@ -456,8 +454,9 @@ def json_to_csv_report(json_file_path, csv_file_path):
         for chain in data:
             for address, details in data[chain].items():
                 issues = details.get("issues", {})
+                if not issues:
+                    continue
                 project_name = details.get("name", "")
-
                 row = [chain + " | " + project_name]
                 for category in issue_categories:
                     if category in issues:
@@ -481,9 +480,11 @@ def main():
                 saveErcxReport(contract_address, network_id)
             saveDeDotFiReport(contract_address, network_id)
             saveIssuesForToken(contract_address, chain_name)
-    json_to_markdown_report(getAbsPath("failedTests.json"), getAbsPath("report.md"))
-    json_to_csv_report(getAbsPath("failedTests.json"), getAbsPath("report.csv"))
-    csv_to_image(getAbsPath("report.png"), getAbsPath("report.csv"))
+    json_to_markdown_report(
+        getAbsPath("failedTests.json"), getAbsPath("output/report.md")
+    )
+    json_to_csv_report(getAbsPath("failedTests.json"), getAbsPath("output/report.csv"))
+    csv_to_image(getAbsPath("output/report.png"), getAbsPath("output/report.csv"))
 
 
 if __name__ == "__main__":

@@ -1,19 +1,11 @@
 {
     "arbitrum": {
         "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Pendle"
         },
         "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Lido DAO Token"
         },
         "0x18c11FD286C5EC11c3b683Caa813B77f5163A122": {
@@ -21,11 +13,7 @@
             "name": "Gains Network"
         },
         "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped BTC"
         },
         "0x3082CC23568eA640225c2467653dB90e9250AaA0": {
@@ -37,27 +25,15 @@
             "name": "Camelot token"
         },
         "0x561877b6b3DD7651313794e5F2894B2F18bE0766": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Matic Token"
         },
         "0x5979D7b546E38E414F7E9822514be443A4800529": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped liquid staked Ether 2.0"
         },
         "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped Ether"
         },
         "0x912CE59144191C1204E64559FE8253a0e49E6548": {
@@ -65,20 +41,12 @@
                 "tokenVuln": [
                     "de.fi | The contract's owner can be changed by anyone.",
                     "de.fi | Unprotected contract initializer, vulnerable to re-execution, immediate action needed for security."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
                 ]
             },
             "name": "Arbitrum"
         },
         "0x93b346b6BC2548dA6A1E7d98E9a421B42541425b": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "LUSD Stablecoin"
         },
         "0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7": {
@@ -91,71 +59,45 @@
         },
         "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
             "issues": {
+                "potentialGranularTransferConstraints": [
+                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
+                ],
                 "tokenVuln": [
                     "de.fi | The contract's owner can be changed by anyone.",
                     "de.fi | Unprotected contract initializer, vulnerable to re-execution, immediate action needed for security."
-                ],
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling.",
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
                 ]
             },
             "name": "USD Coin (Arb1)"
         },
         "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Uniswap"
         },
         "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9": {
             "issues": {
-                "transferConstraints": [
+                "potentialGranularTransferConstraints": [
                     "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.",
                     "de.fi | Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
                 ]
             },
             "name": "Tether USD"
         },
         "0xd4d42F0b6DEF4CE0383636770eF773390d85c61A": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "SushiToken"
         },
         "0xe4DDDfe67E7164b0FE14E218d80dC4C08eDC01cB": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Kyber Network Crystal v2"
         },
         "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "ChainLink Token"
         },
         "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
             "issues": {
-                "transferConstraints": [
+                "potentialGranularTransferConstraints": [
                     "de.fi | Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
                 ]
             },
             "name": "GMX"
@@ -168,13 +110,8 @@
         },
         "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984": {
             "issues": {
-                "balanceVariability": [
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | The `transfer` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time."
-                ],
-                "theftOrInflation": [
-                    "ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
+                "activeTransferConstraints": [
+                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
                 ],
                 "viewInaccuracies": [
                     "ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized."
@@ -183,43 +120,24 @@
             "name": "Uniswap"
         },
         "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599": {
-            "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped BTC"
         },
         "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0": {
             "issues": {
-                "balanceVariability": [
-                    "ercx | The `transferFrom` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | The `transfer` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transfer` is called.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transferFrom` is called.",
-                    "ercx | A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver."
-                ],
-                "theftOrInflation": [
-                    "ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
-                ],
-                "transferConstraints": [
+                "activeTransferConstraints": [
                     "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
+                ],
+                "balanceVariability": [
+                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected."
                 ]
             },
             "name": "Frax Share"
         },
         "0x3472A5A71965499acd81997a54BBA8D852C6E53d": {
             "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling.",
+                "potentialGranularTransferConstraints": [
                     "de.fi | The contract owner is able to control all token holders' balances."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
                 ]
             },
             "name": "Badger"
@@ -231,20 +149,11 @@
         "0x45804880De22913dAFE09f4980848ECE6EcbAf78": {
             "issues": {
                 "balanceVariability": [
-                    "ercx | The `transferFrom` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | The `transfer` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected."
+                    "de.fi | A fee is charged upon transfering this token (up to 100%)."
                 ],
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling.",
+                "potentialGranularTransferConstraints": [
                     "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.",
                     "de.fi | The contract owner is able to control all token holders' balances."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
                 ]
             },
             "name": "Paxos Gold"
@@ -258,12 +167,7 @@
             "name": "ApeCoin"
         },
         "0x50327c6c5a14DCaDE707ABad2E27eB517df87AB5": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "TRON"
         },
         "0x514910771AF9Ca656af840dff83E8264EcF986CA": {
@@ -272,6 +176,9 @@
         },
         "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32": {
             "issues": {
+                "activeTransferConstraints": [
+                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
+                ],
                 "balanceVariability": [
                     "ercx | The `transferFrom` function HAS the potential to take fees.",
                     "ercx | The `transfer` function TAKES fees at test execution time.",
@@ -286,18 +193,17 @@
                     "ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.",
                     "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
                 ],
+                "potentialGranularTransferConstraints": [
+                    "de.fi | The contract owner is able to control all token holders' balances."
+                ],
                 "theftOrInflation": [
-                    "ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
-                ],
-                "transferConstraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
+                    "ercx | A tokenReceiver CAN call `transferFrom` of an amount more than her allowance from the tokenSender.",
+                    "ercx | A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance.",
+                    "ercx | A tokenSender (which is also the `msg.sender`) CAN call `transfer` of an amount more than his balance. ",
+                    "ercx | A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously."
                 ],
                 "viewInaccuracies": [
-                    "ercx | A `msg.sender` CANNOT retrieve his/her own balance.",
-                    "ercx | A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
+                    "ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized."
                 ]
             },
             "name": "Lido DAO Token"
@@ -308,9 +214,11 @@
         },
         "0x6982508145454Ce325dDbE47a25d4ec3d2311933": {
             "issues": {
-                "transferConstraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.",
+                "activeTransferConstraints": [
                     "de.fi | The max/min amount of token transferred can be limited."
+                ],
+                "potentialGranularTransferConstraints": [
+                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
                 ]
             },
             "name": "Pepe"
@@ -320,36 +228,11 @@
             "name": "Dai Stablecoin"
         },
         "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2": {
-            "issues": {
-                "balanceVariability": [
-                    "ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transfer` is called.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transferFrom` is called.",
-                    "ercx | A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
-                ],
-                "theftOrInflation": [
-                    "ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
-                ],
-                "transferConstraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
-                ],
-                "viewInaccuracies": [
-                    "ercx | A `msg.sender` CANNOT retrieve his/her own balance.",
-                    "ercx | A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
-                ]
-            },
+            "issues": {},
             "name": "SushiToken"
         },
         "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0": {
-            "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling."
-                ]
-            },
+            "issues": {},
             "name": "Matic Token"
         },
         "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0": {
@@ -361,24 +244,13 @@
             "name": "SHIBA INU"
         },
         "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2": {
-            "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract may not function as intended due to an incorrect ERC20 interface implementation."
-                ]
-            },
+            "issues": {},
             "name": "Maker DAI"
         },
         "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": {
             "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling.",
+                "potentialGranularTransferConstraints": [
                     "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
                 ]
             },
             "name": "USD Coin"
@@ -393,6 +265,9 @@
         },
         "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F": {
             "issues": {
+                "activeTransferConstraints": [
+                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
+                ],
                 "balanceVariability": [
                     "ercx | The `transferFrom` function HAS the potential to take fees.",
                     "ercx | The `transfer` function TAKES fees at test execution time.",
@@ -408,18 +283,13 @@
                     "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
                 ],
                 "theftOrInflation": [
-                    "ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
-                ],
-                "transferConstraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
+                    "ercx | A tokenReceiver CAN call `transferFrom` of an amount more than her allowance from the tokenSender.",
+                    "ercx | A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance.",
+                    "ercx | A tokenSender (which is also the `msg.sender`) CAN call `transfer` of an amount more than his balance. ",
+                    "ercx | A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously."
                 ],
                 "viewInaccuracies": [
-                    "ercx | A `msg.sender` CANNOT retrieve his/her own balance.",
-                    "ercx | A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
+                    "ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized."
                 ]
             },
             "name": "Synthetix Network Token"
@@ -433,12 +303,7 @@
             "name": "Ethereum Name Service"
         },
         "0xC669928185DbCE49d2230CC9B0979BE6DC797957": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "BitTorrent"
         },
         "0xbC396689893D065F41bc2C6EcbeE5e0085233447": {
@@ -446,21 +311,13 @@
             "name": "Perpetual"
         },
         "0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Kyber Network Crystal v2"
         }
     },
     "optimism": {
         "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped liquid staked Ether 2.0"
         },
         "0x350a791Bfc2C21F9Ed5d10980Dad2e2638ffa7f6": {
@@ -472,11 +329,7 @@
             "name": "Wrapped Ether"
         },
         "0x4200000000000000000000000000000000000042": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "Optimism"
         },
         "0x67CCEA5bb16181E7b4109c9c2143c24a1c2205Be": {
@@ -489,8 +342,7 @@
         },
         "0x7F5c764cBc14f9669B88837ca1490cCa17c31607": {
             "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling.",
+                "potentialGranularTransferConstraints": [
                     "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
                 ]
             },
@@ -515,78 +367,39 @@
     },
     "polygon": {
         "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped liquid staked Ether 2.0 (PoS)"
         },
         "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "(PoS) Wrapped BTC"
         },
         "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": {
             "issues": {
-                "transferConstraints": [
-                    "de.fi | Token transfers can be paused, preventing swapping or selling.",
+                "potentialGranularTransferConstraints": [
                     "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ],
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
                 ]
             },
             "name": "USD Coin (PoS)"
         },
         "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "ChainLink Token"
         },
         "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped Ether"
         },
         "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "Balancer (PoS)"
         },
         "0xBbba073C31bF03b8ACf7c28EF0738DeCF3695683": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "SAND"
         },
         "0xD6DF932A45C0f255f85145f286eA0b292B21C90B": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality.",
-                    "de.fi | The contract contains external calls which cannot be analyzed by the scanner, and could be potentially dangerous. Please use caution when using this contract."
-                ]
-            },
+            "issues": {},
             "name": "Aave (PoS)"
         }
     },
@@ -600,19 +413,11 @@
             "name": "Tether USD"
         },
         "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract can be upgraded, changing its functionality."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped Ether"
         },
         "0xBBeB516fb02a01611cBBE0453Fe3c580D7281011": {
-            "issues": {
-                "unpredictableLogic": [
-                    "de.fi | This contract's code has not been publicly verified."
-                ]
-            },
+            "issues": {},
             "name": "Wrapped BTC"
         }
     }
