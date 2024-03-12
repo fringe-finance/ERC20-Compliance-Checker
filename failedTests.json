@@ -136,32 +136,8 @@
         },
         "0x3472A5A71965499acd81997a54BBA8D852C6E53d": {
             "issues": {
-                "active transfer constraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
-                ],
-                "balance variability": [
-                    "ercx | The `transferFrom` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | The `transfer` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transfer` is called.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transferFrom` is called.",
-                    "ercx | A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
-                ],
                 "potential granular transfer constraints": [
                     "de.fi | The contract owner is able to control all token holders' balances."
-                ],
-                "theft or inflation": [
-                    "ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
-                ],
-                "view inaccuracies": [
-                    "ercx | A `msg.sender` CANNOT retrieve his/her own balance.",
-                    "ercx | A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
                 ]
             },
             "name": "Badger"
@@ -169,23 +145,6 @@
         "0x3845badAde8e6dFF049820680d1F14bD3903a5d0": {
             "issues": {},
             "name": "SAND"
-        },
-        "0x45804880De22913dAFE09f4980848ECE6EcbAf78": {
-            "issues": {
-                "balance variability": [
-                    "ercx | The `transferFrom` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | The `transfer` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected."
-                ],
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.",
-                    "de.fi | The contract owner is able to control all token holders' balances."
-                ]
-            },
-            "name": "Paxos Gold"
         },
         "0x4691937a7508860F876c9c0a2a617E7d9E945D4B": {
             "issues": {
@@ -272,34 +231,7 @@
             "name": "LoopringCoin V2"
         },
         "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F": {
-            "issues": {
-                "active transfer constraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
-                ],
-                "balance variability": [
-                    "ercx | The `transferFrom` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | The `transfer` function HAS the potential to take fees.",
-                    "ercx | The `transfer` function TAKES fees at test execution time.",
-                    "ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transfer` is called.",
-                    "ercx | The contract's `totalSupply` variable IS altered after `transferFrom` is called.",
-                    "ercx | A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.",
-                    "ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
-                ],
-                "theft or inflation": [
-                    "ercx | A tokenReceiver CAN call `transferFrom` of an amount more than her allowance from the tokenSender.",
-                    "ercx | A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance.",
-                    "ercx | A tokenSender (which is also the `msg.sender`) CAN call `transfer` of an amount more than his balance. ",
-                    "ercx | A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously."
-                ],
-                "view inaccuracies": [
-                    "ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized."
-                ]
-            },
+            "issues": {},
             "name": "Synthetix Network Token"
         },
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": {

@@ -4,7 +4,6 @@
         "explorerBaseUrl": "https://etherscan.io",
         "network_id": "1",
         "contracts": [
-            "0x45804880De22913dAFE09f4980848ECE6EcbAf78",
             "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e",
             "0x3472A5A71965499acd81997a54BBA8D852C6E53d",
             "0xC669928185DbCE49d2230CC9B0979BE6DC797957",

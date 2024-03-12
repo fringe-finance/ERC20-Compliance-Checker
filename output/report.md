@@ -106,59 +106,9 @@
 **Explorer url:** https://etherscan.io/address/0x3472A5A71965499acd81997a54BBA8D852C6E53d#code
 
 ##### Issue Categories
-###### active transfer constraints
-###### balance variability
-###### potential granular transfer constraints
-###### theft or inflation
-###### view inaccuracies
-
-###### active transfer constraints Issues
-- ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance.
-
-###### balance variability Issues
-- ercx | The `transferFrom` function HAS the potential to take fees.
-- ercx | The `transfer` function TAKES fees at test execution time.
-- ercx | The `transfer` function HAS the potential to take fees.
-- ercx | The `transfer` function TAKES fees at test execution time.
-- ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.
-- ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.
-- ercx | The contract's `totalSupply` variable IS altered after `transfer` is called.
-- ercx | The contract's `totalSupply` variable IS altered after `transferFrom` is called.
-- ercx | A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.
-- ercx | A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.
-- ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.
-- ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified.
-
-###### potential granular transfer constraints Issues
-- de.fi | The contract owner is able to control all token holders' balances.
-
-###### theft or inflation Issues
-- ercx | Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero.
-
-###### view inaccuracies Issues
-- ercx | A `msg.sender` CANNOT retrieve his/her own balance.
-- ercx | A `msg.sender` CANNOT retrieve balance of an address different from his/hers.
-
-
-
-### Paxos Gold
-**Address:** 0x45804880De22913dAFE09f4980848ECE6EcbAf78
-**Explorer url:** https://etherscan.io/address/0x45804880De22913dAFE09f4980848ECE6EcbAf78#code
-
-##### Issue Categories
-###### balance variability
 ###### potential granular transfer constraints
 
-###### balance variability Issues
-- ercx | The `transferFrom` function HAS the potential to take fees.
-- ercx | The `transfer` function TAKES fees at test execution time.
-- ercx | The `transfer` function HAS the potential to take fees.
-- ercx | The `transfer` function TAKES fees at test execution time.
-- ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.
-- ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.
-
 ###### potential granular transfer constraints Issues
-- de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.
 - de.fi | The contract owner is able to control all token holders' balances.
 
 
@@ -213,44 +163,6 @@
 
 ###### potential granular transfer constraints Issues
 - de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.
-
-
-
-### Synthetix Network Token
-**Address:** 0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F
-**Explorer url:** https://etherscan.io/address/0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F#code
-
-##### Issue Categories
-###### active transfer constraints
-###### balance variability
-###### theft or inflation
-###### view inaccuracies
-
-###### active transfer constraints Issues
-- ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance.
-
-###### balance variability Issues
-- ercx | The `transferFrom` function HAS the potential to take fees.
-- ercx | The `transfer` function TAKES fees at test execution time.
-- ercx | The `transfer` function HAS the potential to take fees.
-- ercx | The `transfer` function TAKES fees at test execution time.
-- ercx | Self `transfer` call of positive amount is NOT ALLOWED or it MODIFIED the balance.
-- ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected.
-- ercx | The contract's `totalSupply` variable IS altered after `transfer` is called.
-- ercx | The contract's `totalSupply` variable IS altered after `transferFrom` is called.
-- ercx | A successful call of `transfer` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.
-- ercx | A successful call of `transferFrom` UPDATES the balance of users who are neither the tokenSender nor the tokenReceiver.
-- ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.
-- ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified.
-
-###### theft or inflation Issues
-- ercx | A tokenReceiver CAN call `transferFrom` of an amount more than her allowance from the tokenSender.
-- ercx | A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance.
-- ercx | A tokenSender (which is also the `msg.sender`) CAN call `transfer` of an amount more than his balance. 
-- ercx | A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously.
-
-###### view inaccuracies Issues
-- ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized.
 
 
 

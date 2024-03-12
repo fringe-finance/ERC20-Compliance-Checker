@@ -327,11 +327,15 @@ def saveIssuesForToken(contract_address, chain_name):
                     [testName.split("(")[0], None]
                     for testName in testResults
                     if (
-                        "status" not in testResults[testName]
-                        or testResults[testName]["status"] != "Success"
+                        (
+                            "status" not in testResults[testName]
+                            or testResults[testName]["status"] != "Success"
+                        )
+                        and not (
+                            testResults[testName]["reason"] is not None
+                            and "find(StdStorage)" in testResults[testName]["reason"]
+                        )
                     )
-                    and testResults[testName]["reason"]
-                    != "revert: stdStorage find(StdStorage): Slot(s) not found."
                 ]
                 issues.update(filterIssues(failedTestIds, "ercx"))
         else:
