@@ -29,7 +29,7 @@
             "description": "constraints are placed on token transfers, potentially resulting in seizure of tokens"
         },
         "potential granular transfer constraints": {
-            "active": true,
+            "active": false,
             "description": "constraints are able to be placed on specific token holders, potentially resulting in seizure of tokens"
         },
         "potential coarse transfer constraints": {
@@ -119,7 +119,7 @@
             "description": "The contract owner is able to control all token holders' balances."
         },
         "230": {
-            "class": "token vuln",
+            "class": "",
             "description": "The contract's owner can be changed by anyone."
         },
         "233": {
@@ -131,7 +131,7 @@
             "description": "Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
         },
         "242": {
-            "class": "token vuln",
+            "class": "",
             "description": "Unprotected contract initializer, vulnerable to re-execution, immediate action needed for security."
         },
         "testAddressZeroHasNoToken": {
@@ -319,7 +319,7 @@
             "description": "A tokenReceiver CANNOT call `transferFrom` of the tokenSender's total balance amount even though tokenSender has approved that."
         },
         "testPositiveTotalTransferToOther": {
-            "class": "balance variability",
+            "class": "active transfer constraints",
             "description": "A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected."
         },
         "testPositiveTransferEventEmission": {
@@ -423,7 +423,7 @@
             "description": "Self approval and call of `transferFrom` from its own account of zero amount is NOT ALLOWED."
         },
         "testZeroSelfTransfer": {
-            "class": "balance variability",
+            "class": "",
             "description": "Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance."
         },
         "testZeroTotalTransferFromToOther": {
@@ -431,7 +431,7 @@
             "description": "A tokenReceiver CANNOT call `transferFrom` of the tokenSender's total balance amount of zero."
         },
         "testZeroTotalTransferToOther": {
-            "class": "balance variability",
+            "class": "",
             "description": "A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
         },
         "testZeroTransferFromByOtherEmitsEvent": {

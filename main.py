@@ -275,7 +275,7 @@ def filterIssues(issues, sourceAPI):
         )
         if not issueClass or not issueDescription:
             continue
-        issueString = f"{sourceAPI} | {issueDescription}"
+        issueString = f"{sourceAPI} | {issueDescription} | {issueId}"
         if issueClass not in filtered_issues:
             filtered_issues[issueClass] = []
         filtered_issues[issueClass].append(issueString)

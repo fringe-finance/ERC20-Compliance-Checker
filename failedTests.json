@@ -37,12 +37,7 @@
             "name": "Wrapped Ether"
         },
         "0x912CE59144191C1204E64559FE8253a0e49E6548": {
-            "issues": {
-                "token vuln": [
-                    "de.fi | The contract's owner can be changed by anyone.",
-                    "de.fi | Unprotected contract initializer, vulnerable to re-execution, immediate action needed for security."
-                ]
-            },
+            "issues": {},
             "name": "Arbitrum"
         },
         "0x93b346b6BC2548dA6A1E7d98E9a421B42541425b": {
@@ -58,15 +53,7 @@
             "name": "Dai Stablecoin"
         },
         "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ],
-                "token vuln": [
-                    "de.fi | The contract's owner can be changed by anyone.",
-                    "de.fi | Unprotected contract initializer, vulnerable to re-execution, immediate action needed for security."
-                ]
-            },
+            "issues": {},
             "name": "USD Coin (Arb1)"
         },
         "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0": {
@@ -74,12 +61,7 @@
             "name": "Uniswap"
         },
         "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token.",
-                    "de.fi | Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
-                ]
-            },
+            "issues": {},
             "name": "Tether USD"
         },
         "0xd4d42F0b6DEF4CE0383636770eF773390d85c61A": {
@@ -95,11 +77,7 @@
             "name": "ChainLink Token"
         },
         "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | Detected whitelisting feature enables unique users to bypass restrictions, potentially raising security and integrity concerns."
-                ]
-            },
+            "issues": {},
             "name": "GMX"
         }
     },
@@ -111,10 +89,10 @@
         "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984": {
             "issues": {
                 "active transfer constraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
+                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance. | testPositiveMultipleTransfer"
                 ],
                 "view inaccuracies": [
-                    "ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized."
+                    "ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized. | testUserBalanceInitialized"
                 ]
             },
             "name": "Uniswap"
@@ -126,20 +104,14 @@
         "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0": {
             "issues": {
                 "active transfer constraints": [
-                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance."
-                ],
-                "balance variability": [
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected."
+                    "ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance. | testPositiveMultipleTransfer",
+                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected. | testPositiveTotalTransferToOther"
                 ]
             },
             "name": "Frax Share"
         },
         "0x3472A5A71965499acd81997a54BBA8D852C6E53d": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | The contract owner is able to control all token holders' balances."
-                ]
-            },
+            "issues": {},
             "name": "Badger"
         },
         "0x3845badAde8e6dFF049820680d1F14bD3903a5d0": {
@@ -147,12 +119,7 @@
             "name": "SAND"
         },
         "0x4691937a7508860F876c9c0a2a617E7d9E945D4B": {
-            "issues": {
-                "balance variability": [
-                    "ercx | Self `transfer` call of zero amount is NOT ALLOWED or it MODIFIES the balance.",
-                    "ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount of zero to a tokenReceiver or the balances were modified."
-                ]
-            },
+            "issues": {},
             "name": "Wootrade Network"
         },
         "0x4d224452801ACEd8B2F0aebE155379bb5D594381": {
@@ -168,11 +135,7 @@
             "name": "ChainLink Token"
         },
         "0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | The contract owner is able to control all token holders' balances."
-                ]
-            },
+            "issues": {},
             "name": "Lido DAO Token"
         },
         "0x6810e776880C02933D47DB1b9fc05908e5386b96": {
@@ -182,10 +145,7 @@
         "0x6982508145454Ce325dDbE47a25d4ec3d2311933": {
             "issues": {
                 "active transfer constraints": [
-                    "de.fi | The max/min amount of token transferred can be limited."
-                ],
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
+                    "de.fi | The max/min amount of token transferred can be limited. | 211"
                 ]
             },
             "name": "Pepe"
@@ -215,11 +175,7 @@
             "name": "Maker DAI"
         },
         "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ]
-            },
+            "issues": {},
             "name": "USD Coin"
         },
         "0xA2cd3D43c775978A96BdBf12d733D5A1ED94fb18": {
@@ -281,11 +237,7 @@
             "name": "Wrapped BTC"
         },
         "0x7F5c764cBc14f9669B88837ca1490cCa17c31607": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ]
-            },
+            "issues": {},
             "name": "USD Coin"
         },
         "0x9e1028F5F1D5eDE59748FFceE5532509976840E0": {
@@ -315,11 +267,7 @@
             "name": "(PoS) Wrapped BTC"
         },
         "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": {
-            "issues": {
-                "potential granular transfer constraints": [
-                    "de.fi | Wallets can be blacklisted from being able to transfer, swap or sell this token."
-                ]
-            },
+            "issues": {},
             "name": "USD Coin (PoS)"
         },
         "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39": {
