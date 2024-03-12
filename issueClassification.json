@@ -1,5 +1,9 @@
 {
     "categories": {
+        "undetermined": {
+            "active": true,
+            "description": "as of yet unclassified issues"
+        },
         "adminInflation": {
             "active": false,
             "description": "erc20 token supply can suddenly be increased"
@@ -8,13 +12,13 @@
             "active": false,
             "description": "heuristics point to owner or contracts being malicious"
         },
-        "unpredictableLogic": {
-            "active": true,
-            "description": "###########################################contract behaviour is hard to predict/verify or can change"
-        },
         "allowanceBugs": {
             "active": false,
             "description": "unexpected allowance behaviour resulting in failed txs when interacting with plp"
+        },
+        "unpredictableLogic": {
+            "active": true,
+            "description": "contract behaviour is hard to predict/verify or can change"
         },
         "transferConstraints": {
             "active": true,
@@ -31,10 +35,6 @@
         "tokenVuln": {
             "active": true,
             "description": "erc20 contract itself is at risk of an attack"
-        },
-        "undetermined": {
-            "active": true,
-            "description": "as of yet unclassified issues"
         },
         "viewInaccuracies": {
             "active": true,

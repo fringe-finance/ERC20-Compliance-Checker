@@ -719,10 +719,11 @@ def main():
         chain_name = network
         network_id = contracts[network]["network_id"]
         addresses = contracts[network]["contracts"]
-        # for contract_address in addresses:
-        # saveErcxReport(contract_address, network_id)
-        # saveDeDotFiReport(contract_address, network_id)
-        # saveIssuesForToken(contract_address, chain_name)
+        for contract_address in addresses:
+            if str(network_id) != "324":
+                saveErcxReport(contract_address, network_id)
+            saveDeDotFiReport(contract_address, network_id)
+            saveIssuesForToken(contract_address, chain_name)
     json_to_markdown_report(getAbsPath("failedTests.json"), getAbsPath("report.md"))
     json_to_csv_report(getAbsPath("failedTests.json"), getAbsPath("report.csv"))
     csv_to_image(getAbsPath("report.png"), getAbsPath("report.csv"))
