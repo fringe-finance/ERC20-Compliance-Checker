@@ -22,10 +22,10 @@
 ###### active transfer constraints
 ###### view inaccuracies
 
-###### active transfer constraints Issues
+##### active transfer constraints Issues
 - ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance. | testPositiveMultipleTransfer
 
-###### view inaccuracies Issues
+##### view inaccuracies Issues
 - ercx | A successful `balanceOf(account)` call does NOT return balance of `account` correctly after two dummy users' balances are initialized. | testUserBalanceInitialized
 
 
@@ -37,7 +37,7 @@
 ##### Issue Categories
 ###### active transfer constraints
 
-###### active transfer constraints Issues
+##### active transfer constraints Issues
 - ercx | Multiple `transfer` calls of positive amounts are NOT ALLOWED even though the sum of the transferred amounts is less than or equal to the tokenSender's balance. | testPositiveMultipleTransfer
 - ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected. | testPositiveTotalTransferToOther
 
@@ -50,7 +50,7 @@
 ##### Issue Categories
 ###### active transfer constraints
 
-###### active transfer constraints Issues
+##### active transfer constraints Issues
 - de.fi | The max/min amount of token transferred can be limited. | 211
 
 

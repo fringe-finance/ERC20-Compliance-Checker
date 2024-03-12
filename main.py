@@ -385,7 +385,7 @@ def json_to_markdown_report(json_file_path, markdown_file_path):
                 markdown_report += "\n"
                 for issueClass, issueList in issues.items():
                     if issueList:
-                        markdown_report += f"###### {issueClass} Issues\n"
+                        markdown_report += f"##### {issueClass} Issues\n"
                     for issue in issueList:
                         markdown_report += f"- {issue}\n"
                     markdown_report += "\n"
