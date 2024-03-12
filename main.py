@@ -310,19 +310,28 @@ def saveIssuesForToken(contract_address, chain_name):
             ercxReport = json.load(open(ercxPath))
             jsonOutput, feedback = ercxReport["json"], ercxReport["feedback"]
             testCategories = [
-                "test/ERC20Features.t.sol:ERC20Features",
-                "test/ERC20Security.t.sol:ERC20Security",
-                "test/ERC20Standard.t.sol:ERC20Standard",
+                "ERC20Features",
+                "ERC20Desirable",
+                "ERC20Security",
+                "ERC20Standard",
             ]
             for category in testCategories:
-                if category not in jsonOutput:
+                matchingCategory = [
+                    testName for testName in jsonOutput if category in testName
+                ]
+                if matchingCategory:
+                    testResults = jsonOutput[matchingCategory[0]]["test_results"]
+                else:
                     continue
-                testResults = jsonOutput[category]["test_results"]
                 failedTestIds = [
                     [testName.split("(")[0], None]
                     for testName in testResults
-                    if "status" not in testResults[testName]
-                    or testResults[testName]["status"] != "Success"
+                    if (
+                        "status" not in testResults[testName]
+                        or testResults[testName]["status"] != "Success"
+                    )
+                    and testResults[testName]["reason"]
+                    != "revert: stdStorage find(StdStorage): Slot(s) not found."
                 ]
                 issues.update(filterIssues(failedTestIds, "ercx"))
         else:
