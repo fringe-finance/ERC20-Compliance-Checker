@@ -55,6 +55,18 @@
 
 
 
+### Ondo
+**Address:** 0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3
+**Explorer url:** https://etherscan.io/address/0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3#code
+
+##### Issue Categories
+###### active transfer constraints
+
+##### active transfer constraints Issues
+- de.fi | The max/min amount of token transferred can be limited. | 211
+
+
+
 
 
 

@@ -1,5 +1,9 @@
 {
     "arbitrum": {
+        "0x088cd8f5ef3652623c22d48b1605dcfe860cd704": {
+            "issues": {},
+            "name": "VelaToken"
+        },
         "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
             "issues": {},
             "name": "Pendle"
@@ -19,6 +23,10 @@
         "0x3082CC23568eA640225c2467653dB90e9250AaA0": {
             "issues": {},
             "name": "Radiant"
+        },
+        "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07": {
+            "issues": {},
+            "name": "JoeToken"
         },
         "0x3d9907F9a368ad0a51Be60f7Da3b97cf940982D8": {
             "issues": {},
@@ -170,6 +178,10 @@
             "issues": {},
             "name": "SHIBA INU"
         },
+        "0x96f6ef951840721adbf46ac996b59e0235cb985c": {
+            "issues": {},
+            "name": "Ondo U.S. Dollar Yield"
+        },
         "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2": {
             "issues": {},
             "name": "Maker DAI"
@@ -209,6 +221,14 @@
         "0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202": {
             "issues": {},
             "name": "Kyber Network Crystal v2"
+        },
+        "0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3": {
+            "issues": {
+                "active transfer constraints": [
+                    "de.fi | The max/min amount of token transferred can be limited. | 211"
+                ]
+            },
+            "name": "Ondo"
         }
     },
     "optimism": {
@@ -299,6 +319,10 @@
         "0x493257fD37EDB34451f62EDf8D2a0C418852bA4C": {
             "issues": {},
             "name": "Tether USD"
+        },
+        "0x5A7d6b2F92C77FAD6CCaBd7EE0624E64907Eaf3E": {
+            "issues": {},
+            "name": "ZKsync"
         },
         "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91": {
             "issues": {},

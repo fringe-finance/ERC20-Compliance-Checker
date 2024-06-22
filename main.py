@@ -43,7 +43,8 @@ def getTokenName(contract_address, chain_name):
     ]
 
     # Create a contract instance using the provided contract address and ABI
-    contract = w3.eth.contract(address=contract_address, abi=erc20_abi)
+    checksumAddress = w3.to_checksum_address(contract_address)
+    contract = w3.eth.contract(address=checksumAddress, abi=erc20_abi)
     name = None
     symbol = None
     try:
