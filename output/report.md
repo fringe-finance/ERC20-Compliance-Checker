@@ -74,6 +74,25 @@
 
 
 
+### Ondo U.S. Dollar Yield
+**Address:** 0x96f6ef951840721adbf46ac996b59e0235cb985c
+**Explorer url:** https://etherscan.io/address/0x96f6ef951840721adbf46ac996b59e0235cb985c#code
+
+##### Issue Categories
+###### undetermined
+
+##### undetermined Issues
+- ercx | The contract owner can control balance by minting numerous tokens to an account (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`),  overflowing its balance to a small figure. | testBalanceDoesNotOverflowByMinting
+- ercx | It was possible to mint tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`) to the zero address. | testMintingToZeroAddressShouldFail
+- ercx | After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the user balance was not updated correctly. | testMintingUpdatesBalance
+- ercx | After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply was not updated correctly. | testMintingUpdatesTotalSupply
+- ercx | By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the balance of the target address changed. | testMintingZeroShouldNotChangeBalance
+- ercx | By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply changed. | testMintingZeroShouldNotChangeTotalSupply
+- ercx | The contract owner can bring about an overflow and issue random amounts of tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`)  by passing a great value and pass the check of max minting value. | testNoExcessByMintingViaOverflow
+- ercx | An overflow happened with variable totalSupply when the sum of tokens changed via minting (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`). | testTotalSupplyDoesNotOverflowByMinting
+
+
+
 ### Ondo
 **Address:** 0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3
 **Explorer url:** https://etherscan.io/address/0xfAbA6f8e4a5E8Ab82F62fe7C39859FA577269BE3#code
