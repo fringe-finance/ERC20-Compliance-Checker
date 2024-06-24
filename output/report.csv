@@ -1,7 +1,7 @@
-Token,active transfer constraints,balance variability,theft or inflation,undetermined,view inaccuracies
-arbitrum | VelaToken,,,,x,
-ethereum | Uniswap,x,,,,x
-ethereum | Frax Share,x,,,,
-ethereum | Pepe,x,,,,
-ethereum | Ondo U.S. Dollar Yield,,,,x,
-ethereum | Ondo,x,x,x,x,x
+Token,active transfer constraints,balance variability,theft or inflation,view inaccuracies
+ethereum | Uniswap,x,,,x
+ethereum | Frax Share,x,,,
+ethereum | Pepe,x,,,
+ethereum | Tether USD,x,x,,
+ethereum | Ondo,x,x,x,x
+polygon | QuickSwap,,,x,

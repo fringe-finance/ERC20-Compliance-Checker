@@ -114,6 +114,10 @@
             "class": "",
             "description": "Funds in this contract may be vulnerable to being drained by its owner through an approval exploit."
         },
+        "216-b": {
+            "class": "potential coarse transfer constraints",
+            "description": "Funds in this contract may be vulnerable to being drained by its owner through outstanding token approvals."
+        },
         "220": {
             "class": "potential granular transfer constraints",
             "description": "The contract owner is able to control all token holders' balances."
@@ -150,7 +154,43 @@
             "class": "view inaccuracies",
             "description": "A `msg.sender` CANNOT retrieve balance of an address different from his/hers."
         },
+        "testBurningFromUpdatesAllowance": {
+            "class": "",
+            "description": "After burning some token (via `burnFrom(address,uint256)` or `burnToken(address,uint256)` or `burn(address,uint256)`), the allowance was not updated correctly."
+        },
+        "testBurningFromUpdatesBalance": {
+            "class": "",
+            "description": "After burning some token (via `burnFrom(address,uint256)` or `burnToken(address,uint256)` or `burn(address,uint256)`), the user balance was not updated correctly."
+        },
+        "testBurningFromUpdatesTotalSupply": {
+            "class": "",
+            "description": "After burning from some token (via `burnFrom(address,uint256)` or `burnToken(address,uint256)` or `burn(address,uint256)`), the total supply was not updated correctly."
+        },
+        "testBurningFromZeroTokenDoesNotUpdateAllowance": {
+            "class": "",
+            "description": "After burning some token (via `burnFrom(address,uint256)` or `burnToken(address,uint256)` or `burn(address,uint256)`), the allowance was not updated correctly."
+        },
+        "testBurningFromZeroTokenDoesNotUpdateBalances": {
+            "class": "",
+            "description": "After burning zero token (via `burnFrom(address,uint256)` or `burnToken(address,uint256)` or `burn(address,uint256)`), the user balance was not updated correctly."
+        },
+        "testBurningFromZeroTokenDoesNotUpdateTotalSupply": {
+            "class": "",
+            "description": "After burning zero token (via `burnFrom(address,uint256)` or `burnToken(address,uint256)` or `burn(address,uint256)`), the total supply has changed."
+        },
+        "testBurningUpdatesBalance": {
+            "class": "",
+            "description": "After burning some token (via `burn(uint256)` or `burnToken(uint256)`), the user balance was not updated correctly."
+        },
         "testBurningUpdatesTotalSupply": {
+            "class": "",
+            "description": "After burning some token (via `burn(uint256)` or `burnToken(uint256)`), the total supply was not updated correctly."
+        },
+        "testBurningZeroTokenDoesNotUpdateBalance": {
+            "class": "",
+            "description": "After burning 0 token (via `burn(uint256)` or `burnToken(uint256)`), the user balance has changed."
+        },
+        "testBurningZeroTokenDoesNotUpdateTotalSupply": {
             "class": "",
             "description": "After burning some token (via `burn(uint256)` or `burnToken(uint256)`), the total supply was not updated correctly."
         },
@@ -263,7 +303,7 @@
             "description": "It was possible to mint tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`) to the zero address."
         },
         "testMintingUpdatesBalance": {
-            "class": "balance variability",
+            "class": "",
             "description": "After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the user balance was not updated correctly."
         },
         "testMintingUpdatesTotalSupply": {
@@ -271,7 +311,7 @@
             "description": "After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply was not updated correctly."
         },
         "testMintingZeroShouldNotChangeBalance": {
-            "class": "balance variability",
+            "class": "",
             "description": "By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the balance of the target address changed."
         },
         "testMintingZeroShouldNotChangeTotalSupply": {

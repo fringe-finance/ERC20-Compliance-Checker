@@ -7,25 +7,6 @@
 
 
 
-### VelaToken
-**Address:** 0x088cd8f5ef3652623c22d48b1605dcfe860cd704
-**Explorer url:** https://arbiscan.io/address/0x088cd8f5ef3652623c22d48b1605dcfe860cd704#code
-
-##### Issue Categories
-###### undetermined
-
-##### undetermined Issues
-- ercx | The contract owner can control balance by minting numerous tokens to an account (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`),  overflowing its balance to a small figure. | testBalanceDoesNotOverflowByMinting
-- ercx | It was possible to mint tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`) to the zero address. | testMintingToZeroAddressShouldFail
-- ercx | After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the user balance was not updated correctly. | testMintingUpdatesBalance
-- ercx | After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply was not updated correctly. | testMintingUpdatesTotalSupply
-- ercx | By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the balance of the target address changed. | testMintingZeroShouldNotChangeBalance
-- ercx | By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply changed. | testMintingZeroShouldNotChangeTotalSupply
-- ercx | The contract owner can bring about an overflow and issue random amounts of tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`)  by passing a great value and pass the check of max minting value. | testNoExcessByMintingViaOverflow
-- ercx | An overflow happened with variable totalSupply when the sum of tokens changed via minting (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`). | testTotalSupplyDoesNotOverflowByMinting
-
-
-
 
 
 
@@ -74,22 +55,20 @@
 
 
 
-### Ondo U.S. Dollar Yield
-**Address:** 0x96f6ef951840721adbf46ac996b59e0235cb985c
-**Explorer url:** https://etherscan.io/address/0x96f6ef951840721adbf46ac996b59e0235cb985c#code
+### Tether USD
+**Address:** 0xdAC17F958D2ee523a2206206994597C13D831ec7
+**Explorer url:** https://etherscan.io/address/0xdAC17F958D2ee523a2206206994597C13D831ec7#code
 
 ##### Issue Categories
-###### undetermined
+###### active transfer constraints
+###### balance variability
 
-##### undetermined Issues
-- ercx | The contract owner can control balance by minting numerous tokens to an account (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`),  overflowing its balance to a small figure. | testBalanceDoesNotOverflowByMinting
-- ercx | It was possible to mint tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`) to the zero address. | testMintingToZeroAddressShouldFail
-- ercx | After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the user balance was not updated correctly. | testMintingUpdatesBalance
-- ercx | After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply was not updated correctly. | testMintingUpdatesTotalSupply
-- ercx | By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the balance of the target address changed. | testMintingZeroShouldNotChangeBalance
-- ercx | By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply changed. | testMintingZeroShouldNotChangeTotalSupply
-- ercx | The contract owner can bring about an overflow and issue random amounts of tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`)  by passing a great value and pass the check of max minting value. | testNoExcessByMintingViaOverflow
-- ercx | An overflow happened with variable totalSupply when the sum of tokens changed via minting (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`). | testTotalSupplyDoesNotOverflowByMinting
+##### active transfer constraints Issues
+- de.fi | The max/min amount of token transferred can be limited. | 211
+
+##### balance variability Issues
+- ercx | The `transferFrom` function HAS the potential to take fees. | testFeeTakingTransferFromPotential
+- ercx | The `transfer` function HAS the potential to take fees. | testFeeTakingTransferPotential
 
 
 
@@ -101,7 +80,6 @@
 ###### active transfer constraints
 ###### balance variability
 ###### theft or inflation
-###### undetermined
 ###### view inaccuracies
 
 ##### active transfer constraints Issues
@@ -109,6 +87,7 @@
 - ercx | A `msg.sender` CANNOT call `transfer` of her total balance amount to a tokenReceiver or the balances were not modified as expected. | testPositiveTotalTransferToOther
 
 ##### balance variability Issues
+- ercx | There is an issue when dealing the intended amount of tokens to dummy users for interacting with the contract. This could be due to issues with  (a) calling of the `transfer` function by the top token holder, or  (b) the presence of fees from the `transfer` function. | testDealIntendedTokensToDummyUsers
 - ercx | The `transferFrom` function HAS the potential to take fees. | testFeeTakingTransferFromPotential
 - ercx | The `transfer` function TAKES fees at test execution time. | testFeeTakingTransferFromPresent
 - ercx | The `transfer` function HAS the potential to take fees. | testFeeTakingTransferPotential
@@ -124,9 +103,6 @@
 - ercx | A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance. | testCannotTransferFromMoreThanBalanceButLowerThanAllowance
 - ercx | A tokenSender (which is also the `msg.sender`) CAN call `transfer` of an amount more than his balance.  | testCannotTransferMoreThanBalance
 - ercx | A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously. | testNoApprovalCannotTransferFrom
-
-##### undetermined Issues
-- ercx | A successful `transferFrom` call of zero amount by any user other than the tokenSender, from and to the same account, is NOT possible. | testZeroTransferFromByOtherFromAndToSameAccountPossible
 - ercx | A successful `transferFrom` call of zero amount by any user other than the tokenSender, from and to different accounts, is NOT possible. | testZeroTransferFromByOtherPossibleFromAndToDifferentAccounts
 
 ##### view inaccuracies Issues
@@ -146,6 +122,18 @@
 
 
 # polygon
+
+
+
+### QuickSwap
+**Address:** 0xB5C064F955D8e7F38fE0460C556a72987494eE17
+**Explorer url:** https://polygonscan.com/address/0xB5C064F955D8e7F38fE0460C556a72987494eE17#code
+
+##### Issue Categories
+###### theft or inflation
+
+##### theft or inflation Issues
+- ercx | A tokenReceiver CAN call `transferFrom` of an amount more than the tokenSender's balance. | testCannotTransferFromMoreThanBalanceButLowerThanAllowance
 
 
 

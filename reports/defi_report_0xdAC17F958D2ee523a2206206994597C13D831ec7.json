@@ -1,0 +1,938 @@
+{
+    "data": {
+        "project": {
+            "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "contractName": "TetherToken",
+            "coreIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable withdrawal functions found",
+                    "scwId": "105",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No reentrancy risk found",
+                    "scwId": "107",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No locks detected",
+                    "scwId": "150",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Verified source code found",
+                    "scwId": "185",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Not found.",
+                                    "title": "Mint max supply"
+                                },
+                                {
+                                    "description": "Not found.",
+                                    "title": "Mint Timelock"
+                                }
+                            ],
+                            "data": "{\"max_supply\": \"\", \"timelock\": \"\", \"privileged\": [{\"type\": \"var\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Mint function: TetherToken.issue(uint256) (TetherToken.sol#402-409)\n\t- In expression: balances[owner] += amount\n",
+                            "end": 409,
+                            "governanceInfo": null,
+                            "id": 233508157,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function issue(uint amount) public onlyOwner {\n    require(_totalSupply + amount > _totalSupply);\n    require(balances[owner] + amount > balances[owner]);\n    balances[owner] += amount;\n    _totalSupply += amount;\n    Issue(amount);\n}",
+                            "start": 402
+                        }
+                    ],
+                    "scwDescription": "A large amount of this token can be minted by a private wallet or contract.",
+                    "scwId": "186",
+                    "scwTitle": "Mintable"
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"var\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Pausable function: TetherToken.transferFrom(address,address,uint256) (TetherToken.sol#346-353)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool)(! paused)\n",
+                            "end": 353,
+                            "governanceInfo": null,
+                            "id": 233508161,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n    require(!isBlackListed[_from]);\n    if (deprecated) {\n        return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n    } else {\n        return super.transferFrom(_from, _to, _value);\n    }\n}",
+                            "start": 346
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"var\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Pausable function: TetherToken.transfer(address,uint256) (TetherToken.sol#336-343)\n\tIn modifier:whenNotPaused\n\t\t- In expression: require(bool)(! paused)\n",
+                            "end": 343,
+                            "governanceInfo": null,
+                            "id": 233508162,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transfer(address _to, uint _value) public whenNotPaused {\n    require(!isBlackListed[msg.sender]);\n    if (deprecated) {\n        return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n    } else {\n        return super.transfer(_to, _value);\n    }\n}",
+                            "start": 336
+                        }
+                    ],
+                    "scwDescription": "Token transfers can be paused, preventing swapping or selling.",
+                    "scwId": "189",
+                    "scwTitle": "Pausable"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract cannot be upgraded",
+                    "scwId": "193",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"var\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: TetherToken.transfer(address,uint256) (TetherToken.sol#336-343)\n\t- in expression: require(bool)(! isBlackListed[msg.sender])\n",
+                            "end": 343,
+                            "governanceInfo": null,
+                            "id": 233508139,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transfer(address _to, uint _value) public whenNotPaused {\n    require(!isBlackListed[msg.sender]);\n    if (deprecated) {\n        return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n    } else {\n        return super.transfer(_to, _value);\n    }\n}",
+                            "start": 336
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"var\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Blacklisted function: TetherToken.transferFrom(address,address,uint256) (TetherToken.sol#346-353)\n\t- in expression: require(bool)(! isBlackListed[_from])\n",
+                            "end": 353,
+                            "governanceInfo": null,
+                            "id": 233508140,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n    require(!isBlackListed[_from]);\n    if (deprecated) {\n        return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n    } else {\n        return super.transferFrom(_from, _to, _value);\n    }\n}",
+                            "start": 346
+                        }
+                    ],
+                    "scwDescription": "Wallets can be blacklisted from being able to transfer, swap or sell this token.",
+                    "scwId": "208",
+                    "scwTitle": "Blacklisting"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer fees found",
+                    "scwId": "209",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Maximum transfer amount not found.\nMinimum transfer amount: 0 USDT.",
+                                    "title": "Transfer Amount Limits"
+                                },
+                                {
+                                    "description": "No",
+                                    "title": "Transfer Limit Modifiable"
+                                }
+                            ],
+                            "data": "{\"transferAmountLimits\":{\"upper\":null,\"lower\":0}}",
+                            "description": "Transfer amount limits in: TetherToken.transfer(address,uint256) (TetherToken.sol#336-343)\n\t- In expression: fee > maximumFee \n",
+                            "end": 343,
+                            "governanceInfo": null,
+                            "id": 233508163,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "Transfer Limit is bigger than 5% of total supply",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transfer(address _to, uint _value) public whenNotPaused {\n    require(!isBlackListed[msg.sender]);\n    if (deprecated) {\n        return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n    } else {\n        return super.transfer(_to, _value);\n    }\n}",
+                            "start": 336
+                        },
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Maximum transfer amount not found.\nMinimum transfer amount: 0 USDT.",
+                                    "title": "Transfer Amount Limits"
+                                },
+                                {
+                                    "description": "No",
+                                    "title": "Transfer Limit Modifiable"
+                                }
+                            ],
+                            "data": "{\"transferAmountLimits\":{\"upper\":null,\"lower\":0}}",
+                            "description": "Transfer amount limits in: TetherToken.transferFrom(address,address,uint256) (TetherToken.sol#346-353)\n\t- In expression: fee > maximumFee \n",
+                            "end": 353,
+                            "governanceInfo": null,
+                            "id": 233508164,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "Transfer Limit is bigger than 5% of total supply",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n    require(!isBlackListed[_from]);\n    if (deprecated) {\n        return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n    } else {\n        return super.transferFrom(_from, _to, _value);\n    }\n}",
+                            "start": 346
+                        },
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Maximum transfer amount not found.\nMinimum transfer amount: 0 USDT.",
+                                    "title": "Transfer Amount Limits"
+                                },
+                                {
+                                    "description": "No",
+                                    "title": "Transfer Limit Modifiable"
+                                }
+                            ],
+                            "data": "{\"transferAmountLimits\":{\"upper\":null,\"lower\":0}}",
+                            "description": "Transfer amount limits in: BasicToken.transfer(address,uint256) (TetherToken.sol#122-135)\n\t- In expression: fee > maximumFee \n",
+                            "end": 135,
+                            "governanceInfo": null,
+                            "id": 233508165,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "Transfer Limit is bigger than 5% of total supply",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transfer(address _to, uint _value) public onlyPayloadSize(2 * 32) {\n    uint fee = (_value.mul(basisPointsRate)).div(10000);\n    if (fee > maximumFee) {\n        fee = maximumFee;\n    }\n    uint sendAmount = _value.sub(fee);\n    balances[msg.sender] = balances[msg.sender].sub(_value);\n    balances[_to] = balances[_to].add(sendAmount);\n    if (fee > 0) {\n        balances[owner] = balances[owner].add(fee);\n        Transfer(msg.sender, owner, fee);\n    }\n    Transfer(msg.sender, _to, sendAmount);\n}",
+                            "start": 122
+                        },
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "Maximum transfer amount not found.\nMinimum transfer amount: 0 USDT.",
+                                    "title": "Transfer Amount Limits"
+                                },
+                                {
+                                    "description": "No",
+                                    "title": "Transfer Limit Modifiable"
+                                }
+                            ],
+                            "data": "{\"transferAmountLimits\":{\"upper\":null,\"lower\":0}}",
+                            "description": "Transfer amount limits in: StandardToken.transferFrom(address,address,uint256) (TetherToken.sol#167-188)\n\t- In expression: fee > maximumFee \n",
+                            "end": 188,
+                            "governanceInfo": null,
+                            "id": 233508166,
+                            "impact": "Informational",
+                            "severityChanges": [
+                                {
+                                    "from": "Critical",
+                                    "reason": "Transfer Limit is bigger than 5% of total supply",
+                                    "to": "Informational"
+                                }
+                            ],
+                            "snippet": "function transferFrom(address _from, address _to, uint _value) public onlyPayloadSize(3 * 32) {\n    var _allowance = allowed[_from][msg.sender];\n    // Check is not needed because sub(_allowance, _value) will already throw if this condition is not met\n    // if (_value > _allowance) throw;\n    uint fee = (_value.mul(basisPointsRate)).div(10000);\n    if (fee > maximumFee) {\n        fee = maximumFee;\n    }\n    if (_allowance < MAX_UINT) {\n        allowed[_from][msg.sender] = _allowance.sub(_value);\n    }\n    uint sendAmount = _value.sub(fee);\n    balances[_from] = balances[_from].sub(_value);\n    balances[_to] = balances[_to].add(sendAmount);\n    if (fee > 0) {\n        balances[owner] = balances[owner].add(fee);\n        Transfer(_from, owner, fee);\n    }\n    Transfer(_from, _to, sendAmount);\n}",
+                            "start": 167
+                        }
+                    ],
+                    "scwDescription": "The max/min amount of token transferred can be limited (max could be set to 0).",
+                    "scwId": "211",
+                    "scwTitle": "Transfer Limit"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No ERC20 approval vulnerability found",
+                    "scwId": "216-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract owner cannot abuse ERC20 approvals",
+                    "scwId": "216-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:BasicToken.transfer(address,uint256) (TetherToken.sol#122-135)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508146,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:ERC20Basic.transfer(address,uint256) (TetherToken.sol#81)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508147,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:StandardToken.transferFrom(address,address,uint256) (TetherToken.sol#167-188)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508148,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:StandardToken.approve(address,uint256) (TetherToken.sol#195-205)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508149,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:ERC20.transferFrom(address,address,uint256) (TetherToken.sol#91)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508150,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:ERC20.approve(address,uint256) (TetherToken.sol#92)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508151,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:TetherToken.transfer(address,uint256) (TetherToken.sol#336-343)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508152,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:TetherToken.transferFrom(address,address,uint256) (TetherToken.sol#346-353)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508153,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        },
+                        {
+                            "additionalData": [],
+                            "data": "",
+                            "description": "TetherToken (TetherToken.sol#311-448) has incorrect ERC20 function interface:TetherToken.approve(address,uint256) (TetherToken.sol#365-371)\n",
+                            "end": 448,
+                            "governanceInfo": null,
+                            "id": 233508154,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "contract TetherToken is Pausable, StandardToken, BlackList {\n    string public name;\n    string public symbol;\n    uint public decimals;\n    address public upgradedAddress;\n    bool public deprecated;\n    //  The contract can be initialized with a number of tokens\n    //  All the tokens are deposited to the owner address\n    //\n    // @param _balance Initial supply of the contract\n    // @param _name Token Name\n    // @param _symbol Token symbol\n    // @param _decimals Token decimals\n    function TetherToken(uint _initialSupply, string _name, string _symbol, uint _decimals) public {\n        _totalSupply = _initialSupply;\n        name = _name;\n        symbol = _symbol;\n        decimals = _decimals;\n        balances[owner] = _initialSupply;\n        deprecated = false;\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transfer(address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[msg.sender]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferByLegacy(msg.sender, _to, _value);\n        } else {\n            return super.transfer(_to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function transferFrom(address _from, address _to, uint _value) public whenNotPaused {\n        require(!isBlackListed[_from]);\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).transferFromByLegacy(msg.sender, _from, _to, _value);\n        } else {\n            return super.transferFrom(_from, _to, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function balanceOf(address who) public constant returns (uint) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).balanceOf(who);\n        } else {\n            return super.balanceOf(who);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {\n        if (deprecated) {\n            return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);\n        } else {\n            return super.approve(_spender, _value);\n        }\n    }\n    // Forward ERC20 methods to upgraded contract if this one is deprecated\n    function allowance(address _owner, address _spender) public constant returns (uint remaining) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).allowance(_owner, _spender);\n        } else {\n            return super.allowance(_owner, _spender);\n        }\n    }\n    // deprecate current contract in favour of a new one\n    function deprecate(address _upgradedAddress) public onlyOwner {\n        deprecated = true;\n        upgradedAddress = _upgradedAddress;\n        Deprecate(_upgradedAddress);\n    }\n    // deprecate current contract if favour of a new one\n    function totalSupply() public constant returns (uint) {\n        if (deprecated) {\n            return StandardToken(upgradedAddress).totalSupply();\n        } else {\n            return _totalSupply;\n        }\n    }\n    // Issue a new amount of tokens\n    // these tokens are deposited into the owner address\n    //\n    // @param _amount Number of tokens to be issued\n    function issue(uint amount) public onlyOwner {\n        require(_totalSupply + amount > _totalSupply);\n        require(balances[owner] + amount > balances[owner]);\n        balances[owner] += amount;\n        _totalSupply += amount;\n        Issue(amount);\n    }\n    // Redeem tokens.\n    // These tokens are withdrawn from the owner address\n    // if the balance must be enough to cover the redeem\n    // or the call will fail.\n    // @param _amount Number of tokens to be issued\n    function redeem(uint amount) public onlyOwner {\n        require(_totalSupply >= amount);\n        require(balances[owner] >= amount);\n        _totalSupply -= amount;\n        balances[owner] -= amount;\n        Redeem(amount);\n    }\n    function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n        // Ensure transparency by hardcoding limit beyond which fees can never be added\n        require(newBasisPoints < 20);\n        require(newMaxFee < 50);\n        basisPointsRate = newBasisPoints;\n        maximumFee = newMaxFee.mul(10**decimals);\n        Params(basisPointsRate, maximumFee);\n    }\n    // Called when new token are issued\n    event Issue(uint amount);\n    // Called when tokens are redeemed\n    event Redeem(uint amount);\n    // Called when contract is deprecated\n    event Deprecate(address newAddress);\n    // Called if contract ever adds fees\n    event Params(uint feeBasisPoints, uint maxFee);",
+                            "start": 311
+                        }
+                    ],
+                    "scwDescription": "This contract may not function as intended due to an incorrect ERC20 interface implementation.",
+                    "scwId": "204-a",
+                    "scwTitle": "ERC20 Interface Error"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No blocking loops found",
+                    "scwId": "218",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "data": "{\"privileged\": [{\"type\": \"var\", \"value\": \"owner\", \"modifiable\": true}]}",
+                            "description": "Centralized token balance modification in:BlackList.destroyBlackFunds(address) (TetherToken.sol#287-293)\t- in expression:balances[_blackListedUser] = 0",
+                            "end": 293,
+                            "governanceInfo": null,
+                            "id": 233508160,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function destroyBlackFunds (address _blackListedUser) public onlyOwner {\n    require(isBlackListed[_blackListedUser]);\n    uint dirtyFunds = balanceOf(_blackListedUser);\n    balances[_blackListedUser] = 0;\n    _totalSupply -= dirtyFunds;\n    DestroyedBlackFunds(_blackListedUser, dirtyFunds);\n}",
+                            "start": 287
+                        }
+                    ],
+                    "scwDescription": "The contract owner is able to control all token holders' balances.",
+                    "scwId": "220",
+                    "scwTitle": "Centralized Balance Controls"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No transfer cooldown times found",
+                    "scwId": "219",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No approval restrictions found",
+                    "scwId": "223",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external calls detected",
+                    "scwId": "210-b",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No airdrop-specific code found",
+                    "scwId": "10004",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable ownership functions found",
+                    "scwId": "230",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No retrievable ownership found",
+                    "scwId": "231",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract was not deployed recently",
+                    "scwId": "10010",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No mixers utilized by contract deployer",
+                    "scwId": "10003",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No adjustable maximum supply found",
+                    "scwId": "233",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No previous scams by owner's wallet found",
+                    "scwId": "10016",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "The contract operates without custom fees, ensuring security and financial integrity",
+                    "scwId": "236",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract lacks a whitelisting feature, reinforcing standard restrictions and access controls, enhancing overall security and integrity",
+                    "scwId": "237",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract's transfer function secure with unchangeable router, no issues, ensuring smooth, secure token transfers",
+                    "scwId": "238",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract safeguarded against native token draining in token transfers/approvals",
+                    "scwId": "239",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract with recent user interactions, active use, and operational functionality, not abandoned",
+                    "scwId": "10022",
+                    "scwTitle": "Recent Interaction was within 30 Days"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No instances of native token drainage upon revoking tokens were detected in the contract",
+                    "scwId": "10023",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Securely hardcoded Uniswap router ensuring protection against router alterations",
+                    "scwId": "241",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [
+                                {
+                                    "description": "62%",
+                                    "title": "Percent of revokes in last approves:"
+                                }
+                            ],
+                            "data": null,
+                            "description": "62% of the latest approval transactions on this contract are revokes. An unusually large number of revoke from this contract (compared to approvals) might indicate that users consider it malicious",
+                            "end": null,
+                            "governanceInfo": null,
+                            "id": -34,
+                            "impact": "Medium",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": null
+                        }
+                    ],
+                    "scwDescription": "Contract faces excessive revocations, raising concerns about functionality and security.",
+                    "scwId": "10025",
+                    "scwTitle": "Revocation Rate"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's initializer protected, enhancing security and preventing unintended issues",
+                    "scwId": "242",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Smart contract intact, not self-destructed, ensuring continuity and functionality",
+                    "scwId": "10026",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "Contract's timelock setting aligns with 24 hours or more, enhancing security and reliability",
+                    "scwId": "10027",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No suspicious activity has been detected",
+                    "scwId": "10028",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "This contract maintains a strict adherence to best practices for price feed usage, ensuring data accuracy and consistency",
+                    "scwId": "243",
+                    "scwTitle": null
+                }
+            ],
+            "diffs": null,
+            "estimatedAnalyzingTime": 0.5,
+            "firstTxBlock": null,
+            "firstTxDate": "1511829681000",
+            "firstTxFrom": "0x36928500bc1dcd7af6a2b4008875cc336b927d57",
+            "generalIssues": [
+                {
+                    "issues": [],
+                    "scwDescription": "No compiler version inconsistencies found",
+                    "scwId": "103",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No unchecked call responses found",
+                    "scwId": "104",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable self-destruct functions found",
+                    "scwId": "106",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No assertion vulnerabilities found",
+                    "scwId": "110",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No old solidity code found",
+                    "scwId": "111",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external delegated calls found",
+                    "scwId": "112",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No external call dependency found",
+                    "scwId": "113",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable authentication calls found",
+                    "scwId": "115",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No invalid character typos found",
+                    "scwId": "129",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No RTL characters found",
+                    "scwId": "130",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No dead code found",
+                    "scwId": "135",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data allocation found",
+                    "scwId": "138",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized state variables found",
+                    "scwId": "142",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized storage variables found",
+                    "scwId": "143",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable initialization functions found",
+                    "scwId": "144",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No risky data handling found",
+                    "scwId": "145",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No number accuracy bug found",
+                    "scwId": "146",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No out-of-range number vulnerability found",
+                    "scwId": "147",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No map data deletion vulnerabilities found",
+                    "scwId": "151",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No tautologies or contradictions found",
+                    "scwId": "152",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No faulty true/false values found",
+                    "scwId": "153",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No innacurate divisions found",
+                    "scwId": "156",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant constructor calls found",
+                    "scwId": "157",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable transfers found",
+                    "scwId": "158",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable return values found",
+                    "scwId": "159",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No uninitialized local variables found",
+                    "scwId": "160",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No default function responses found",
+                    "scwId": "161",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing arithmetic events found",
+                    "scwId": "167-a",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "Ownable.transferOwnership(address) (TetherToken.sol#64-68) should emit an event for: \n\t- owner = newOwner (TetherToken.sol#66) \n",
+                            "end": 68,
+                            "governanceInfo": null,
+                            "id": 233508158,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function transferOwnership(address newOwner) public onlyOwner {\n    if (newOwner != address(0)) {\n        owner = newOwner;\n    }\n}",
+                            "start": 64
+                        }
+                    ],
+                    "scwDescription": "This contract is missing useful events with regards to access control changes.",
+                    "scwId": "167-b",
+                    "scwTitle": "Missing Access Control Events"
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "Medium",
+                            "description": "TetherToken.deprecate(address)._upgradedAddress (TetherToken.sol#383) lacks a zero-check on :\n\t\t- upgradedAddress = _upgradedAddress (TetherToken.sol#385)\n",
+                            "end": 383,
+                            "governanceInfo": null,
+                            "id": 233508159,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function deprecate(address _upgradedAddress) public onlyOwner {",
+                            "start": 383
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract may not appropriately check for zero addresses being used.",
+                    "scwId": "168",
+                    "scwTitle": "Missing Zero Address Validation"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No redundant true/false comparisons found",
+                    "scwId": "170",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No state variables vulnerable through function calls found",
+                    "scwId": "172",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No buggy low-level calls found",
+                    "scwId": "173",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "Pragma version^0.4.17 (TetherToken.sol#1) allows old versions\n",
+                            "end": 1,
+                            "governanceInfo": null,
+                            "id": 233508155,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "pragma solidity ^0.4.17;",
+                            "start": 1
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "solc-0.4.18 is not recommended for deployment\n",
+                            "end": 0,
+                            "governanceInfo": null,
+                            "id": 233508156,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "",
+                            "start": 0
+                        }
+                    ],
+                    "scwDescription": "This contract uses an unconventional or very old version of Solidity.",
+                    "scwId": "177",
+                    "scwTitle": "Incorrect Solidity Version"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No expensive loops found",
+                    "scwId": "179",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No bad numeric notation practices found",
+                    "scwId": "182",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No missing constant declarations found",
+                    "scwId": "183",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "deprecate(address) should be declared external:\n\t- TetherToken.deprecate(address) (TetherToken.sol#383-387)\n",
+                            "end": 387,
+                            "governanceInfo": null,
+                            "id": 233508141,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function deprecate(address _upgradedAddress) public onlyOwner {\n    deprecated = true;\n    upgradedAddress = _upgradedAddress;\n    Deprecate(_upgradedAddress);\n}",
+                            "start": 383
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "totalSupply() should be declared external:\n\t- ERC20Basic.totalSupply() (TetherToken.sol#79)\n\t- TetherToken.totalSupply() (TetherToken.sol#390-396)\n",
+                            "end": 79,
+                            "governanceInfo": null,
+                            "id": 233508142,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function totalSupply() public constant returns (uint);",
+                            "start": 79
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "issue(uint256) should be declared external:\n\t- TetherToken.issue(uint256) (TetherToken.sol#402-409)\n",
+                            "end": 409,
+                            "governanceInfo": null,
+                            "id": 233508143,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function issue(uint amount) public onlyOwner {\n    require(_totalSupply + amount > _totalSupply);\n    require(balances[owner] + amount > balances[owner]);\n    balances[owner] += amount;\n    _totalSupply += amount;\n    Issue(amount);\n}",
+                            "start": 402
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "redeem(uint256) should be declared external:\n\t- TetherToken.redeem(uint256) (TetherToken.sol#416-423)\n",
+                            "end": 423,
+                            "governanceInfo": null,
+                            "id": 233508144,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function redeem(uint amount) public onlyOwner {\n    require(_totalSupply >= amount);\n    require(balances[owner] >= amount);\n    _totalSupply -= amount;\n    balances[owner] -= amount;\n    Redeem(amount);\n}",
+                            "start": 416
+                        },
+                        {
+                            "additionalData": [],
+                            "confidence": "High",
+                            "description": "setParams(uint256,uint256) should be declared external:\n\t- TetherToken.setParams(uint256,uint256) (TetherToken.sol#425-434)\n",
+                            "end": 434,
+                            "governanceInfo": null,
+                            "id": 233508145,
+                            "impact": "Informational",
+                            "severityChanges": [],
+                            "snippet": "function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {\n    // Ensure transparency by hardcoding limit beyond which fees can never be added\n    require(newBasisPoints < 20);\n    require(newMaxFee < 50);\n    basisPointsRate = newBasisPoints;\n    maximumFee = newMaxFee.mul(10**decimals);\n    Params(basisPointsRate, maximumFee);\n}",
+                            "start": 425
+                        }
+                    ],
+                    "scwDescription": "Some functions in this contract should be declared as external in order to save gas.",
+                    "scwId": "184",
+                    "scwTitle": "Public Functions Should be Declared External"
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable payable functions found",
+                    "scwId": "224",
+                    "scwTitle": null
+                },
+                {
+                    "issues": [],
+                    "scwDescription": "No vulnerable message values found",
+                    "scwId": "225",
+                    "scwTitle": null
+                }
+            ],
+            "governance": null,
+            "inProgress": true,
+            "initialFunder": "0x14d06788090769f669427b6aea1c0240d2321f34",
+            "isProxyImplementation": false,
+            "logo": "https://scan-results.de.fi/Bitfinex.png",
+            "name": "TetherToken(Tether USD)",
+            "network": 1,
+            "pairInfo": null,
+            "projectFullName": "Tether: USDT Stablecoin",
+            "projectName": "Bitfinex",
+            "protocol": "erc20",
+            "proxyContractAddress": null,
+            "proxyData": null,
+            "rektLink": null,
+            "sourceCodeLink": "https://scan-results.de.fi/0xdac17f958d2ee523a2206206994597c13d831ec7_1_src.json",
+            "stats": {
+                "percentage": 86,
+                "scammed": false
+            },
+            "whitelisted": false
+        }
+    }
+}
