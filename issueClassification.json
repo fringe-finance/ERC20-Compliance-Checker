@@ -139,7 +139,7 @@
             "description": "The zero address HAS some token/s from the contract."
         },
         "testBalanceDoesNotOverflowByMinting": {
-            "class": "undetermined",
+            "class": "potential granular transfer constraints",
             "description": "The contract owner can control balance by minting numerous tokens to an account (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`),  overflowing its balance to a small figure."
         },
         "testBalanceOfCaller": {
@@ -187,7 +187,7 @@
             "description": "Consecutive calls of `approve` function of zero-to-positive amounts CANNOT be called OR the allowance is set to the wrong amount after the second call."
         },
         "testDealIntendedTokensToDummyUsers": {
-            "class": "undetermined",
+            "class": "balance variability",
             "description": "There is an issue when dealing the intended amount of tokens to dummy users for interacting with the contract. This could be due to issues with  (a) calling of the `transfer` function by the top token holder, or  (b) the presence of fees from the `transfer` function."
         },
         "testDecreaseAllowanceBehaviorInexact": {
@@ -259,27 +259,27 @@
             "description": "EITHER the token ALLOWS tokenApprover to call `approve` of an amount higher than her  balance OR the tokenApprover DOES NOT need to maintain at least the said amount in her balance before she  can make a `transfer` call to an account other than the tokenApprovee."
         },
         "testMintingToZeroAddressShouldFail": {
-            "class": "undetermined",
+            "class": "",
             "description": "It was possible to mint tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`) to the zero address."
         },
         "testMintingUpdatesBalance": {
-            "class": "undetermined",
+            "class": "balance variability",
             "description": "After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the user balance was not updated correctly."
         },
         "testMintingUpdatesTotalSupply": {
-            "class": "undetermined",
+            "class": "",
             "description": "After minting some token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply was not updated correctly."
         },
         "testMintingZeroShouldNotChangeBalance": {
-            "class": "undetermined",
+            "class": "balance variability",
             "description": "By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the balance of the target address changed."
         },
         "testMintingZeroShouldNotChangeTotalSupply": {
-            "class": "undetermined",
+            "class": "",
             "description": "By minting zero token (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`), the total supply changed."
         },
         "testMultipleTransferFromCannotExceedAllowance": {
-            "class": "undetermined",
+            "class": "",
             "description": "Multiple calls of `transferFrom` ARE allowed even though the allowance has reached zero."
         },
         "testMultipleTransferFromExceedAllowance": {
@@ -291,7 +291,7 @@
             "description": "A tokenReceiver CAN be able to call `transferFrom` of a positive amount from an tokenSender even though the tokenSender did not approve the tokenReceiver previously."
         },
         "testNoExcessByMintingViaOverflow": {
-            "class": "undetermined",
+            "class": "admin inflation",
             "description": "The contract owner can bring about an overflow and issue random amounts of tokens (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`)  by passing a great value and pass the check of max minting value."
         },
         "testNoSelfApprovalCannotSelfTransferFrom": {
@@ -395,7 +395,7 @@
             "description": "The contract's `totalSupply` variable IS altered after `transferFrom` is called."
         },
         "testTotalSupplyDoesNotOverflowByMinting": {
-            "class": "undetermined",
+            "class": "",
             "description": "An overflow happened with variable totalSupply when the sum of tokens changed via minting (via `mint(address,uint256)` or `mintToken(address,uint256)` or `issue(address,uint256)`)."
         },
         "testTransferAreNotPossibleWhenPaused": {
@@ -479,7 +479,7 @@
             "description": "A successful `transferFrom` call of zero amount by any user other than the tokenSender, from and to different accounts,  does NOT emit a Transfer event correctly."
         },
         "testZeroTransferFromByOtherFromAndToSameAccountPossible": {
-            "class": "undetermined",
+            "class": "",
             "description": "A successful `transferFrom` call of zero amount by any user other than the tokenSender, from and to the same account, is NOT possible."
         },
         "testZeroTransferFromByOtherPossible": {
@@ -487,7 +487,7 @@
             "description": ""
         },
         "testZeroTransferFromByOtherPossibleFromAndToDifferentAccounts": {
-            "class": "undetermined",
+            "class": "theft or inflation",
             "description": "A successful `transferFrom` call of zero amount by any user other than the tokenSender, from and to different accounts, is NOT possible."
         },
         "testZeroTransferFromByOtherToSameAccountEmitsEvent": {
