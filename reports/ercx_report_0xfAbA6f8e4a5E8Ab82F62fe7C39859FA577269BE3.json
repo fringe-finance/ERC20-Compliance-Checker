@@ -1,0 +1,2141 @@
+{
+    "feedback": null,
+    "json": {
+        "ERC20ABI_tests": {
+            "test_results": {
+                "testAllowanceAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testAllowanceSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApprovalEventSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApproveAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testApproveSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testBalanceOfAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testBalanceOfSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testDecimalsAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testDecimalsSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testMintAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testMintSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testNameAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testNameSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testSymbolAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testSymbolSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTotalSupplyAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTotalSupplySignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferEventSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferFromAbi()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferFromSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testTransferSignature()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                }
+            }
+        },
+        "ERC20Status_tests": {
+            "test_results": {
+                "testAbiFoundInEtherscan()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testAddressIsImplementationContract()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                },
+                "testContractExistsInChain()": {
+                    "decoded_logs": "",
+                    "reason": "",
+                    "status": "Success"
+                }
+            }
+        },
+        "test/ERC20Features.t.sol:ERC20Features": {
+            "duration": {
+                "nanos": 306747967,
+                "secs": 6
+            },
+            "test_results": {
+                "testCanApproveMoreThanBalance(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xf664e4b500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xf664e4b500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e3de57d7ca5a609ae034d35c",
+                                "gas": 477385,
+                                "stipend": 21464
+                            },
+                            "mean_gas": 455921,
+                            "median_gas": 455921,
+                            "runs": 55
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be31a5e6897ef567e8ac42ffe997291cf75f48f03f87a09c79f557f19a6f36eb914",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be370a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca1a5e6897ef567e8ac42ffe997291cf75f48f03f87a09c79f557f19a6f36eb914",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be318160ddd00000000000000000000000000000000000000000000000000000000290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e5630000000000000000000000000000000000000000000000000000000000000004",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be38de4acca8120252fef54e458d9aa73afaa18e4d3729f3e6d826e6fa1c537840b",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be370a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad8de4acca8120252fef54e458d9aa73afaa18e4d3729f3e6d826e6fa1c537840b",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testInfiniteApprovalConstant(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testInfiniteApprovalNotConstant(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMaintainsApprovalLowerThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testOverwriteApprovePositiveToPositive(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x318cfd8f00000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x318cfd8f0000000000000000000000000000000000000000000000000000000000000e480000000000000000000000000000000000000000000000000000000000002bd1",
+                                "gas": 68901,
+                                "stipend": 21368
+                            },
+                            "mean_gas": 47533,
+                            "median_gas": 47533,
+                            "runs": 51
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testRevertsIfApprovalGreaterThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testRevertsOnInfiniteApproval(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4ddc2b960000000000000000000000000000000000000000000000000000000085226c8000000000000000000000000000000000000000000000000000000000374fe12e",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x",
+                                "gas": 0,
+                                "stipend": 0
+                            },
+                            "mean_gas": 0,
+                            "median_gas": 0,
+                            "runs": 0
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be31a5e6897ef567e8ac42ffe997291cf75f48f03f87a09c79f557f19a6f36eb914",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be370a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca1a5e6897ef567e8ac42ffe997291cf75f48f03f87a09c79f557f19a6f36eb914",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be318160ddd00000000000000000000000000000000000000000000000000000000290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e5630000000000000000000000000000000000000000000000000000000000000004",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be38de4acca8120252fef54e458d9aa73afaa18e4d3729f3e6d826e6fa1c537840b",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be370a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad8de4acca8120252fef54e458d9aa73afaa18e4d3729f3e6d826e6fa1c537840b",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000ffffffffffffffffffffffff",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testTransferFromDecreaseAllowanceGtExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTransferFromDecreaseAllowanceLtExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Security.t.sol:ERC20Security": {
+            "duration": {
+                "nanos": 256764163,
+                "secs": 23
+            },
+            "test_results": {
+                "testAddressZeroHasNoToken()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 8008
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testBalanceDoesNotOverflowByMinting(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testBalanceOfCaller(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testBalanceOfNonCaller(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testCannotApprovePositiveAmountToZeroAddress(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4d168c120000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Alice could approve the zero address.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x4d168c12000000000000000000000000000045f3a97d4792d4968688b7b7fbae0aacf374",
+                                "gas": 34839,
+                                "stipend": 21408
+                            },
+                            "mean_gas": 13431,
+                            "median_gas": 13431,
+                            "runs": 1
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025416c69636520636f756c6420617070726f766520746865207a65726f20616464726573732e000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testCorrectOverwriteApprovePositiveToPositive(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xcb1e5b5200000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xcb1e5b520000000000000000000000000000000000000000000000000000000000000002fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd",
+                                "gas": 69030,
+                                "stipend": 21716
+                            },
+                            "mean_gas": 47358,
+                            "median_gas": 47314,
+                            "runs": 46
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testCorrectOverwriteApprovePositiveToZero(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x069d2b280000000000000000000000000000000000000001000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Alice could not approve Bob for some positive amount.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x069d2b28000000000000000000000000000000000000000000000000000000000000c5ec",
+                                "gas": 56254,
+                                "stipend": 21216
+                            },
+                            "mean_gas": 35014,
+                            "median_gas": 35014,
+                            "runs": 46
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000035416c69636520636f756c64206e6f7420617070726f766520426f6220666f7220736f6d6520706f73697469766520616d6f756e742e0000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testCorrectOverwriteApproveZeroToPositive(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xec58cc220000000000000000000000000000000000000001000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Alice could not approve Bob for some positive amount.",
+                        "Error: Assertion Failed",
+                        "Error: Allowance is not set to the right amount after the second `approve` is called.",
+                        "Error: a == b not satisfied [uint]",
+                        "      Left: 0",
+                        "     Right: 79228162514264337593543950336"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xec58cc220000000000000000000000000000000000000000e3fadeff3b45db4fc2085339",
+                                "gas": 70434,
+                                "stipend": 21336
+                            },
+                            "mean_gas": 49098,
+                            "median_gas": 49098,
+                            "runs": 51
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000035416c69636520636f756c64206e6f7420617070726f766520426f6220666f7220736f6d6520706f73697469766520616d6f756e742e0000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004e416c6c6f77616e6365206973206e6f742073657420746f2074686520726967687420616d6f756e7420616674657220746865207365636f6e642060617070726f7665602069732063616c6c65642e000000000000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000224572726f723a2061203d3d2062206e6f7420736174697366696564205b75696e745d000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a2020202020204c65667400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a2020202020526967687400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testCorrectOverwriteApproveZeroToZero()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 28743
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testDealIntendedTokensToDummyUsers(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x4b860b5600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: Failed to retrieve top token holder.",
+                        "Error: Assertion Failed",
+                        "Error: Failure to deal the intended number of tokens to Bob.",
+                        "Error: a == b not satisfied [uint]",
+                        "      Left: 0",
+                        "     Right: 79228162514264337593543950336"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x4b860b560000000000000000000000000000000000000000000079a931db17704c750bb60000000000000000000000000000000000000000000000000000000006424f6d",
+                                "gas": 456201,
+                                "stipend": 21488
+                            },
+                            "mean_gas": 434718,
+                            "median_gas": 434718,
+                            "runs": 50
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be31a5e6897ef567e8ac42ffe997291cf75f48f03f87a09c79f557f19a6f36eb914",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be370a0823100000000000000000000000000000000000000000000000000000000d3751b735d9edcdf3462f9493be94138f68ee6a5bfd2c14f7e1a7b0b58f11cca1a5e6897ef567e8ac42ffe997291cf75f48f03f87a09c79f557f19a6f36eb914",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be318160ddd00000000000000000000000000000000000000000000000000000000290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e5630000000000000000000000000000000000000000000000000000000000000004",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be38de4acca8120252fef54e458d9aa73afaa18e4d3729f3e6d826e6fa1c537840b",
+                            "topics": [
+                                "0x080fc4a96620c4462e705b23f346413fe3796bb63c6f8d8591baec0e231577a5"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000faba6f8e4a5e8ab82f62fe7c39859fa577269be370a08231000000000000000000000000000000000000000000000000000000008dadbabab7d896e1d6e41f8f4b514a810d0074773f74b8ece0bf1f294acff3ad8de4acca8120252fef54e458d9aa73afaa18e4d3729f3e6d826e6fa1c537840b",
+                            "topics": [
+                                "0x9c9555b1e3102e3cf48f427d79cb678f5d9bd1ed0ad574389461e255f95170ed"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f7200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000244661696c656420746f20726574726965766520746f7020746f6b656e20686f6c6465722e00000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f7200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000354661696c75726520746f206465616c2074686520696e74656e646564206e756d626572206f6620746f6b656e7320746f20426f622e0000000000000000000000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000224572726f723a2061203d3d2062206e6f7420736174697366696564205b75696e745d000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a2020202020204c65667400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a2020202020526967687400000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0xb2de2fbe801a0df6c0cbddfd448ba3c41d48a040ca35c56c8196ef0fcae721a8"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testFeeTakingTransferFromPotential(uint256[2],uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testFeeTakingTransferFromPresent(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testFeeTakingTransferPotential(uint256[2],uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testFeeTakingTransferPresent(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMintingToZeroAddressShouldFail(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMintingUpdatesBalance(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMintingUpdatesTotalSupply(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMintingZeroShouldNotChangeBalance()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMintingZeroShouldNotChangeTotalSupply()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testMultipleTransferFromCannotExceedAllowance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testNoExcessByMintingViaOverflow(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveMultipleTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveMultipleTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveSelfApprove(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveSelfApproveTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveSelfTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveTotalTransferFromToOther(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveTotalTransferToOther(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveTransferFromToZeroShouldRevert(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveTransferToZeroShouldRevert(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTotalSupplyConstantAfterTransfer(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTotalSupplyConstantAfterTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTotalSupplyDoesNotOverflowByMinting(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTransferDoesNotUpdateOthersBalances(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTransferFromDecreaseAllowanceAsExpected(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testTransferFromDoesNotUpdateOthersBalances(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroAddressCannotApprovePositiveAmount(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0xb6e920890000000000000000000000000000000000000000000000000000000000000001",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [
+                        "Error: An approve with the zero address as token sender was possible.",
+                        "Error: Assertion Failed"
+                    ],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0xb6e92089000000001107ef04c2fe572b9c0334795e4ddc955b35b575d1cf42e67019db2a",
+                                "gas": 34909,
+                                "stipend": 21528
+                            },
+                            "mean_gas": 13381,
+                            "median_gas": 13381,
+                            "runs": 1
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000054572726f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003e416e20617070726f7665207769746820746865207a65726f206164647265737320617320746f6b656e2073656e6465722077617320706f737369626c652e0000",
+                            "topics": [
+                                "0x280f4446b28a1372417dda658d30b95b2992b12ac9c7f378535f29a97acf3583"
+                            ]
+                        },
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000174572726f723a20417373657274696f6e204661696c6564000000000000000000",
+                            "topics": [
+                                "0x41304facd9323d75b11bcdd609cb38effffdb05710f7caf0e9b16c6d9d709f50"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Failure"
+                },
+                "testZeroAddressCannotTransferPositiveAmount(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x21cda390000000000000000000000000000000000035f5a149852b12984e2e6667b7aaa4",
+                                "gas": 259692,
+                                "stipend": 21372
+                            },
+                            "mean_gas": 237649,
+                            "median_gas": 237422,
+                            "runs": 256
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroMultipleTransfer(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroMultipleTransferFrom(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroSelfApprove(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroSelfApproveTransferFrom(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroSelfTransfer(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTotalTransferFromToOther(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTotalTransferToOther(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromToZeroShouldRevert(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferToZeroShouldRevert(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                }
+            },
+            "warnings": []
+        },
+        "test/ERC20Standard.t.sol:ERC20Standard": {
+            "duration": {
+                "nanos": 351274082,
+                "secs": 12
+            },
+            "test_results": {
+                "testCannotTransferFromMoreThanAllowanceLowerThanBalance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testCannotTransferFromMoreThanBalanceButLowerThanAllowance(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testCannotTransferMoreThanBalance(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testNoApprovalCannotTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testNoSelfApprovalCannotSelfTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveApprovalEventEmission(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": {
+                        "Single": {
+                            "addr": null,
+                            "calldata": "0x242c75f60000000000000000000000000000000000000001000000000000000000000000",
+                            "contract_name": null,
+                            "sender": null,
+                            "signature": null
+                        }
+                    },
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Fuzz": {
+                            "first_case": {
+                                "calldata": "0x242c75f60000000000000000000000000000000000000000000000000000000000000003",
+                                "gas": 62904,
+                                "stipend": 21204
+                            },
+                            "mean_gas": 41700,
+                            "median_gas": 41700,
+                            "runs": 3
+                        }
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000001000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": "expected an emit, but no logs were emitted afterwards. you might have mismatched events or not enough events were emitted",
+                    "status": "Failure"
+                },
+                "testPositiveApproveAllowsPositiveTransferFrom(uint256,uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveApproveAllowsZeroTransferFrom(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveApproveLeadsToAllowance(uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveTransferEventEmission(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testPositiveTransferFromEventEmission(uint256,uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroApprovalEventEmission()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 21387
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0x7fa9385be102ac3eac297483dd6233d62b3e1496",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        },
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroApproveLeadsToAllowance()": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 20858
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [
+                        {
+                            "address": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+                            "data": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "topics": [
+                                "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+                                "0x000000000000000000000000328809bc894f92807417d2dad6b7c998c1afdac6",
+                                "0x0000000000000000000000001d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e"
+                            ]
+                        }
+                    ],
+                    "reason": null,
+                    "status": "Success"
+                },
+                "testZeroTransferFromByOtherEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromByOtherFromAndToSameAccountPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromByOtherPossibleFromAndToDifferentAccounts(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromByOtherToSameAccountEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromByOtherToSelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromBySelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromBySelfToSelfEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferFromBySelfToSomeoneEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferToOthersEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferToOthersPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferToSelfEmitsEvent(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                },
+                "testZeroTransferToSelfPossible(uint256,uint256)": {
+                    "breakpoints": {},
+                    "counterexample": null,
+                    "debug": null,
+                    "decoded_logs": [],
+                    "kind": {
+                        "Standard": 0
+                    },
+                    "labeled_addresses": {
+                        "0x1d96f2f6bef1202e4ce1ff6dad0c2cb002861d3e": "bob",
+                        "0x328809bc894f92807417d2dad6b7c998c1afdac6": "alice",
+                        "0xa4d4c1f8a763ef6a0140d04291eceef913ffc272": "carol"
+                    },
+                    "logs": [],
+                    "reason": null,
+                    "status": "Skipped"
+                }
+            },
+            "warnings": []
+        }
+    }
+}

@@ -1,5 +1,6 @@
-Token,active transfer constraints,view inaccuracies
-ethereum | Uniswap,x,x
-ethereum | Frax Share,x,
-ethereum | Pepe,x,
-ethereum | Ondo,x,
+Token,active transfer constraints,balance variability,theft or inflation,undetermined,view inaccuracies
+arbitrum | VelaToken,,,,x,
+ethereum | Uniswap,x,,,,x
+ethereum | Frax Share,x,,,,
+ethereum | Pepe,x,,,,
+ethereum | Ondo,x,x,x,x,x

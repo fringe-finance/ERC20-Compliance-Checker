@@ -115,6 +115,7 @@ def camel_to_space_lower(input_string):
     return output_string.capitalize()
 
 
+@pysnooper.snoop()
 def saveErcxReport(contract_address, network_id, standard="ERC20"):
     # Determine the file path for saving the report
     outputFilePath = getAbsPath(
@@ -127,6 +128,7 @@ def saveErcxReport(contract_address, network_id, standard="ERC20"):
     headers = {
         "accept": "application/json",
         "Content-Type": "application/json",
+        "X-API-KEY": os.environ.get("ERCX_API_KEY"),
     }
     data = {
         "standard": standard,
